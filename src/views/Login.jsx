@@ -19,7 +19,7 @@ export const Login = (props) => {
                 <input value ={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="youremail@domain.com" id="email" name ="email"/>
                 <label htmlFor="password">Password</label>
                 <input value ={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password"  id="password" name ="password"/>
-                <button type="submit"> Log In</button>
+                <button type="submit"> Log In TEST</button>
             </form>
             <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Already have an account?</button>
         </div>
