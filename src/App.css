@@ -8,7 +8,7 @@
 }
 
 .bodyImage {
-  background: url('images/bgimage.jpg'), #ca7e4b;
+  /*background: url('images/bgimage.jpg'), #ca7e4b;*/
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
