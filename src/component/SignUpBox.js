@@ -2,30 +2,31 @@ import styles from '../styles/Box.module.css';
 import '../styles/global.css';
 
 export const SignUpBox = (props) => {
-    return (
-        <div className={styles.stuff}>
-            
-            {/*The Sign up form has 3 fields, Username, Email and Password*/}
-            <div>
-                <form className={styles.form}>
-                    <h2 className={styles.Sign}>  {/*Moved inside div so it can be centered w. the form itself*/}
-                      Sign Up
-                    </h2>
-                    <input name="username" 
-                        placeholder='Username'/>
-                    <br />
-                    <input type="email" name="email" 
-                        placeholder='Email Address'/>
-                    <br />
-                    <input id='password' type="password" name="password" 
-                        placeholder='Password'/>
-                    <br/>
-                    <button className="submit" type="submit">Continue</button>
-                </form>
-                <h3 id='text'>Already have an account?</h3>
-                <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Login</button>
-            </div>
-            <style jsx = "true"> {`
+  return (
+    <div className={styles.stuff}>
+
+      {/*The Sign up form has 3 fields, Username, Email and Password*/}
+      <div>
+        <form className={styles.form}>
+          <h2 className={styles.Sign}>  {/*Moved inside div so it can be centered w. the form itself*/}
+            Sign Up
+          </h2>
+          <input name="username"
+            placeholder='Username' />
+          <br />
+          <input type="email" name="email"
+            placeholder='Email Address' />
+          <br />
+          <input id='password' type="password" name="password"
+            placeholder='Password' />
+          <br />
+          <button className="submit" type="submit">Continue</button>
+          <h3 id='text'>Already have an account?</h3>
+          <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Login</button>
+        </form>
+
+      </div>
+      <style jsx="true"> {`
               input::placeholder {
                 font-weight: 5px;
                 text-align: center;
@@ -52,7 +53,7 @@ export const SignUpBox = (props) => {
                 min-width: 100px;
                 height: 60px;
                 font-size: 24px;
-                margin-bottom: 40px;
+                /*margin-bottom: 40px;*/
               }
               
               #password {
@@ -62,26 +63,20 @@ export const SignUpBox = (props) => {
               #text {
                 text-align: center;
                 font-size: 18px;
-              }
-
-              a {
-                font-size: 18px;
-                margin-left: 48%;
+                margin-bottom: 10px;
               }
 
               .link-btn {
                 margin-top: -25px;
-                margin-bottom: 10px;
+                margin-bottom: calc(25px + 25px);
                 border: none;
                 background: none;
                 color:blue;
-                align-content: center;
-                justify-content: center;
-                margin-left: 36%;
+                font-size: 21px;
                 text-decoration: underline;
               }
             `}</style>
-        </div>
-        
-    )
+    </div>
+
+  )
 }
