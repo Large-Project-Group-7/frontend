@@ -18,7 +18,7 @@ export const LoginBox = (props) => {
           <br />
           <button className="submit" type="submit">Continue</button>
           <h3 id='text'>Don't have an account?</h3>
-          <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Sign Up</button>
+          <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Sign Up</button>
         </form>
       </div>
       <style jsx="true"> {`

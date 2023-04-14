@@ -22,7 +22,7 @@ export const SignUpBox = (props) => {
           <br />
           <button className="submit" type="submit">Continue</button>
           <h3 id='text'>Already have an account?</h3>
-          <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Login</button>
+          <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Login</button>
         </form>
 
       </div>
