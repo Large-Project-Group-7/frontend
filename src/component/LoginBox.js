@@ -16,61 +16,11 @@ export const LoginBox = (props) => {
           <input id='password' type="password" name="password"
             placeholder='Password' />
           <br />
-          <button className="submit" type="submit">Continue</button>
-          <h3 id='text'>Don't have an account?</h3>
-          <button className="link-btn" onClick={() => props.onFormSwitch('register')}>Sign Up</button>
+          <button className={styles.submit} type="submit">Continue</button>
+          <h3 id={styles.text}>Don't have an account?</h3>
+          <button className={styles['link-btn']} onClick={() => props.onFormSwitch('register')}>Sign Up</button>
         </form>
       </div>
-      <style jsx="true"> {`
-              input::placeholder {
-                font-weight: 5px;
-                text-align: center;
-                font-size: 32px
-              }
-              input {
-                background: linear-gradient(0deg, rgba(203, 119, 119, 0.2), 
-                            rgba(203, 119, 119, 0.2)), 
-                            #FFFFFF;
-                border-radius: 5px;
-                border: 1px solid #051135;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                margin-bottom: 40px;
-                width: 80%;
-                height: 80px;
-                font-size: 18px;
-              }
-
-              .submit {
-                background: #FFE0E0;
-                border: 1px solid #000000;
-                border-radius: 10px;
-                width: 210px;
-                min-width: 100px;
-                height: 60px;
-                font-size: 24px;
-                /*margin-bottom: 40px;*/
-              }
-              
-              #password {
-                margin-bottom: 32px;
-              }
-
-              #text {
-                text-align: center;
-                font-size: 18px;
-                margin-bottom: 10px;
-              }
-
-              .link-btn {
-                margin-top: -25px;
-                margin-bottom: calc(25px + 25px);
-                border: none;
-                background: none;
-                color:blue;
-                font-size: 21px;
-                text-decoration: underline;
-              }
-            `}</style>
     </div>
   )
 }
