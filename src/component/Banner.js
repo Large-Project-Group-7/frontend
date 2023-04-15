@@ -1,4 +1,4 @@
-import styles from '../styles/Banner.module.css'
+import style from '../style/Banner.module.css'
 import booksImage from '../public/books.png';
 import menuImage from '../public/ListButton.png';
 import searchImage from '../public/SearchIcon.png';
@@ -7,43 +7,39 @@ import MediaQuery from 'react-responsive'
 
 export default function Banner() {
     return (
+<<<<<<< HEAD
         <>
         <MediaQuery minWidth={1224}>
-            <div className={styles.color}>
-                <img src={booksImage} className={styles['desktop-icon']} alt='books'/>
-                <h2 className={styles.left} id='title'>Title BGP7</h2>
-                <Profile />
-                <h2 id="left" className={styles.right}>Books</h2>
-                <h2 className={styles.right}>Community</h2>
-                <input type='search'
-                placeholder='Search Books' className={styles.search}/>
-            <style jsx='true'>{`
-                    #title {
-                        padding-left: 90px;
-                    }
-                    #left {
-                        margin-left: 50%;
-                    }
-            `}
-            </style>    
+            <div className={style.color}>
+                <div className={style.test}>
+                    <img src={booksImage} className={style.icon} alt='books'/>
+                    <h2 className={style.left} id='title'>Title BGP7</h2>
+                    <Profile />
+                </div>
+                <div className={style.RContainer}>
+                    <h2 id="left" className={style.right}>Books</h2>
+                    <h2 className={style.right}>Community</h2>
+                    <input type='search'
+                    placeholder='Search Books' className={style.search}/> 
+                </div>   
             </div>
         </MediaQuery>
 
         {/*Mobile media*/}
 
         <MediaQuery maxWidth={1224}>
-            <div className={styles['totality']}>
-                <div className={styles.color}>
+            <div className={style['totality']}>
+                <div className={style.color}>
                     <div id="inline">
-                        <button className={styles['menu-pop-in']}> 
+                        <button className={style['menu-pop-in']}> 
                             <img src={menuImage}  alt='Menu'/>
                         </button>
-                        <img src={booksImage} className={styles['mobile-icon']} alt='Books'/>
-                        <button className={styles['search-icon']}> 
+                        <img src={booksImage} className={style['mobile-icon']} alt='Books'/>
+                        <button className={style['search-icon']}> 
                             <img src={searchImage}  alt='Search'/>
                         </button>
                         {/*<input type='search'
-                        placeholder='Search Books' className={styles.search}/>*/}
+                        placeholder='Search Books' className={style.search}/>*/}
                     </div>
                 <style jsx='true'>{`
                     #inline {
@@ -54,94 +50,94 @@ export default function Banner() {
                 `}
                 </style>    
                 </div>
-                <div className={styles['center-info-box']}>
+                <div className={style['center-info-box']}>
                     <button id='recent'>Recent</button>
                     <button id='my-books'>My Books</button>
                     <button id='add'>+</button>
                     <div id='start'></div>
-                    <div className={styles['per-book-box']}>
+                    <div className={style['per-book-box']}>
                         <div className='bookCoverPlaceholder'>
 
                         </div>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-title'>
                             Book Title
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-author'>
                             Book Author
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-rating'>
                             * 4/5
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-tags'>
                             Genres/Tags
                         </b>
                     </div>
-                    <div className={styles['break']}></div>
-                    <div className={styles['per-book-box']}>
+                    <div className={style['break']}></div>
+                    <div className={style['per-book-box']}>
                         <div className='bookCoverPlaceholder'>
 
                         </div>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-title'>
                             Book Title
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-author'>
                             Book Author
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-rating'>
                             * 4/5
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-tags'>
                             Genres/Tags
                         </b>
                     </div>
-                    <div className={styles['break']}></div>
-                    <div className={styles['per-book-box']}>
+                    <div className={style['break']}></div>
+                    <div className={style['per-book-box']}>
                         <div className='bookCoverPlaceholder'>
 
                         </div>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-title'>
                             Book Title
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-author'>
                             Book Author
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-rating'>
                             * 4/5
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-tags'>
                             Genres/Tags
                         </b>
                     </div>
-                    <div className={styles['break']}></div>
-                    <div className={styles['per-book-box']}>
+                    <div className={style['break']}></div>
+                    <div className={style['per-book-box']}>
                         <div className='bookCoverPlaceholder'>
 
                         </div>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-title'>
                             Book Title
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-author'>
                             Book Author
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-rating'>
                             * 4/5
                         </b>
-                        <div className={styles['break']}></div>
+                        <div className={style['break']}></div>
                         <b className='book-tags'>
                             Genres/Tags
                         </b>
@@ -256,5 +252,20 @@ export default function Banner() {
             </div>
         </MediaQuery>
         </>
+=======
+        <div className={style.color}>
+            <div className={style.test}>
+                <img src={booksImage} className={style.icon} alt='books'/>
+                <h2 className={style.left} id='title'>Title BGP7</h2>
+                <Profile />
+            </div>
+            <div className={style.RContainer}>
+                <h2 id="left" className={style.right}>Books</h2>
+                <h2 className={style.right}>Community</h2>
+                <input type='search'
+                placeholder='Search Books' className={style.search}/> 
+            </div>   
+        </div>
+>>>>>>> e1fb23030da564db7465f0dbec29308d5acfad69
     )
 }
