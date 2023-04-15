@@ -1,7 +1,7 @@
-import Banner from '../component/Banner'
+import Banner from './Banner'
 import '../styles/background.css';
 
-export default function Home() {
+export const Home = () => {
     return (
         <Banner />
     )
