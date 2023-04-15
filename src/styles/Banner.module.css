@@ -8,8 +8,7 @@
 }
 
 .right{
-    display: inline-block;
-    padding-right: 40px;
+    margin-right: 50px;
     cursor: pointer;
     font-weight: lighter;
     color: #FFFFFF;
@@ -18,18 +17,18 @@
 
 .search{
     font-weight: lighter;
-    display: inline-block;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-right: 100px;
     height: 35px;
-    width: 30%;
-    max-width: 300px;
+    width: 300px;
+    max-width: 500px;
     min-width: 200px;
     padding-top: 2px;
     font-size:16px;
     background-image: url(../public/SearchIcon.svg);
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 7%;
+    background-size: 10%;
 
 }
 
@@ -39,14 +38,10 @@
 }
 
 .icon{
-    display: inline-block;
-    position: absolute;
     padding-left: 20px;
     cursor: pointer;
-    font-weight: lighter;
     width: 45px;
     height: 45px;
-    margin-right: 20px;
     margin-top: 15px;
 }
 
@@ -59,7 +54,23 @@
 }
 
 .color {
+    display: flex;
+    flex-direction: row;
     background-color: #441C1C;
+    width: 100vw;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+}
+
+.RContainer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 15px;
+    align-items: center;
 }
 
 

@@ -12,7 +12,7 @@ export default function Profile() {
     }
 
     return (
-        <div className={style.container}>
+        <div>
             <img src={pfp} alt='profile pic' onClick={popUp}
                className={style.profile}/>
             {clicked && <Popup />}
