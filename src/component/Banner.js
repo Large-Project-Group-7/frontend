@@ -8,7 +8,7 @@ import useCheckMobileScreen from './CheckMobile';
 
 //import MediaQuery from 'react-responsive' // npm install react-responsive
 
-export default function Banner() {
+export const Banner = (props) => {
     const isMobile = useCheckMobileScreen();
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
@@ -36,8 +36,10 @@ export default function Banner() {
                         <button className={style['menu-pop-in']}> 
                             <img src={menuImage}  alt='Menu'/>
                         </button>
-                        <img src={booksImage} className={style['mobile-icon']} alt='Books'/>
-                        <button className={style['search-icon']}> 
+                        <button className={style['home-page-button']}> 
+                            <img src={booksImage} className={style['mobile-icon']} alt='Books'  onClick={() => props.onFormSwitch('home')}/>
+                        </button>
+                        <button className={style['search-icon']} onClick={() => props.onFormSwitch('search')}> 
                             <img src={searchImage}  alt='Search'/>
                         </button>
                     </div>

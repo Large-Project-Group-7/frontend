@@ -122,6 +122,12 @@
     outline: none;
 }
 
+.home-page-button {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none
+}
+
 .search-icon {
     height: 42px;
     min-width: 44px; /* 44 is the num idk y */

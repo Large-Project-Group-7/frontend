@@ -1,28 +1,8 @@
-import style from '../styles/Banner.module.css';
-import PerBookBox from './PerBookBox';
-
-export default function ForegroundBox() {
+export default function ForegroundBox(props) {
     return (
         <div className='center-info-box'>
-            <button id='recent'>Recent</button>
-            <button id='my-books'>My Books</button>
-            <button id='add'>+</button>
-            <div id='start'></div>
 
-            <div className={style['break']}></div>
-            <PerBookBox />
-
-            <div className={style['break']}></div>
-            <PerBookBox />
-
-            <div className={style['break']}></div>
-            <PerBookBox />
-
-            <div className={style['break']}></div>
-            <PerBookBox />
-
-            <div className={style['break']}></div>
-            <PerBookBox />
+            {props.children}
 
             <style jsx='true'>{`
                     .center-info-box {

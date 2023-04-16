@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';
+import { Search } from './pages/SearchPage';
 
 function App() {
   const [currentForm,setCurrentForm] = useState('login');
@@ -23,6 +24,9 @@ function App() {
           case "home":
             console.log("Switching to: " + currentForm);
             return <Home onFormSwitch={toggleForm}/>
+          case "search":
+            console.log("Switching to: " + currentForm);
+            return <Search onFormSwitch={toggleForm}/>
           default:
             console.log("Defaulted");
             return <LoginBox onFormSwitch={toggleForm}/>

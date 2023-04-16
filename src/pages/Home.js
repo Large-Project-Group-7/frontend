@@ -1,20 +1,24 @@
-import Banner from '../component/Banner';
+import { Banner } from '../component/Banner';
 import '../styles/background.css';
 import style from '../styles/Home.module.css';
 import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 import ForegroundBox from '../component/ForegroundBox';
+import PerBookBox from '../component/PerBookBox';
 
 import useCheckMobileScreen from '../component/CheckMobile';
 
-export const Home = () => {
+
+
+
+export const Home = (props) => {
     const isMobile = useCheckMobileScreen();
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         return (
         <div>
-            <Banner />
+            <Banner/>
                 <div>
                     <h1 className={style.title}>Books</h1>
                     <img className={style.add} src={add} alt='add button'/>
@@ -27,12 +31,24 @@ export const Home = () => {
         </div>
     )}
     return (
-        <div> {/*rn everything on mobile is shoved in banner, will work on this tmrw*/ }
-            <Banner />
-                <div>
-                    <ForegroundBox />
-                </div>
-                
+        <div>
+            <Banner {...props}/>
+            <ForegroundBox>
+                <button id='recent'>Recent</button>
+                <button id='my-books'>My Books</button>
+                <button id='add'>+</button>
+                <div id='start'></div>
+                <div className={style['break']}></div>
+                <PerBookBox />
+                <div className={style['break']}></div>
+                <PerBookBox />
+                <div className={style['break']}></div>
+                <PerBookBox />
+                <div className={style['break']}></div>
+                <PerBookBox />
+                <div className={style['break']}></div>
+                <PerBookBox />
+            </ForegroundBox>
         </div>
     )
 }
