@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import {Dimensions} from 'react-native';
+import {useWindowDimensions} from 'react-native';
 
 const useCheckMobileScreen = () => {
-    const windowWidth = Dimensions.get('window').width;
-    const [width, setWidth] = useState(window.innerWidth);
+    const {height, width} = useWindowDimensions();
+    const [widthDim, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
             setWidth(window.innerWidth);
     }
@@ -14,7 +14,7 @@ const useCheckMobileScreen = () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
     }, []);
-    console.log(width + " : " + window.innerWidth);
+    console.log(widthDim + " vs. " + width);
     return (width <= 930);
 }
 

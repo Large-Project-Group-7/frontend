@@ -1,32 +1,35 @@
 import style from '../styles/Banner.module.css'
 import booksImage from '../public/books.png';
-/*import menuImage from '../public/ListButton.png';
-import searchImage from '../public/SearchIcon.svg';*/
+import menuImage from '../public/ListButton.png';
+import searchImage from '../public/SearchIcon.svg';
 import Profile from './Profile';
+
+import useCheckMobileScreen from './CheckMobile';
 
 //import MediaQuery from 'react-responsive' // npm install react-responsive
 
 export default function Banner() {
-
-    return (
-        /*<>
-        <MediaQuery minWidth={930}>*/
-            <div className={style.color}>
-                <div className={style.test}>
-                    <img src={booksImage} className={style.icon} alt='books'/>
-                    <h2 className={style.left} id='title'>Title BGP7</h2>
-                    <Profile />
+    const isMobile = useCheckMobileScreen();
+    if(!isMobile) // instead of <MobileMedia> from reactive-package
+    {
+        return (
+                <div className={style.color}>
+                    <div className={style.test}>
+                        <img src={booksImage} className={style.icon} alt='books'/>
+                        <h2 className={style.left} id='title'>Title BGP7</h2>
+                        <Profile />
+                    </div>
+                    <div className={style.RContainer}>
+                        <h2 id="left" className={style.right}>Books</h2>
+                        <h2 className={style.right}>Community</h2>
+                        <input type='search'
+                        placeholder='Search Books' className={style.search}/> 
+                    </div>   
                 </div>
-                <div className={style.RContainer}>
-                    <h2 id="left" className={style.right}>Books</h2>
-                    <h2 className={style.right}>Community</h2>
-                    <input type='search'
-                    placeholder='Search Books' className={style.search}/> 
-                </div>   
-            </div>
-        //</MediaQuery>
-        /*Mobile media
-        <MediaQuery maxWidth={930}>
+        )
+    }
+    return (
+        /*Mobile media */
             <div className={style['totality']}>
                 <div className={style.color}>
                     <div id="inline">
@@ -43,6 +46,7 @@ export default function Banner() {
                         display: flex;
                         justify-content: center;
                         height: 64px;
+                        min-width: 315px;
                     }
                 `}
                 </style>    
@@ -167,7 +171,7 @@ export default function Banner() {
                     }
                     #add {
                         position: absolute;
-                        left: 85.9%;
+                        left: max(83.4%,265px);
                         right: 6.41%;
                         top: 9.81%;
                         bottom: 86.64%;
@@ -244,9 +248,6 @@ export default function Banner() {
                 `}
                 </style>  
                 </div>
-                
             </div>
-        </MediaQuery>
-        </>*/
-    )
+        )
 }

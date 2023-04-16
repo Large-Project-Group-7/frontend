@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import './App.css';
 import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';

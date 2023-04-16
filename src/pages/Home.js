@@ -5,13 +5,15 @@ import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 
-//import MediaQuery from 'react-responsive'
+import useCheckMobileScreen from '../component/CheckMobile';
 
 export const Home = () => {
-    return (
+    const isMobile = useCheckMobileScreen();
+    if(!isMobile) // instead of <MobileMedia> from reactive-package
+    {
+        return (
         <div>
             <Banner />
-            {/*<MediaQuery minWidth={930}>*/}
                 <div>
                     <h1 className={style.title}>Books</h1>
                     <img className={style.add} src={add} alt='add button'/>
@@ -20,10 +22,12 @@ export const Home = () => {
                     <Recent />
                     <BooksList count={7}/>
                 </div>
-            {/*</MediaQuery>*/}
-            {/*<MediaQuery maxWidth={930}>*/} {/* will merge the non-banner part inno this tommorrow */}
-            {/*</MediaQuery>*/}
+            
         </div>
-
+    )}
+    return (
+        <div> {/*rn everything on mobile is shoved in banner, will work on this tmrw*/ }
+            <Banner />
+        </div>
     )
 }

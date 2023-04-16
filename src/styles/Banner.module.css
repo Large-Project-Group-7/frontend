@@ -58,6 +58,7 @@
     flex-direction: row;
     background-color: #441C1C;
     width: 100vw;
+    min-width: 315px; /* for mobile */
 }
 
 .test {
@@ -74,7 +75,7 @@
 }
 
 
-@media (max-width: 850px) {
+/*@media (max-width: 930px) {
     .right{
         display: inline-block;
         padding-right: 40px;
@@ -84,18 +85,25 @@
         font-style: italic;
         margin-left:50%;
     }
-  }
+  }*/
 
   /*CSS for Media Query: Mobile */
+@media (max-width: 930px)
+{
+    html {
+        min-width: 315px;
+    }
+}
 
 .totality {
     min-width: 160px;
     height: 100vh;
+    min-width: 315px;
 }
 
 .mobile-icon{
     position: absolute;
-    left: calc(50% - 48px);
+    left: max(calc(50% - 24px),calc(109px + 24px));
     top: 6px;
     width: 48px;
     height: 48px;
@@ -116,10 +124,12 @@
 
 .search-icon {
     height: 42px;
+    min-width: 44px; /* 44 is the num idk y */
     position: absolute;
     background-color: transparent;
     background-repeat: no-repeat;
     top: 12px;
+    left: max(calc(100% - 64px),calc(315px - 64px));
     right: 10px;
     border: none;
     cursor: pointer;
@@ -135,14 +145,14 @@
 .center-info-box {
     display: block;
     /*flex-wrap: wrap;*/
-    background-color: #F4F4F2;;
-    min-height: 450px;
-    height: 88%;
+    background-color: #F4F4F2;
+    height: 91%;
     width: 92%;
     margin: auto;
     overflow: scroll;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
+    
 }
 
 .per-book-box {
