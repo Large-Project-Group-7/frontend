@@ -1,15 +1,15 @@
-import style from '../style/Banner.module.css'
+import style from '../styles/Banner.module.css'
 import booksImage from '../public/books.png';
 import menuImage from '../public/ListButton.png';
-import searchImage from '../public/SearchIcon.png';
+import searchImage from '../public/SearchIcon.svg';
 import Profile from './Profile';
+
 import MediaQuery from 'react-responsive'
 
 export default function Banner() {
     return (
-<<<<<<< HEAD
         <>
-        <MediaQuery minWidth={1224}>
+        <MediaQuery minWidth={768}>
             <div className={style.color}>
                 <div className={style.test}>
                     <img src={booksImage} className={style.icon} alt='books'/>
@@ -24,10 +24,8 @@ export default function Banner() {
                 </div>   
             </div>
         </MediaQuery>
-
         {/*Mobile media*/}
-
-        <MediaQuery maxWidth={1224}>
+        <MediaQuery maxWidth={768}>
             <div className={style['totality']}>
                 <div className={style.color}>
                     <div id="inline">
@@ -252,20 +250,5 @@ export default function Banner() {
             </div>
         </MediaQuery>
         </>
-=======
-        <div className={style.color}>
-            <div className={style.test}>
-                <img src={booksImage} className={style.icon} alt='books'/>
-                <h2 className={style.left} id='title'>Title BGP7</h2>
-                <Profile />
-            </div>
-            <div className={style.RContainer}>
-                <h2 id="left" className={style.right}>Books</h2>
-                <h2 className={style.right}>Community</h2>
-                <input type='search'
-                placeholder='Search Books' className={style.search}/> 
-            </div>   
-        </div>
->>>>>>> e1fb23030da564db7465f0dbec29308d5acfad69
     )
 }
