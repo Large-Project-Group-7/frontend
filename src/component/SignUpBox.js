@@ -20,7 +20,7 @@ export const SignUpBox = (props) => {
           <input id='password' type="password" name="password"
             placeholder='Password' />
           <br />
-          <button className={styles.submit} type="submit">Continue</button>
+          <button className={styles.submit} type="submit" onClick={() => props.onFormSwitch('home')}>Continue</button> {/*will need to run login verification*/}
           <h3 id={styles.text}>Already have an account?</h3>
           <button className={styles['link-btn']} onClick={() => props.onFormSwitch('login')}>Login</button>
         </form>

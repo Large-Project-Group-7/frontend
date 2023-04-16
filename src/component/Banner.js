@@ -9,7 +9,7 @@ import MediaQuery from 'react-responsive'
 export default function Banner() {
     return (
         <>
-        <MediaQuery minWidth={768}>
+        <MediaQuery minWidth={930}>
             <div className={style.color}>
                 <div className={style.test}>
                     <img src={booksImage} className={style.icon} alt='books'/>
@@ -25,7 +25,7 @@ export default function Banner() {
             </div>
         </MediaQuery>
         {/*Mobile media*/}
-        <MediaQuery maxWidth={768}>
+        <MediaQuery maxWidth={930}>
             <div className={style['totality']}>
                 <div className={style.color}>
                     <div id="inline">
@@ -172,6 +172,8 @@ export default function Banner() {
                         right: 6.41%;
                         top: 9.81%;
                         bottom: 86.64%;
+                        width: 30px;
+                        height: 30px;
                         background-color: #4F7FDE;;
                         background-image: url("../public/AddButtonImage.png");
                         background-position: center;
