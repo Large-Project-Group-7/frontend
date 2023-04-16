@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useWindowDimensions} from 'react-native';
 
 const useCheckMobileScreen = () => {
-    const {height, width} = useWindowDimensions();
+    const {width} = useWindowDimensions();
     const [widthDim, setWidth] = useState(window.innerWidth);
     const handleWindowSizeChange = () => {
             setWidth(window.innerWidth);
