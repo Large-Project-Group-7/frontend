@@ -1,15 +1,16 @@
 import style from '../styles/Banner.module.css'
 import booksImage from '../public/books.png';
-import menuImage from '../public/ListButton.png';
-import searchImage from '../public/SearchIcon.svg';
+/*import menuImage from '../public/ListButton.png';
+import searchImage from '../public/SearchIcon.svg';*/
 import Profile from './Profile';
 
-import MediaQuery from 'react-responsive'
+//import MediaQuery from 'react-responsive' // npm install react-responsive
 
 export default function Banner() {
+
     return (
-        <>
-        <MediaQuery minWidth={930}>
+        /*<>
+        <MediaQuery minWidth={930}>*/
             <div className={style.color}>
                 <div className={style.test}>
                     <img src={booksImage} className={style.icon} alt='books'/>
@@ -23,8 +24,8 @@ export default function Banner() {
                     placeholder='Search Books' className={style.search}/> 
                 </div>   
             </div>
-        </MediaQuery>
-        {/*Mobile media*/}
+        //</MediaQuery>
+        /*Mobile media
         <MediaQuery maxWidth={930}>
             <div className={style['totality']}>
                 <div className={style.color}>
@@ -36,8 +37,6 @@ export default function Banner() {
                         <button className={style['search-icon']}> 
                             <img src={searchImage}  alt='Search'/>
                         </button>
-                        {/*<input type='search'
-                        placeholder='Search Books' className={style.search}/>*/}
                     </div>
                 <style jsx='true'>{`
                     #inline {
@@ -205,7 +204,6 @@ export default function Banner() {
                         display: inline-block;
                         top: calc(-113px - 20px);
                         left: 117px;
-                        /*font-family: 'Inter';*/
                         font-style: italic;
                         font-weight: 400;
                         font-size: 16px;
@@ -216,7 +214,6 @@ export default function Banner() {
                         display: inline-block;
                         top: calc(-113px - 20px);
                         left: 117px;
-                        /*font-family: 'Inter';*/
                         font-style: italic;
                         font-weight: 400;
                         font-size: 16px;
@@ -227,7 +224,6 @@ export default function Banner() {
                         display: inline-block;
                         top: calc(-93px - 20px);
                         left: 117px;
-                        /*font-family: 'Inter';*/
                         font-style: italic;
                         font-weight: 400;
                         font-size: 16px;
@@ -251,6 +247,6 @@ export default function Banner() {
                 
             </div>
         </MediaQuery>
-        </>
+        </>*/
     )
 }
