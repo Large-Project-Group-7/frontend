@@ -14,7 +14,7 @@ const useCheckMobileScreen = () => {
             window.removeEventListener('resize', handleWindowSizeChange);
         }
     }, []);
-    console.log(widthDim + " vs. " + width);
+    //console.log(widthDim + " vs. " + width);
     return (width <= 930);
 }
 

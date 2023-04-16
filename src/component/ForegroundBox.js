@@ -1,0 +1,91 @@
+import style from '../styles/Banner.module.css';
+import PerBookBox from './PerBookBox';
+
+export default function ForegroundBox() {
+    return (
+        <div className='center-info-box'>
+            <button id='recent'>Recent</button>
+            <button id='my-books'>My Books</button>
+            <button id='add'>+</button>
+            <div id='start'></div>
+
+            <div className={style['break']}></div>
+            <PerBookBox />
+
+            <div className={style['break']}></div>
+            <PerBookBox />
+
+            <div className={style['break']}></div>
+            <PerBookBox />
+
+            <div className={style['break']}></div>
+            <PerBookBox />
+
+            <div className={style['break']}></div>
+            <PerBookBox />
+
+            <style jsx='true'>{`
+                    .center-info-box {
+                        display: block;
+                        /*flex-wrap: wrap;*/
+                        background-color: #F4F4F2;
+                        height: 91vh;
+                        width: 92%;
+                        margin: auto;
+                        overflow: scroll;
+                        border-bottom-left-radius: 4px;
+                        border-bottom-right-radius: 4px;
+                    }
+
+                    #recent {
+                        position: absolute;
+                        width: 94px;
+                        height: 30px;
+                        left: 48px;
+                        top: 9.81%;
+                        background-color: white;
+                        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                        border-width: 0px;
+                        border-radius: 20px;
+                        z-index: 5;
+                    }
+                    #my-books {
+                        position: absolute;
+                        width: 94px;
+                        height: 30px;
+                        left: 165px;
+                        top: 9.81%;
+                        background-color: white;
+                        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                        border-width: 0px;
+                        border-radius: 20px;
+                        font-weight: 200;
+                        z-index: 5;
+                    }
+                    #add {
+                        position: absolute;
+                        left: max(83.4%,265px);
+                        right: 6.41%;
+                        top: 9.81%;
+                        bottom: 86.64%;
+                        width: 30px;
+                        height: 30px;
+                        background-color: #4F7FDE;;
+                        background-image: url("../public/AddButtonImage.png");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        border-radius: 5px;
+                        border-width: 1px;
+                        font-size: 24px;
+                        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                        z-index: 5;
+                    }
+                    #start {
+                        margin-top: 20%;
+                    }
+                `}
+                </style>  
+        </div>
+    )
+}

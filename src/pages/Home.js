@@ -4,6 +4,7 @@ import style from '../styles/Home.module.css';
 import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
+import ForegroundBox from '../component/ForegroundBox';
 
 import useCheckMobileScreen from '../component/CheckMobile';
 
@@ -28,6 +29,10 @@ export const Home = () => {
     return (
         <div> {/*rn everything on mobile is shoved in banner, will work on this tmrw*/ }
             <Banner />
+                <div>
+                    <ForegroundBox />
+                </div>
+                
         </div>
     )
 }
