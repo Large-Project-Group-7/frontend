@@ -4,7 +4,7 @@ import menuImage from '../public/ListButton.png';
 import searchImage from '../public/SearchIcon.svg';
 import Profile from './Profile';
 
-import useCheckMobileScreen from './CheckMobile';
+import useCheckMobileScreen from './mobile_exclusives/CheckMobile';
 
 //import MediaQuery from 'react-responsive' // npm install react-responsive
 

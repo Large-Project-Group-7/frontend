@@ -3,6 +3,7 @@ import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';
 import { Search } from './pages/SearchPage';
+import { AdminPanel } from './pages/AdminPanel';
 
 function App() {
   const [currentForm,setCurrentForm] = useState('login');
@@ -27,6 +28,9 @@ function App() {
           case "search":
             console.log("Switching to: " + currentForm);
             return <Search onFormSwitch={toggleForm}/>
+          case "admin":
+            console.log("Switching to: " + currentForm);
+            return <AdminPanel onFormSwitch={toggleForm}/>
           default:
             console.log("Defaulted");
             return <LoginBox onFormSwitch={toggleForm}/>

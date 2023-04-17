@@ -1,4 +1,4 @@
-import style from '../styles/Banner.module.css';
+import style from '../../styles/Banner.module.css';
 
 export default function PerBookBox() {
     return (
@@ -80,11 +80,13 @@ export default function PerBookBox() {
                 .per-book-box {
                     display: block;
                     /*flex-wrap: wrap;*/
-                    background-color: #FFFFFF;
                     margin:auto;
                     margin-top: 15px;
                     width: 309px;
                     height: 174px;
+                    background-color: #FFFFFF;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 20px;
                 }
                 `}
             </style>

@@ -1,10 +1,11 @@
 import { Banner } from '../component/Banner';
 import '../styles/background.css';
-import ForegroundBox from '../component/ForegroundBox';
-import PerBookBox from '../component/PerBookBox';
+import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
+import PerBookBox from '../component/mobile_exclusives/PerBookBox';
+import PerUserBox from '../component/mobile_exclusives/PerUserBox';
 import style from '../styles/Home.module.css';
 
-import useCheckMobileScreen from '../component/CheckMobile';
+import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const Search = (props) => {
     const isMobile = useCheckMobileScreen();
@@ -25,9 +26,7 @@ export const Search = (props) => {
                 <div className={style['break']}></div>
                 <PerBookBox />
                 <div className={style['break']}></div>
-                <PerBookBox />
-                <div className={style['break']}></div>
-                <PerBookBox />
+                <PerUserBox />
             </ForegroundBox>
             <style jsx='true'>{`
             .search-bar {

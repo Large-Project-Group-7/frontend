@@ -4,13 +4,10 @@ import style from '../styles/Home.module.css';
 import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
-import ForegroundBox from '../component/ForegroundBox';
-import PerBookBox from '../component/PerBookBox';
+import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
+import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 
-import useCheckMobileScreen from '../component/CheckMobile';
-
-
-
+import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const Home = (props) => {
     const isMobile = useCheckMobileScreen();
