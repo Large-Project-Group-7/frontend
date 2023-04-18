@@ -2,7 +2,6 @@ import { Banner } from '../component/Banner';
 import '../styles/background.css';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import AdminContent from '../component/mobile_exclusives/AdminContent';
-import style from '../styles/Home.module.css';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
