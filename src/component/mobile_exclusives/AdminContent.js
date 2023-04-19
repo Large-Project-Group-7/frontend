@@ -15,14 +15,17 @@ export default function AdminContent() {
                 Book Title:
             </b>
             <input id='title'/>
+            <div className={style['break']}></div>
             <b className='book-num'>
                 ISBN:
             </b>
             <input id='num'/>
+            <div className={style['break']}></div>
             <b className='book-author'>
                 Author:
             </b>
             <input id='author'/>
+            <div className={style['break']}></div>
             <b className='book-pub'>
                 Publisher:
             </b>
@@ -121,17 +124,6 @@ export default function AdminContent() {
                     text-align: center;
                 }
 
-                .book-title {
-                    margin-left: calc(8%);
-                    width: 111px;
-                    height: 22px;
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 16px;
-                    line-height: 22px;
-                    text-align: center;
-                }
-
                 .book-pages {
                     margin-left: calc(8%);
                     width: 111px;
@@ -157,6 +149,7 @@ export default function AdminContent() {
                 input, textarea {
                     margin-top: 0px;
                     margin-left: calc(8%);
+                    margin-bottom: 27px;
                     width: 58%;
                     height: 28px;
                     font-style: normal;
@@ -180,11 +173,11 @@ export default function AdminContent() {
                 }
 
                 #num {
-                    margin-left: 50px;
+                    margin-left: 52px;
                 }
 
                 #author {
-                    margin-left: 34px;
+                    margin-left: 36px;
                 }
 
                 #pub {

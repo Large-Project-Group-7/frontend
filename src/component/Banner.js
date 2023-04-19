@@ -31,7 +31,7 @@ export const Banner = (props) => {
     return (
         /*Mobile media */
             <div>
-                <div className={style.color}>
+                <div id="color" className={style.color}>
                     <div id="inline">
                         <button className={style['menu-pop-in']}> 
                             <img src={menuImage}  alt='Menu'/>
@@ -39,7 +39,7 @@ export const Banner = (props) => {
                         <button className={style['home-page-button']}> 
                             <img src={booksImage} className={style['mobile-icon']} alt='Books'  onClick={() => props.onFormSwitch('home')}/>
                         </button>
-                        <button className={style['search-icon']} onClick={() => props.onFormSwitch('search')}> 
+                        <button id="" className={style['search-icon']} onClick={() => props.onFormSwitch('search')}> 
                             <img src={searchImage}  alt='Search'/>
                         </button>
                     </div>
@@ -49,6 +49,10 @@ export const Banner = (props) => {
                         justify-content: center;
                         height: 64px;
                         min-width: 315px;
+                    }
+
+                    #color {
+                        margin-bottom: 24px;
                     }
                 `}
                 </style>    

@@ -12,6 +12,7 @@ export default function ForegroundBox(props) {
                         height: 91vh;
                         width: 92%;
                         margin: auto;
+                        margin-top: 56px;
                         overflow: scroll;
                         border-bottom-left-radius: 4px;
                         border-bottom-right-radius: 4px;

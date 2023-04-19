@@ -7,7 +7,7 @@ import { AdminPanel } from './pages/AdminPanel';
 import { AddReview } from './pages/AddReview';
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('AddReview');
+  const [currentForm,setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
