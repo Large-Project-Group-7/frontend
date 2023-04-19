@@ -54,11 +54,14 @@
 }
 
 .color {
+    top: 0px;
     display: flex;
     flex-direction: row;
     background-color: #441C1C;
+    position: fixed;
     width: 100vw;
     min-width: 315px; /* for mobile */
+    z-index: 1;
 }
 
 .test {

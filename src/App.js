@@ -4,9 +4,10 @@ import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';
 import { Search } from './pages/SearchPage';
 import { AdminPanel } from './pages/AdminPanel';
+import { AddReview } from './pages/AddReview';
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('login');
+  const [currentForm,setCurrentForm] = useState('AddReview');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -31,6 +32,9 @@ function App() {
           case "admin":
             console.log("Switching to: " + currentForm);
             return <AdminPanel onFormSwitch={toggleForm}/>
+          case "AddReview":
+            console.log("Switching to: " + currentForm);
+            return <AddReview onFormSwitch={toggleForm}/>
           default:
             console.log("Defaulted");
             return <LoginBox onFormSwitch={toggleForm}/>

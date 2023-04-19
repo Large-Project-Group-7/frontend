@@ -1,5 +1,4 @@
 import { Banner } from '../component/Banner';
-import '../styles/background.css';
 import style from '../styles/Home.module.css';
 import add from '../public/add.svg';
 import Recent from '../component/Recent';
@@ -14,15 +13,15 @@ export const Home = (props) => {
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         return (
-        <div>
+        <div className={style.container}>
             <Banner/>
                 <div>
                     <h1 className={style.title}>Books</h1>
                     <img className={style.add} src={add} alt='add button'/>
                 </div>
                 <div>
+                    <BooksList count={4}/>
                     <Recent />
-                    <BooksList count={7}/>
                 </div>
             
         </div>

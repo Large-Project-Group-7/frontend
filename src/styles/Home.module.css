@@ -2,14 +2,14 @@
     font-weight: 400;
     font-size: 40px;
     margin-left: 31px;
-    margin-top: 16px;
+    margin-top: -30px;
     display: inline;
     position:absolute;
 }
 
 .add {
+    position:fixed;
     display: inline;
-    margin-left: 80%;
-    margin-top: 23px;
+    margin-left: 90%;
     cursor: pointer;
 }

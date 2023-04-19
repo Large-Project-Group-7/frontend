@@ -16,7 +16,7 @@ export const Banner = (props) => {
                 <div className={style.color}>
                     <div className={style.test}>
                         <img src={booksImage} className={style.icon} alt='books'/>
-                        <h2 className={style.left} id='title'>Title BGP7</h2>
+                        <h2 className={style.left} id='title'>Book Raiders</h2>
                         <Profile />
                     </div>
                     <div className={style.RContainer}>
