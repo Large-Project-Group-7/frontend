@@ -8,7 +8,7 @@ export default function BooksList(props) {
         containers.push(
         <div className={style.booksContainer} key={i}>
             <div className={style.coverContainer}>
-                <Cover count={1}/>
+                <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
             </div>
             <p id={style.title}>Y / N</p>
             <p id={style.author}>Author: Esther Yi</p>

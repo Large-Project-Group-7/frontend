@@ -17,7 +17,7 @@ export const AddReview = (props) => {
                 <Banner />
                 <div className={style.container}>
                     <div className={style.cover}>
-                        <Cover count={1}/>
+                        <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
                     </div>
                     <div className={style.text}>
                         <p>Title: Y/N</p>

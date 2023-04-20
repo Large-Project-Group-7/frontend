@@ -5,9 +5,10 @@ import { Home } from './pages/Home';
 import { Search } from './pages/SearchPage';
 import { AdminPanel } from './pages/AdminPanel';
 import { AddReview } from './pages/AddReview';
+import { BookPage } from './pages/BookPage';
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('login');
+  const [currentForm,setCurrentForm] = useState('Book');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -35,6 +36,9 @@ function App() {
           case "AddReview":
             console.log("Switching to: " + currentForm);
             return <AddReview onFormSwitch={toggleForm}/>
+          case "Book":
+            console.log("Switching to: " + currentForm);
+            return <BookPage onFormSwitch={toggleForm}/>
           default:
             console.log("Defaulted");
             return <LoginBox onFormSwitch={toggleForm}/>
