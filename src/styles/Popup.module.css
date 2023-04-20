@@ -20,6 +20,7 @@
     border-radius: 20px;
     width: 88px;
     font-style: italic;
+    cursor: pointer;
 }
 
 .review {
@@ -30,4 +31,5 @@
     border-radius: 20px;
     font-style: italic;
     width: 88px;
+    cursor: pointer;
 }

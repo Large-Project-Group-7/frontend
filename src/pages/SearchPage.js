@@ -4,6 +4,7 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import PerUserBox from '../component/mobile_exclusives/PerUserBox';
 import style from '../styles/Home.module.css';
+import UserList from '../component/UserList';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -12,7 +13,9 @@ export const Search = (props) => {
     if(!isMobile)
     {
         return (
-        <div>
+        <div className={style.test}>
+            <Banner />
+            <UserList count={7}/>
         </div>
     )}
     return (
