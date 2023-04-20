@@ -5,9 +5,9 @@ import '../styles/global.css';
 
 export const LoginBox = (props) => {
 
-    const [setUsername] = useState("");
-    const [setPassword] = useState("");
-    const [setResult] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [result, setResult] = useState("");
   
     const handleChange = (e) => {
       if(e.target.id === 'username')
@@ -45,10 +45,10 @@ export const LoginBox = (props) => {
       <div>
         <form
           className={style.form}
-          action="http://localhost:8000/test.php"
+  action="http://localhost:8000/test.php"
           method="post"
           onSubmit={(event) => handleSumbit(event)}
-        >
+        > {/*port 3001*/}
           <h2 className={style.Sign}> {/*Moved inside div so it can be centered w. the form itself*/}
             Login
           </h2>

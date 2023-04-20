@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';
-import { Search } from './pages/SearchPage';
+import { SearchBook } from './pages/SearchPage';
+import { SearchUser } from './pages/SearchPage';
 import { AdminPanel } from './pages/AdminPanel';
 import { AddReview } from './pages/AddReview';
 import { BookPage } from './pages/BookPage';
@@ -27,9 +28,12 @@ function App() {
           case "home":
             console.log("Switching to: " + currentForm);
             return <Home onFormSwitch={toggleForm}/>
-          case "search":
+          case "searchBook":
             console.log("Switching to: " + currentForm);
-            return <Search onFormSwitch={toggleForm}/>
+            return <SearchBook onFormSwitch={toggleForm}/>
+          case "searchUser":
+            console.log("Switching to: " + currentForm);
+            return <SearchBook onFormSwitch={toggleForm}/>
           case "admin":
             console.log("Switching to: " + currentForm);
             return <AdminPanel onFormSwitch={toggleForm}/>

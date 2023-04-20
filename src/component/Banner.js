@@ -39,7 +39,7 @@ export const Banner = (props) => {
                         <button className={style['home-page-button']}> 
                             <img src={booksImage} className={style['mobile-icon']} alt='Books'  onClick={() => props.onFormSwitch('home')}/>
                         </button>
-                        <button id="" className={style['search-icon']} onClick={() => props.onFormSwitch('search')}> 
+                        <button id="" className={style['search-icon']} onClick={() => props.onFormSwitch('searchBook')}> 
                             <img src={searchImage}  alt='Search'/>
                         </button>
                     </div>
