@@ -2,6 +2,7 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 import { Banner } from '../component/Banner';
 import style from '../styles/BookPage.module.css';
 import Cover from '../component/Cover';
+import Pages from '../component/Pages';
 
 export const BookPage = (props) => {
     const isMobile = useCheckMobileScreen();
@@ -28,6 +29,9 @@ export const BookPage = (props) => {
                     to the unique curriculum and colorful faculty at his unusual school, Harry finds himself drawn deep inside a mystical world he never knew existed and 
                     closer to his own noble destiny.
                 </p>
+            </div>
+            <div className={style.reviewsContainer}>
+                <Pages totalPages={10}/>
             </div>
         </div>
     )}
