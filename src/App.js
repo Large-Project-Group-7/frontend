@@ -33,7 +33,7 @@ function App() {
             return <SearchBook onFormSwitch={toggleForm}/>
           case "searchUser":
             console.log("Switching to: " + currentForm);
-            return <SearchBook onFormSwitch={toggleForm}/>
+            return <SearchUser onFormSwitch={toggleForm}/>
           case "admin":
             console.log("Switching to: " + currentForm);
             return <AdminPanel onFormSwitch={toggleForm}/>

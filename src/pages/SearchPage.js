@@ -21,8 +21,13 @@ export const SearchBook = (props) => {
     return (
         <div>
             <Banner  {...props}/>
+            
             <ForegroundBox>
-                <input className='search-bar' placeholder='Search by: Username/Book Name'>
+                <button className='sort' onClick={() => props.onFormSwitch('searchUser')}>
+                    <img>
+                    </img>
+                </button>
+                <input className='search-bar' placeholder='Search by: Book Name'>
                 </input>
                 <div className={style['break']}></div>
                 <PerBookBox />
@@ -33,14 +38,23 @@ export const SearchBook = (props) => {
             .search-bar {
                 margin-top: 21px;
                 margin-bottom: -2px;
-                width: 320px;
+                width: 240px;
                 height: 60px;
-                margin-left: calc(50% - 162px);
+                margin-left: calc(50% - 92px);
                 font-size: 18px;
             }
 
             .search-bar::placeholder {
                 font-size: 18px;
+            }
+
+            .sort {
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                top: 84px;
+                left: 9%;
+                z-index: 2;
             }
             `}
             </style>
@@ -61,13 +75,17 @@ export const SearchUser = (props) => {
     return (
         <div>
             <Banner  {...props}/>
+            <button className='sort' onClick={() => props.onFormSwitch('searchBook')}>
+                <img>
+                </img>
+            </button>
             <ForegroundBox>
-                <input className='search-bar' placeholder='Search by: Username/Book Name'>
+                <input className='search-bar' placeholder='Search by: Username'>
                 </input>
                 <div className={style['break']}></div>
-                <PerBookBox />
+                <PerUserBox />
                 <div className={style['break']}></div>
-                <PerBookBox />
+                <PerUserBox />
                 <div className={style['break']}></div>
                 <PerUserBox />
             </ForegroundBox>
@@ -75,14 +93,23 @@ export const SearchUser = (props) => {
             .search-bar {
                 margin-top: 21px;
                 margin-bottom: -2px;
-                width: 320px;
+                width: 240px;
                 height: 60px;
-                margin-left: calc(50% - 162px);
+                margin-left: calc(50% - 92px);
                 font-size: 18px;
             }
 
             .search-bar::placeholder {
                 font-size: 18px;
+            }
+
+            .sort {
+                position: absolute;
+                width: 48px;
+                height: 48px;
+                top: 84px;
+                left: 9%;
+                z-index: 2;
             }
             `}
             </style>

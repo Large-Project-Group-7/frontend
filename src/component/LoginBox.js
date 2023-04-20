@@ -4,25 +4,6 @@ import $ from "jquery";
 import '../styles/global.css';
 
 export const LoginBox = (props) => {
-
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [result, setResult] = useState("");
-  
-    const handleChange = (e) => {
-      if(e.target.id === 'username')
-      {
-        setUsername(e.target.value);
-      }
-      else if(e.target.id === 'password')
-      {
-        setPassword(e.target.value);
-      }
-      else
-      {
-        console.log("Defaulted box: " + e.target.id + " of: " + e.target.value);
-      }
-    };
   
     const handleSumbit = (e) => {
         e.preventDefault();
@@ -32,7 +13,7 @@ export const LoginBox = (props) => {
             url: form.attr("action"),
             data: form.serialize(),
             success(data) {
-                setResult(data);
+                //setResult(data); //I dont now if data recieved is asynch
                 console.log("Succesful submit of: " + data);
                 props.onFormSwitch('home')
             },
@@ -53,12 +34,11 @@ export const LoginBox = (props) => {
             Login
           </h2>
           <input id='username' name="username"
-            onChange={(event) => handleChange(event)} 
             placeholder='Username / Email' 
             />
           <br />
           <input id='password' type="password" name="password"
-            onChange={(event) => handleChange(event)}
+            
             placeholder='Password' />
           <br />
           <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}
