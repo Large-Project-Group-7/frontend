@@ -36,9 +36,9 @@
     font-style: italic;
     font-weight: 200;
     font-size: 25px;
-    margin-left: 40px;
+    margin-left: 200px;
     position: absolute;
-    margin-top: 40px
+    margin-top: 10px
 }
 
 #publisher  {
@@ -55,9 +55,9 @@
     display: inline-block;
     font-weight: 200;
     font-size: 18px;
-    margin-left: 40px;
+    margin-left: 200px;
     position: absolute;
-    margin-top: 80px;
+    margin-top: 110px;
     font-weight: 400;
 }
 
@@ -65,7 +65,7 @@
     display: inline-block;
     font-weight: 200;
     font-size: 18px;
-    margin-left: 150px;
+    margin-left: 200px;
     position: absolute;
     margin-top: 80px;
     font-weight: 400;
@@ -77,7 +77,7 @@
     font-size: 18px;
     margin-left: 25px;
     position: absolute;
-    margin-top: 110px;
+    margin-top: 160px;
     font-weight: 400;
     height: 28px;
 }
@@ -89,16 +89,6 @@
     font-size: 23px;
     margin-left: 60px;
     position: absolute;
-    margin-top: 107px;
+    margin-top: 157px;
     font-weight: 400;
 }
-
-#genres  {
-    display: inline-block;
-    font-size: 18px;
-    margin-left: 45px;
-    position: absolute;
-    margin-top: 160px;
-    font-weight: 400;
-}
-
