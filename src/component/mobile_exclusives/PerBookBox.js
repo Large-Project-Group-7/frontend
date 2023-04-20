@@ -16,7 +16,7 @@ export default function PerBookBox() {
             </b>
             <div className={style['break']}></div>
             <b className='book-rating'>
-                * 4/5
+                <b className='star'>★</b> 4/5
             </b>
             <div className={style['break']}></div>
             <b className='book-tags'>
@@ -87,6 +87,10 @@ export default function PerBookBox() {
                     background-color: #FFFFFF;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                     border-radius: 20px;
+                }
+                .star {
+                    font-size: 21px;
+                    color: gold;
                 }
                 `}
             </style>

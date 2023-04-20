@@ -8,7 +8,7 @@ import { AddReview } from './pages/AddReview';
 import { BookPage } from './pages/BookPage';
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('search');
+  const [currentForm,setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);

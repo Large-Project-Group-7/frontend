@@ -5,16 +5,16 @@ import '../styles/global.css';
 
 export const LoginBox = (props) => {
 
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [result, setResult] = useState("");
+    const [setUsername] = useState("");
+    const [setPassword] = useState("");
+    const [setResult] = useState("");
   
     const handleChange = (e) => {
-      if(e.target.id == 'username')
+      if(e.target.id === 'username')
       {
         setUsername(e.target.value);
       }
-      else if(e.target.id == 'password')
+      else if(e.target.id === 'password')
       {
         setPassword(e.target.value);
       }
