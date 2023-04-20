@@ -30,7 +30,7 @@ export const Search = (props) => {
             </ForegroundBox>
             <style jsx='true'>{`
             .search-bar {
-                margin-top: 10px;
+                margin-top: 21px;
                 margin-bottom: -2px;
                 width: 320px;
                 height: 60px;
