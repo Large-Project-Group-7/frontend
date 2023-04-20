@@ -1,0 +1,18 @@
+.stars {
+    display: inline-block;
+    position: absolute;
+    right: 160px;
+    top: 70px;
+}
+
+.star {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gray;
+}
+
+.test {
+    font-size: 2rem;
+    cursor: pointer;
+    color: gold
+}

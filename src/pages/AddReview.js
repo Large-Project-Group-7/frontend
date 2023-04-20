@@ -2,6 +2,7 @@ import { Banner } from '../component/Banner';
 import Cover from '../component/Cover';
 import style from '../styles/AddReview.module.css';
 import { useState } from 'react';
+import Rating from '../component/Rating';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -24,7 +25,10 @@ export const AddReview = (props) => {
                     <button className={style.button}>Back to Book</button>
                     <div>
                         <form className={style.form}>
-                            <p className={style.rating}>Rating:</p>
+                            <div>
+                                <p className={style.rating}>Rating:</p>
+                                <Rating />
+                            </div>
                             <textarea name='review'
                                 className={style.review}
                                 value={text}

@@ -17,7 +17,8 @@
 
 .text {
     margin-top: 40px;
-    margin-left: 50px;
+    margin-left: 150px;
+    font-weight: bold;
 }
 
 .button {
