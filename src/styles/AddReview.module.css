@@ -65,3 +65,18 @@
     top: 70px;
     right: 300px;
 }
+
+@media (max-width: 1185px) {
+    .cover {
+        height: 252px;
+        width: 190px;
+        margin-top: 20px;
+        margin-left: 10px;
+    }
+
+    .text {
+        margin-top: 40px;
+        margin-left: 10px;
+        font-weight: bold;
+    }
+}
