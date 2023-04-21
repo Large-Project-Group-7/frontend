@@ -9,6 +9,18 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 export const AddReview = (props) => {
     const isMobile = useCheckMobileScreen();
     const [text, setText] = useState('')
+    const [rating, setRating] = useState(0);
+    const [flag, setFlag] = useState(false);
+
+    const handleRatingChange = (newRating) => {
+        if (newRating !== rating) {
+            setRating(0);
+            setFlag(false)
+        } else {
+            setFlag(true)
+            setRating(newRating);
+        }
+    };
 
     if(!isMobile) 
     {
@@ -27,7 +39,9 @@ export const AddReview = (props) => {
                         <form className={style.form}>
                             <div>
                                 <p className={style.rating}>Rating:</p>
-                                <Rating />
+                                <Rating rating={rating} flag={flag} setRating={setRating} setFlag={setFlag}
+                                  handleRatingChange={handleRatingChange}
+                                />
                             </div>
                             <textarea name='review'
                                 className={style.review}

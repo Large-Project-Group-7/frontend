@@ -1,36 +1,22 @@
-import { useState } from 'react';
 import style from '../styles/Rating.module.css'
 
-export default function Rating() {
-
-    const [rating, setRating] = useState(0);
-    const [flag, setFlag] = useState(false);
-
-    const handleRatingChange = (newRating) => {
-        if (newRating !== rating) {
-            setRating(0);
-            setFlag(false)
-        } else {
-            setFlag(true)
-            setRating(newRating);
-        }
-    };
+export default function Rating(props) {
 
     const stars = [];
     // This is kind of complicated and i'm sure there is maybe a better to do this
     // but this is basically how to make the stars filled up with yellow and representing the rating
     for(let i = 1; i <= 5; i++) {
         let starClass ='star';
-        if (i <= rating) {
+        if (i <= props.rating) {
             starClass += ' filled';
         }
-        if(flag) {
+        if(props.flag) {
             if(starClass !== 'star') {
                 stars.push(
                     <span
                         key={i}
                         className={style.test}
-                        onClick={() => handleRatingChange(i)}
+                        onClick={() => props.handleRatingChange(i)}
                     >   
                     ★
                     </span>
@@ -41,7 +27,7 @@ export default function Rating() {
                     <span
                       key={i}
                       className={style.star}
-                      onClick={() => handleRatingChange(i)}
+                      onClick={() => props.handleRatingChange(i)}
                     >
                        ★
                     </span>
@@ -54,9 +40,9 @@ export default function Rating() {
                     <span
                          key={i}
                          className={style.test}
-                         onClick={() => handleRatingChange(i)}
-                         onMouseEnter={() => setRating(i)}
-                          onMouseLeave={() => setRating(0)}
+                         onClick={() => props.handleRatingChange(i)}
+                         onMouseEnter={() => props.setRating(i)}
+                          onMouseLeave={() => props.setRating(0)}
                     >   
                        ★
                     </span>
@@ -67,9 +53,9 @@ export default function Rating() {
                     <span
                       key={i}
                       className={style.star}
-                      onClick={() => handleRatingChange(i)}
-                      onMouseEnter={() => setRating(i)}
-                      onMouseLeave={() => setRating(0)}
+                      onClick={() => props.handleRatingChange(i)}
+                      onMouseEnter={() => props.setRating(i)}
+                      onMouseLeave={() => props.setRating(0)}
                     >
                        ★
                     </span>
