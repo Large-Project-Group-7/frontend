@@ -6,6 +6,8 @@ import Cover from '../component/Cover';
 import Pages from '../component/Pages';
 import Reviews from '../component/Reviews';
 import InfoPopup from '../component/InfoPopup';
+import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
+import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 
 export const BookPage = (props) => {
     const isMobile = useCheckMobileScreen();
@@ -50,7 +52,22 @@ export const BookPage = (props) => {
 
     return (
         <div>
-
+            <Banner {...props}/>
+                <ForegroundBox>
+                    <div id={style.startmobile}></div>
+                    <div className={style['title']}>Harry Potter and the Sorceror's Stone</div>
+                    <div className={style.covermobile}>
+                    <Cover count={1} src='https://m.media-amazon.com/images/I/51HSkTKlauL._SY291_BO1,204,203,200_QL40_ML2_.jpg'/>
+                    <button className={style.infoButtonMobile} onClick={popUp}>Book Information</button>
+                    {pop && <InfoPopup handleClick={popUp}/>}
+                    </div>
+                    <p className={style.userTextMobile}>User Reviews & Ratings</p>
+                    <p className={style.ratingNumberMobile}>2.2 out of 5</p>
+                    <div id={style.pagebreakbookpagemobile}></div>
+                    <p className={style.seeall}>See All</p>
+                    <div className={style['break']} onClick={popUp} ></div>
+                    <PerBookBox />
+            </ForegroundBox>
         </div>
     )
 } 

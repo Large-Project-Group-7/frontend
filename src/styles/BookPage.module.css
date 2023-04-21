@@ -19,12 +19,28 @@
     margin-left: 30%;
 }
 
+.userTextMobile {
+    font-style: italic;
+    font-weight: 200;
+    font-size: 20px;
+    margin-top: -50%;
+    margin-left: 42%;
+}
+
 .ratingNumber {
     font-style: italic;
     font-weight: 200;
     font-size: 30px;
     margin-left: 30%;
     margin-top: -30px;
+}
+
+.ratingNumberMobile {
+    font-style: italic;
+    font-weight: 200;
+    font-size: 25px;
+    margin-left: 50%;
+    margin-top: -10px;
 }
 
 .reviewButton {
@@ -52,6 +68,7 @@
     font-style: italic;
     font-weight: 200;
     font-size: 30px;
+    top: 30px;
 }
 
 .cover {
@@ -61,12 +78,31 @@
     margin-right: auto;
 }
 
+.covermobile {
+    width: 121px;
+    height: 180px;
+    margin-left: 10px;
+    margin-right: auto;
+}
+
 .infoButton {
     background: #D9D9D9;
     border: 1px solid #000000;
     border-radius: 40px;
     margin-top: 20px;
     width: 173px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.infoButtonMobile {
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    margin-left: -5px;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 130px;
     height: 42px;
     cursor: pointer;
 }
@@ -97,4 +133,21 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+}
+
+#startmobile{
+    margin-top: 10px;
+}
+
+#pagebreakbookpagemobile{
+    margin-top: 55%;
+}
+
+.seeall{
+    font-style: italic;
+    text-decoration: underline;
+    color: blue;
+    font-weight: 200;
+    font-size: 18px;
+    margin-left: 40%;
 }
