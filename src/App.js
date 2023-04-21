@@ -9,7 +9,7 @@ import { AddReview } from './pages/AddReview';
 import { BookPage } from './pages/BookPage';
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('login');
+  const [currentForm,setCurrentForm] = useState('home');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);

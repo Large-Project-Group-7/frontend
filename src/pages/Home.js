@@ -20,7 +20,7 @@ export const Home = (props) => {
                     <img className={style.add} src={add} alt='add button'/>
                 </div>
                 <div>
-                    <BooksList count={4}/>
+                    <BooksList count={7}/>
                     <Recent />
                 </div>
             

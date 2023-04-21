@@ -10,7 +10,7 @@ export default function BooksList(props) {
             <div className={style.coverContainer}>
                 <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
             </div>
-            <p id={style.title}>Y / N</p>
+            <p id={style.title}>Y / Na really long title here</p>
             <p id={style.author}>Author: Esther Yi</p>
             <p id={style.publisher}>Publisher: Astra House</p>
             <p id={style.pages}>244 Pages</p>

@@ -1,6 +1,8 @@
 .container {
     margin-top: 110px;
     margin-left: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 .booksContainer {
@@ -39,7 +41,7 @@
     font-size: 25px;
     margin-left: 200px;
     position: absolute;
-    margin-top: 10px
+    margin-top: 45px;
 }
 
 #publisher  {
@@ -48,7 +50,7 @@
     font-size: 18px;
     margin-left: 200px;
     position: absolute;
-    margin-top: 48px;
+    margin-top: 75px;
     font-weight: 400;
 }
 
@@ -58,7 +60,7 @@
     font-size: 18px;
     margin-left: 200px;
     position: absolute;
-    margin-top: 110px;
+    margin-top: 135px;
     font-weight: 400;
 }
 
@@ -68,7 +70,7 @@
     font-size: 18px;
     margin-left: 200px;
     position: absolute;
-    margin-top: 80px;
+    margin-top: 105px;
     font-weight: 400;
 }
 
@@ -92,4 +94,40 @@
     position: absolute;
     margin-top: 157px;
     font-weight: 400;
+}
+
+@media (max-width: 1345px) {
+    .booksContainer {
+        width: 250px;
+    }
+
+    #author {
+        display: none;
+    }
+    
+    #publisher  {
+        display: none;
+    }
+    
+    #pages  {
+        display: none;
+    }
+    
+    #pub  {
+        display: none;
+    }
+
+    #title  {
+        display: none;
+    }
+
+    #star  {
+        margin-top: 60px;
+        margin-left: 0px;
+    }
+
+    #rating  {
+        margin-top: 60px;
+        margin-left: 30px;
+    }
 }
