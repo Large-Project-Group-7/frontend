@@ -15,11 +15,12 @@
     padding-left: 25px;
     position: relative;
     margin-top: 30px;
+    display: flex;
 }
 
 .coverContainer {
     height: 180px;
-    width: 150px;
+    min-width: 150px;
     display: inline-block;
     cursor: pointer;
 }
@@ -30,8 +31,10 @@
     font-weight: 200;
     font-size: 30px;
     margin-left: 40px;
-    position: absolute;
     margin-top: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #author {
@@ -78,7 +81,7 @@
     display: inline-block;
     font-weight: 200;
     font-size: 18px;
-    margin-left: 25px;
+    margin-left: 200px;
     position: absolute;
     margin-top: 160px;
     font-weight: 400;
@@ -90,7 +93,7 @@
     font-weight: 200;
     font-style: italic;
     font-size: 23px;
-    margin-left: 60px;
+    margin-left: 235px;
     position: absolute;
     margin-top: 157px;
     font-weight: 400;
@@ -123,11 +126,11 @@
 
     #star  {
         margin-top: 60px;
-        margin-left: 0px;
+        margin-left: 160px;
     }
 
     #rating  {
         margin-top: 60px;
-        margin-left: 30px;
+        margin-left: 190px;
     }
 }

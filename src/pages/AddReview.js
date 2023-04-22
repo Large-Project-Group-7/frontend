@@ -32,7 +32,7 @@ export const AddReview = (props) => {
                         <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
                     </div>
                     <div className={style.text}>
-                        <p>Title: Y/N</p>
+                        <p>Title: Y / N</p>
                     </div>
                     <button className={style.button}>Back to Book</button>
                     <div>
