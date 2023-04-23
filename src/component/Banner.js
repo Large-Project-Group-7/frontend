@@ -33,11 +33,11 @@ export const Banner = (props) => {
             <div>
                 <div id="color" className={style.color}>
                     <div id="inline">
-                        <button className={style['menu-pop-in']}> 
+                        <button className={style['menu-pop-in']} onClick={() => props.onFormSwitch('popup')}> 
                             <img src={menuImage}  alt='Menu'/>
                         </button>
                         <button className={style['home-page-button']}> 
-                            <img src={booksImage} className={style['mobile-icon']} alt='Books'  onClick={() => props.onFormSwitch('home')}/>
+                            <img src={booksImage} className={style['mobile-icon']} alt='Books' onClick={() => props.onFormSwitch('home')}/>
                         </button>
                         <button id="" className={style['search-icon']} onClick={() => props.onFormSwitch('searchBook')}> 
                             <img src={searchImage}  alt='Search'/>

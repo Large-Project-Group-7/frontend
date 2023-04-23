@@ -7,9 +7,10 @@ import { SearchUser } from './pages/SearchPage';
 import { AdminPanel } from './pages/AdminPanel';
 import { AddReview } from './pages/AddReview';
 import { BookPage } from './pages/BookPage';
+import { Popup } from "./pages/Popup";
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('AddReview');
+  const [currentForm,setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
@@ -43,6 +44,9 @@ function App() {
           case "Book":
             console.log("Switching to: " + currentForm);
             return <BookPage onFormSwitch={toggleForm}/>
+          case "popup":
+            console.log("Switching to: " + currentForm);
+            return <Popup onFormSwitch={toggleForm}/>
           default:
             console.log("Defaulted");
             return <LoginBox onFormSwitch={toggleForm}/>

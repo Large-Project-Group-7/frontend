@@ -1,5 +1,4 @@
 import style from '../styles/Box.module.css';
-import { useState } from "react";
 import $ from "jquery";
 import '../styles/global.css';
 
@@ -15,9 +14,10 @@ export const LoginBox = (props) => {
             success(data) {
                 //setResult(data); //I dont now if data recieved is asynch
                 console.log("Succesful submit of: " + data);
-                props.onFormSwitch('home')
+                
             },
         });
+        props.onFormSwitch('home');
     };
 
   return (
