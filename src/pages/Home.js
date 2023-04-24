@@ -5,24 +5,73 @@ import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
+import { useState } from 'react';
+import close from '../public/close.png';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const Home = (props) => {
     const isMobile = useCheckMobileScreen();
+    const [books, setBooks ] = useState([]);
+    const [ flag, setFlag ] = useState(false);
+    const [text, setText] = useState('')
+    const [loading, setLoading] = useState(false);
+    const baseUrl = 'http://localhost:5000/amazon/';
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
+
+        function addBook(book) {
+            setBooks([...books, book])
+        }
+
+        const handleKeyDown = (e) => {
+            if (e.keyCode === 13) { // Check if Enter key was pressed
+              handleSubmit();
+            }
+          };
+
+        function handleSubmit() {
+            let url = text.replace('https://www.amazon.com/', '');
+            url = baseUrl + url;
+            setLoading(true);
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.title);
+                    console.log(data.author);
+                    console.log(data.description);
+                    console.log(data.pages);
+                    console.log(data.publisher);
+                    console.log(data.language);
+                    console.log(data.date);
+                    console.log(data.cover);
+                    setLoading(false);
+                })
+        }
+
+        function popUp() {
+            setFlag(!flag)
+        }
+
         return (
-        <div className={style.container}>
+        <div className={loading ? style.container : "" }>
             <Banner/>
                 <div>
                     <h1 className={style.title}>Books</h1>
-                    <img className={style.add} src={add} alt='add button'/>
+                    <img className={style.add} src={add} alt='add button' onClick={popUp}/>
                 </div>
                 <div>
                     <BooksList count={7}/>
                     <Recent />
                 </div>
+                {flag && (
+                <div className={style.linkContainer}> 
+                    <img className={style.close} src={close} alt='close button' onClick={popUp}/>
+                    <h2>Put an Amazon book link here:</h2>
+                    <input className={style.input} name="link" onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <button onClick={handleSubmit}>Submit</button>
+                </div>
+                )}
             
         </div>
     )}
