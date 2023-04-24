@@ -24,8 +24,7 @@ export const SearchBook = (props) => {
             
             <ForegroundBox>
                 <button className='sort' onClick={() => props.onFormSwitch('searchUser')}>
-                    <img>
-                    </img>
+                    Sort
                 </button>
                 <input className='search-bar' placeholder='Search by: Book Name'>
                 </input>
@@ -76,8 +75,7 @@ export const SearchUser = (props) => {
         <div>
             <Banner  {...props}/>
             <button className='sort' onClick={() => props.onFormSwitch('searchBook')}>
-                <img>
-                </img>
+                Sort
             </button>
             <ForegroundBox>
                 <input className='search-bar' placeholder='Search by: Username'>
