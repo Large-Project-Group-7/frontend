@@ -113,6 +113,8 @@
     font-size: 18px;
     margin-top: 110px;
     margin-left: 10px;
+    height: 400px;
+    overflow-y: auto;
 }
 
 .reviewsContainer {
