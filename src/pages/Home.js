@@ -33,19 +33,28 @@ export const Home = (props) => {
         function handleSubmit() {
             let url = text.replace('https://www.amazon.com/', '');
             url = baseUrl + url;
+            console.log(url)
             setLoading(true);
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data.title);
                     console.log(data.author);
-                    console.log(data.description);
                     console.log(data.pages);
                     console.log(data.publisher);
-                    console.log(data.language);
                     console.log(data.date);
                     console.log(data.cover);
+                    const book = {
+                        title: data.title,
+                        author: data.author,
+                        pages: data.pages,
+                        publisher: data.publisher,
+                        date: data.date,
+                        cover: data.cover,
+                    }
+                    addBook(book)
                     setLoading(false);
+                    setFlag(false);
                 })
         }
 
@@ -61,7 +70,7 @@ export const Home = (props) => {
                     <img className={style.add} src={add} alt='add button' onClick={popUp}/>
                 </div>
                 <div>
-                    <BooksList count={7}/>
+                    <BooksList books={books} />
                     <Recent />
                 </div>
                 {flag && (
