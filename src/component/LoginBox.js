@@ -26,7 +26,7 @@ export const LoginBox = (props) => {
       <div>
         <form
           className={style.form}
-  action="http://localhost:8000/test.php"
+          //action="http://localhost:8000/test.php"
           method="post"
           onSubmit={(event) => handleSumbit(event)}
         > {/*port 3001*/}
