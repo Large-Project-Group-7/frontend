@@ -37,7 +37,7 @@ export const AddReview = (props) => {
                     <button className={style.button}>Back to Book</button>
                     <div>
                         <form className={style.form}>
-                            <div>
+                            <div className={style.ratingContainer}>
                                 <p className={style.rating}>Rating:</p>
                                 <Rating rating={rating} flag={flag} setRating={setRating} setFlag={setFlag}
                                   handleRatingChange={handleRatingChange}
@@ -49,7 +49,9 @@ export const AddReview = (props) => {
                                 onChange={(e) => setText(e.target.value)}
                                 placeholder='Review...'
                             ></textarea>
-                            <button className={style.publish}>Publish</button>
+                            <div>
+                                <button className={style.publish}>Publish</button>
+                            </div>
                         </form>
                     </div>
                 </div>

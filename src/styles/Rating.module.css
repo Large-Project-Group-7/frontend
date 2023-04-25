@@ -1,8 +1,5 @@
 .stars {
     display: inline-block;
-    position: absolute;
-    right: 160px;
-    top: 70px;
 }
 
 .star {

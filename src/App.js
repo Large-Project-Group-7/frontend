@@ -10,7 +10,7 @@ import { BookPage } from './pages/BookPage';
 import { Popup } from "./pages/Popup";
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('home');
+  const [currentForm,setCurrentForm] = useState('Book');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
