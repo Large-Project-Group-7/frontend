@@ -1,11 +1,16 @@
 import style from '../styles/Popup.module.css'
+import { Link } from 'react-router-dom';
 
 export default function Popup() {
     return(
         <div className={style.container}>
-            <button className={style.review}>My Reviews</button>
+            <Link to='/ReviewPage'>
+                <button className={style.review}>My Reviews</button>
+            </Link>
             <br />
-            <button className={style.logout}>Logout</button>
+            <Link to='/'>
+                <button className={style.logout}>Logout</button>
+            </Link>
         </div>
     )
 }

@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 
 export const SignUpBox = (props) => {
 
-  //This is for styling the Link, for some reason, it's not working if you put this in the css file
-  const LinkStyle = {
-    display: 'inline-block',
-  }
-
   return (
     <div className={styles.background}>
       <div className={styles.stuff}>
@@ -30,7 +25,9 @@ export const SignUpBox = (props) => {
             <br />
             <button className={styles.submit} type="submit" onClick={() => props.onFormSwitch('home')}>Continue</button> {/*will need to run login verification*/}
             <h3 id={styles.text}>Already have an account?</h3>
-            <Link style={LinkStyle} className={styles['link-btn']} to='/'>Login</Link>
+            <Link to='/'>
+              <button className={styles['link-btn']} to='/'>Login</button>
+            </Link>
           </form>
 
         </div>

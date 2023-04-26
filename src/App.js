@@ -27,7 +27,7 @@ function App() {
             <Route exact path='AddReview' element={<AddReview />} />
             <Route exact path='AdminPanel' element={<AdminPanel />} />
             <Route exact path='Books' element={<BookPage />} />
-            <Route exact path='SearchBook' element={<SearchBook />} />
+            <Route exact path='Users' element={<SearchBook />} />
           </Routes>
       </div>
     </Router>

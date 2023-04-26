@@ -21,11 +21,6 @@ export const LoginBox = (props) => {
         props.onFormSwitch('home');
     };
 
-    //This is for styling the Link, for some reason, it's not working if you put this in the css file
-    const LinkStyle = {
-      display: 'inline-block',
-    }
-
   return (
     <div className={style.background}>
       <div className={style.stuff}>
@@ -50,7 +45,9 @@ export const LoginBox = (props) => {
             <br />
             <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}
             <h3 id={style.text}>Don't have an account?</h3>
-            <Link style={LinkStyle} className={style['link-btn']} to='/Signup'>Sign Up</Link>
+            <Link to='/Signup'>
+              <button className={style['link-btn']} to='/Signup'>Sign Up</button>
+            </Link>
           </form>
         </div>
       </div>

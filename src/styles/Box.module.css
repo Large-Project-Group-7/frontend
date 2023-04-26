@@ -90,6 +90,7 @@ input {
     color: blue;
     font-size: 24px;
     text-decoration: underline;
+    cursor: pointer;
 }
 @media only screen and (max-width: 600px) {
     input::placeholder {
