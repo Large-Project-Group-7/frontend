@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
 import { Home } from './pages/Home';
@@ -15,6 +15,10 @@ function App() {
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
+
+  useEffect(() => {
+    document.title = "Book Raiders";  
+  }, []);
 
   return (
     <div className="App">

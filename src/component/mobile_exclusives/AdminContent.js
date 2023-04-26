@@ -46,8 +46,6 @@ export default function AdminContent() {
             </b>
             <div className={style['break']}></div>
             <textarea id='summary'/>
-            
-            
             <style jsx='true'>{`
                 .bookCoverPlaceholder {
                     display: inline-block;
@@ -146,7 +144,7 @@ export default function AdminContent() {
                     text-align: center;
                 }
 
-                input, textarea {
+                input {
                     margin-top: 0px;
                     margin-left: calc(8%);
                     margin-bottom: 27px;
@@ -158,6 +156,14 @@ export default function AdminContent() {
                     line-height: 22px;
                     text-align: center;
                     background: #FDFDFD;
+                    border: 1px solid #9F9F9F;
+                    border-radius: 20px;
+                    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+                }
+
+                textarea {
+                    font-size: 16px;
+                    line-height: 22px;
                     border: 1px solid #9F9F9F;
                     border-radius: 20px;
                     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
