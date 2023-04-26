@@ -60,6 +60,40 @@ export const AddReview = (props) => {
     }
     return (
         <div>
+            <Banner {...props}/>
+            <div id={style.startmobile}></div>
+            <div className={style.covermobile}>
+                <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
+            <div className={style.titlemobile}>
+                <p>Title:</p>
+                <p>Y / N</p>
+            </div>
+            </div>
+            <div className={style.summarymobile}>
+                <p><b>Summary: </b> お前はもう死んでいる。何？キーーーーン</p>
+            </div>
+            <div id={style.startmobile} ></div>
+            <div className={style.text}>
+                <p><b>Review Text</b></p>
+            </div>
+            <div className={style.ratingContainerMobile}>
+                <p className={style.ratingmobile}>Rating:</p>
+                <Rating rating={rating} flag={flag} setRating={setRating} setFlag={setFlag}
+                    handleRatingChange={handleRatingChange}
+                />
+            </div>
+            <textarea name='review'
+                className={style.reviewmobile}
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                placeholder='Review...'
+            ></textarea>
+            <div>
+                <button className={style.publishmobile}><b>Publish</b></button>
+            </div>
+            <div>
+                <button className={style.backButtonMobile}>Back to Book</button>
+            </div>
         </div>
     )
 } 
