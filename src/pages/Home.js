@@ -7,6 +7,7 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import { useState } from 'react';
 import close from '../public/close.png';
+import '../styles/background.css';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 

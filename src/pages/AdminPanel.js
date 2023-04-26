@@ -1,5 +1,4 @@
 import { Banner } from '../component/Banner';
-import '../styles/background.css';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import AdminContent from '../component/mobile_exclusives/AdminContent';
 import Cover from '../component/Cover';
