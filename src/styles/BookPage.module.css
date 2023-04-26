@@ -51,7 +51,8 @@
     height: 40px;
     width: 210px;
     left: 100px;
-    top: 74px
+    top: 74px;
+    cursor: pointer;
 }
 
 .bookContainer {

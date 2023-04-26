@@ -3,6 +3,7 @@ import Cover from '../component/Cover';
 import style from '../styles/AddReview.module.css';
 import { useState } from 'react';
 import Rating from '../component/Rating';
+import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -34,7 +35,9 @@ export const AddReview = (props) => {
                     <div className={style.text}>
                         <p>Title: Y / N</p>
                     </div>
-                    <button className={style.button}>Back to Book</button>
+                    <Link to='/Book'>
+                        <button className={style.button}>Back to Book</button>
+                    </Link>
                     <div>
                         <form className={style.form}>
                             <div className={style.ratingContainer}>

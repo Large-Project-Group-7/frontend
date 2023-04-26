@@ -82,6 +82,7 @@
     height: 20px;
     margin: left;
     padding-left: 0px;
+    font-size: 20px;
 }
 
 .largeinput {
@@ -91,6 +92,7 @@
     height: 110px;
     margin: left;
     padding-left: 0px;
+    resize: none;
 }
 
 .return{

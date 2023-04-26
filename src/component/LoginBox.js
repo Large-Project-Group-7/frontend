@@ -43,7 +43,9 @@ export const LoginBox = (props) => {
               
               placeholder='Password' />
             <br />
-            <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}
+            <Link to='/Home' >
+              <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}
+            </Link>
             <h3 id={style.text}>Don't have an account?</h3>
             <Link to='/Signup'>
               <button className={style['link-btn']} to='/Signup'>Sign Up</button>

@@ -8,6 +8,7 @@ import Reviews from '../component/Reviews';
 import InfoPopup from '../component/InfoPopup';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
+import { Link } from 'react-router-dom';
 
 export const BookPage = (props) => {
     const isMobile = useCheckMobileScreen();
@@ -25,7 +26,9 @@ export const BookPage = (props) => {
             <div className={style.rating}>
                 <p className={style.userText}>User Reviews & Ratings</p>
                 <p className={style.ratingNumber}>2.2 out of 5</p>
-                <button className={style.reviewButton}>Write/Edit Review</button>
+                <Link to='/AddReview' >
+                    <button className={style.reviewButton}>Write/Edit Review</button>
+                </Link>
             </div>
             <div className={style.bookContainer}>
                 <p className={style.title}>Harry Potter and the Sorceres Stone</p>

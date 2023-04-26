@@ -24,10 +24,10 @@ function App() {
             <Route exact path='/' element={<LoginBox />} />
             <Route exact path='/Signup' element={<SignUpBox />}/>
             <Route exact path='/Home' element={<Home />} />
-            <Route exact path='AddReview' element={<AddReview />} />
-            <Route exact path='AdminPanel' element={<AdminPanel />} />
-            <Route exact path='Books' element={<BookPage />} />
-            <Route exact path='Users' element={<SearchBook />} />
+            <Route exact path='/AddReview' element={<AddReview />} />
+            <Route exact path='/AdminPanel' element={<AdminPanel />} />
+            <Route exact path='/Book' element={<BookPage />} />
+            <Route exact path='/Users' element={<SearchBook />} />
           </Routes>
       </div>
     </Router>
