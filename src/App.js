@@ -12,7 +12,7 @@ import { ProfilePage } from "./pages/ProfilePage";
 
 
 function App() {
-  const [currentForm,setCurrentForm] = useState('AddReview');
+  const [currentForm,setCurrentForm] = useState('ReviewPage');
 
   const toggleForm = (formName) => {
     setCurrentForm(formName);
