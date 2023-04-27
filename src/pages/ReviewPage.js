@@ -3,9 +3,13 @@ import { Banner } from '../component/Banner';
 import style from '../styles/ReviewPage.module.css'
 import Cover from '../component/Cover';
 import star from '../public/Star.svg';
+import { Link } from 'react-router-dom';
 
 export const ReviewPage = (props) =>  {
     const isMobile = useCheckMobileScreen();
+    const LinkStyle = {
+        textDecoration: 'none',
+    }
     if (!isMobile) 
     {
         return (
@@ -30,9 +34,11 @@ export const ReviewPage = (props) =>  {
                                 <p className={style.username}>By USERNAME</p>
                             </div>
                         </div>
+                        <Link to='/Book' style={LinkStyle}>
                         <div className={style.buttonCont}>
-                            <button className={style.button}>Publish</button>
+                                <button className={style.button}>Edit</button>
                         </div>
+                        </Link>
                     </div>
                     <div className={style.right}>
                         <textarea className={style.review}></textarea>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Popup() {
     return(
         <div className={style.container}>
-            <Link to='/Review'>
+            <Link to='/Profile'>
                 <button className={style.review}>My Reviews</button>
             </Link>
             <br />

@@ -1,8 +1,11 @@
 import styles from '../styles/Box.module.css';
 import '../styles/global.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const SignUpBox = (props) => {
+  const [success, setSuccess] = useState(false);
+
   // function handle submit
   function handleSubmit(event) {
     event.preventDefault();
@@ -25,6 +28,7 @@ export const SignUpBox = (props) => {
     .then(response => {
       if(response.status === 201) {
         form.reset(); //Basically clear the content of the input if register correctly
+        setSuccess(true);
         return response.json();
       }
     })
@@ -40,13 +44,16 @@ export const SignUpBox = (props) => {
             <h2 className={styles.Sign}>  {/*Moved inside div so it can be centered w. the form itself*/}
               Sign Up
             </h2>
+            {success && (<h3>Account registered!</h3>)}
             <input name="username"
               placeholder='Username' 
-              required/>
+              required
+              autoComplete='off'/>
             <br />
             <input type="email" name="email"
               placeholder='Email Address'
-              required />
+              required 
+              autoComplete='off'/>
             <br />
             <input id='password' type="password" name="password"
               placeholder='Password' 
