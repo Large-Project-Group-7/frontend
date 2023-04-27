@@ -42,7 +42,7 @@
     width: 50%;
     display: flex;
     justify-content: flex-end;
-    align-items: end;
+    align-items: flex-end;
     box-sizing: border-box;
     padding-right: 130px;
 }

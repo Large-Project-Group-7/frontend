@@ -13,7 +13,7 @@ export default function BooksList(props) {
             <p id={style.title}>{props.books[i].title}</p>
             <p id={style.author}>Author: {props.books[i].author[0]}</p>
             <p id={style.publisher}>Publisher: {props.books[i].publisher}</p>
-            <p id={style.pages}>{props.books[i].pages}</p>
+            <p id={style.pages}>{props.books[i].pages} Pages</p>
             <p id={style.pub}>Date Published: {props.books[i].date}</p>
             <img id={style.star} src={star} alt='rating star'/>
             <p id={style.rating}>4/5</p>

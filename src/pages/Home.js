@@ -17,7 +17,9 @@ export const Home = (props) => {
     const [ flag, setFlag ] = useState(false);
     const [text, setText] = useState('')
     const [loading, setLoading] = useState(false);
-    const baseUrl = 'http://localhost:5000/amazon/';
+    const [error, setError] = useState(false);
+    const baseURL = 'https://www.googleapis.com/books/v1/volumes/';
+    const regex = /\/dp\/(\d+)/;
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
 
@@ -31,27 +33,48 @@ export const Home = (props) => {
             }
           };
 
-        function handleSubmit() {
-            let url = text.replace('https://www.amazon.com/', '');
-            url = baseUrl + url;
-            console.log(url)
+        async function handleSubmit() {
+            const match = text.match(regex);
+            if (match === null) {
+                setError(true);
+                return 
+            }
+            let isbn = match[1];
+            let searchURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn.toString();
+
+            console.log(isbn);
+            console.log(searchURL);
             setLoading(true);
+
+            const response = await fetch(searchURL)
+            const data = await response.json();
+            let id = data.items[0].id;
+
+            console.log(id)
+            let url = baseURL + id;
+            console.log(url)
+
+            let coverFlag = true
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.title);
-                    console.log(data.author);
-                    console.log(data.pages);
-                    console.log(data.publisher);
-                    console.log(data.date);
-                    console.log(data.cover);
+                    console.log(data.volumeInfo.title);
+                    console.log(data.volumeInfo.authors);
+                    console.log(data.volumeInfo.pageCount);
+                    console.log(data.volumeInfo.publisher);
+                    console.log(data.volumeInfo.publishedDate);
+                    //In case there is no thumbnail
+                    if (data.volumeInfo.imageLinks === undefined){
+                        coverFlag = false;
+                    }
+                    (coverFlag ? console.log(data.volumeInfo.imageLinks.thumbnail) : console.log(''));
                     const book = {
-                        title: data.title,
-                        author: data.author,
-                        pages: data.pages,
-                        publisher: data.publisher,
-                        date: data.date,
-                        cover: data.cover,
+                        title: data.volumeInfo.title,
+                        author: data.volumeInfo.authors,
+                        pages: data.volumeInfo.pageCount,
+                        publisher: data.volumeInfo.publisher,
+                        date: data.volumeInfo.publishedDate,
+                        cover: (coverFlag ? data.volumeInfo.imageLinks.thumbnail : 'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'),
                     }
                     addBook(book)
                     setLoading(false);
@@ -60,7 +83,8 @@ export const Home = (props) => {
         }
 
         function popUp() {
-            setFlag(!flag)
+            setError(false);
+            setFlag(!flag);
         }
 
         return (
@@ -77,6 +101,9 @@ export const Home = (props) => {
                 {flag && (
                 <div className={style.linkContainer}> 
                     <img className={style.close} src={close} alt='close button' onClick={popUp}/>
+                    {error && (
+                        <h3 className={style.error}>Please enter a proper Amazon book link or find another Amazon link</h3>
+                    )}
                     <h2>Put an Amazon book link here:</h2>
                     <input className={style.input} name="link" onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
                     <button onClick={handleSubmit}>Submit</button>

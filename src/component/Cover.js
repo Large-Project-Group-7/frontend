@@ -5,9 +5,9 @@ export default function Cover(props) {
     let covers = [];
     for (let i = 0; i < props.count; i++) {
         covers.push(
-            <Link to='/Book' > 
+            <Link to='/Book' key={i}> 
                 <img src={props.src}
-                alt='books cover' key={i} className={style.cover}/>
+                alt='books cover' className={style.cover}/>
             </Link>
         );
     }
