@@ -7,6 +7,7 @@ import { AdminPanel } from './pages/AdminPanel';
 import { BookPage } from './pages/BookPage';
 import { SearchBook } from './pages/SearchPage';
 import { Home } from './pages/Home';
+import { ReviewPage } from './pages/ReviewPage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route exact path='/AdminPanel' element={<AdminPanel />} />
             <Route exact path='/Book' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />
+            <Route exact path='/Review' element={<ReviewPage />} />
           </Routes>
       </div>
     </Router>
