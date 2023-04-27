@@ -89,7 +89,7 @@ export const BookPage = (props) => {
             <div className={style.reviewsContainer}>
                 <Pages totalPages={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 <div className={style.collections}>
-                    <Reviews count={currentReviewNum}/>
+                    <Reviews count={currentReviewNum} reviews={book.reviews} currentPage={currentPage}/>
                 </div>
             </div>
         </div>
