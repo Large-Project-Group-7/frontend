@@ -132,6 +132,12 @@ export const Home = (props) => {
                     <h1 className={style.title}>Books</h1>
                     <img className={style.add} src={add} alt='add button' onClick={popUp}/>
                 </div>
+                <select className={style.selection}>
+                    <option value="option1">Sort by newest</option>
+                    <option value="option2">Sort by oldest</option>
+                    <option value="option3">Sort by title</option>
+                    <option value="option3">sort by rating</option>
+                </select>
                 <div>
                     <BooksList books={books} />
                     <Recent />
