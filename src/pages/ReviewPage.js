@@ -34,7 +34,7 @@ export const ReviewPage = (props) =>  {
                                 <p className={style.username}>By USERNAME</p>
                             </div>
                         </div>
-                        <Link to='/Book' style={LinkStyle}>
+                        <Link to='/AddReview' style={LinkStyle}>
                         <div className={style.buttonCont}>
                                 <button className={style.button}>Edit</button>
                         </div>

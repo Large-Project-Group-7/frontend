@@ -8,6 +8,7 @@ import { BookPage } from './pages/BookPage';
 import { SearchBook } from './pages/SearchPage';
 import { Home } from './pages/Home';
 import { ReviewPage } from './pages/ReviewPage';
+import { ProfilePage } from "./pages/ProfilePage";
 
 
 function App() {
@@ -22,14 +23,15 @@ function App() {
           {/*Just put the pages here and the path to the pages,
           to Link to it, just use Link from react-router-dom, look in LoginBox for how to do that. */}
           <Routes>
-            <Route exact path='/' element={<LoginBox />} />
-            <Route exact path='/Signup' element={<SignUpBox />}/>
-            <Route exact path='/Home' element={<Home />} />
-            <Route exact path='/AddReview' element={<AddReview />} />
-            <Route exact path='/AdminPanel' element={<AdminPanel />} />
+            <Route exact path='/' element={<LoginBox />} />;
+            <Route exact path='/Signup' element={<SignUpBox />}/>;
+            <Route exact path='/Home' element={<Home />} />;
+            <Route exact path='/AddReview' element={<AddReview />} />;
+            <Route exact path='/AdminPanel' element={<AdminPanel />} />;
             <Route exact path='/Book' element={<BookPage />} />
-            <Route exact path='/Users' element={<SearchBook />} />
-            <Route exact path='/Review' element={<ReviewPage />} />
+            <Route exact path='/Users' element={<SearchBook />} />;
+            <Route exact path='/Review' element={<ReviewPage />} />;
+            <Route excat path='/Profile' element={<ProfilePage />} />;
           </Routes>
       </div>
     </Router>
