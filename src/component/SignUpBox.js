@@ -3,9 +3,11 @@ import '../styles/global.css';
 import { Link } from 'react-router-dom';
 
 export const SignUpBox = (props) => {
+  // function handle submit
   function handleSubmit(event) {
     event.preventDefault();
 
+    //Get the data from form and add some data too
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
