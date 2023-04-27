@@ -1,0 +1,90 @@
+.container {
+    margin-top: 72px;
+    height: 902.5px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 20px;
+    display: flex;
+    padding-right: 20px;
+}
+
+.info {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonCont {
+    display: flex;
+    justify-content: center;
+}
+
+.bookInfo {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.cover {
+    width: 170px;
+}
+
+.rateInfo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+}
+
+.number {
+    font-weight: 200;
+    font-style: italic;
+    font-size: 23px;
+}
+
+.username {
+    margin-top: 0px;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.button {
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.review {
+    resize: none;
+    width: 80%;
+    height: 80%;
+    font-size: 20px;
+    padding: 10px;
+}

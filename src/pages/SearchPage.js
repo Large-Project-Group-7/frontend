@@ -1,5 +1,4 @@
 import { Banner } from '../component/Banner';
-import '../styles/background.css';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import PerUserBox from '../component/mobile_exclusives/PerUserBox';
@@ -18,6 +17,7 @@ export const SearchBook = (props) => {
             <UserList count={7}/>
         </div>
     )}
+
     return (
         <div>
             <Banner  {...props}/>

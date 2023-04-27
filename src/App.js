@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect} from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { SignUpBox } from './component/SignUpBox';
 import { LoginBox } from './component/LoginBox';
-import { Home } from './pages/Home';
-import { SearchBook } from './pages/SearchPage';
-import { SearchUser } from './pages/SearchPage';
-import { AdminPanel } from './pages/AdminPanel';
 import { AddReview } from './pages/AddReview';
+import { AdminPanel } from './pages/AdminPanel';
 import { BookPage } from './pages/BookPage';
-import { Popup } from "./pages/Popup";
+import { SearchBook } from './pages/SearchPage';
+import { Home } from './pages/Home';
+import { ReviewPage } from './pages/ReviewPage';
+import { ProfilePage } from "./pages/ProfilePage";
+
 
 function App() {
   const [currentForm,setCurrentForm] = useState('AddReview');
@@ -17,42 +19,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {(() => {
-        switch (currentForm) {
-          case "login":
-            console.log("Switching to: " + currentForm);
-            return <LoginBox onFormSwitch={toggleForm}/>
-          case "register":
-            console.log("Switching to: " + currentForm);
-            return <SignUpBox onFormSwitch={toggleForm}/>
-          case "home":
-            console.log("Switching to: " + currentForm);
-            return <Home onFormSwitch={toggleForm}/>
-          case "searchBook":
-            console.log("Switching to: " + currentForm);
-            return <SearchBook onFormSwitch={toggleForm}/>
-          case "searchUser":
-            console.log("Switching to: " + currentForm);
-            return <SearchUser onFormSwitch={toggleForm}/>
-          case "admin":
-            console.log("Switching to: " + currentForm);
-            return <AdminPanel onFormSwitch={toggleForm}/>
-          case "AddReview":
-            console.log("Switching to: " + currentForm);
-            return <AddReview onFormSwitch={toggleForm}/>
-          case "Book":
-            console.log("Switching to: " + currentForm);
-            return <BookPage onFormSwitch={toggleForm}/>
-          case "popup":
-            console.log("Switching to: " + currentForm);
-            return <Popup onFormSwitch={toggleForm}/>
-          default:
-            console.log("Defaulted");
-            return <LoginBox onFormSwitch={toggleForm}/>
-        }
-      })()}
-    </div>
+    // Implement router for redirecting pages
+    <Router>
+      <div className="App">
+          {/*Just put the pages here and the path to the pages,
+          to Link to it, just use Link from react-router-dom, look in LoginBox for how to do that. */}
+          <Routes>
+            <Route exact path='/' element={<LoginBox />} />;
+            <Route exact path='/Signup' element={<SignUpBox />}/>;
+            <Route exact path='/Home' element={<Home />} />;
+            <Route exact path='/AddReview' element={<AddReview />} />;
+            <Route exact path='/AdminPanel' element={<AdminPanel />} />;
+            <Route exact path='/Book/:bookID' element={<BookPage />} />
+            <Route exact path='/Users' element={<SearchBook />} />;
+            <Route exact path='/Review' element={<ReviewPage />} />;
+            <Route excat path='/Profile' element={<ProfilePage />} />;
+          </Routes>
+      </div>
+    </Router>
   );
 }
 

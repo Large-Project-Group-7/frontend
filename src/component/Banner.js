@@ -3,6 +3,7 @@ import booksImage from '../public/books.png';
 import menuImage from '../public/ListButton.png';
 import searchImage from '../public/SearchIcon.svg';
 import Profile from './Profile';
+import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from './mobile_exclusives/CheckMobile';
 
@@ -10,18 +11,29 @@ import useCheckMobileScreen from './mobile_exclusives/CheckMobile';
 
 export const Banner = (props) => {
     const isMobile = useCheckMobileScreen();
+    const LinkStyle = {
+        textDecoration: 'none',
+    }
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         return (
                 <div className={style.color}>
                     <div className={style.test}>
-                        <img src={booksImage} className={style.icon} alt='books'/>
-                        <h2 className={style.left} id='title'>Book Raiders</h2>
+                        <Link to='/Home'>
+                            <img src={booksImage} className={style.icon} alt='books'/>
+                        </Link>
+                        <Link to='/Home'>
+                            <h2 className={style.left} id='title'>Book Raiders</h2>
+                        </Link>
                         <Profile />
                     </div>
                     <div className={style.RContainer}>
-                        <h2 id="left" className={style.right}>Books</h2>
-                        <h2 className={style.right}>Community</h2>
+                        <Link to='/Home' style={LinkStyle}>
+                            <h2  id="left" className={style.right}>Books</h2>
+                        </Link>
+                        <Link  to='/Users' style={LinkStyle}>
+                            <h2 className={style.right}>Community</h2>
+                        </Link>
                         <input type='search'
                         placeholder='Search Books' className={style.search}/> 
                     </div>   

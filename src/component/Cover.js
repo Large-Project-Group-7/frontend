@@ -1,11 +1,16 @@
 import style from '../styles/Cover.module.css'
+import { Link } from 'react-router-dom';
 
 export default function Cover(props) {
     let covers = [];
     for (let i = 0; i < props.count; i++) {
+        const path =`/Book/${props._id}`
+
         covers.push(
-            <img src={props.src}
-            alt='books cover' key={i} className={style.cover}/>
+            <Link to={path} key={i}> 
+                <img src={props.src}
+                alt='books cover' className={style.cover}/>
+            </Link>
         );
     }
 
