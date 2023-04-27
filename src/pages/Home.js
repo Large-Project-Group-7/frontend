@@ -77,6 +77,9 @@ export const Home = (props) => {
             // let coverFlag = true
             const bookResponse = await fetch(url)
             const bookData = await bookResponse.json();
+            //This is for cases where google book return with html element tags in them
+            let description = bookData.volumeInfo.description;
+            description = description.replace(/(<br\s*\/?>)/g, '\n').replace(/<[^>]*>/g, '').replace(/&.*;/g, '');
 
             const book = {
                 ISBN: isbn,
@@ -85,7 +88,7 @@ export const Home = (props) => {
                 pageCount: bookData.volumeInfo.pageCount,
                 publisher: bookData.volumeInfo.publisher,
                 yearPublished: bookData.volumeInfo.publishedDate,
-                summary: bookData.volumeInfo.description,
+                summary: description,
                 reviewCount : 0,
                 totalScore: 0,
                 reviews: null,
@@ -106,10 +109,13 @@ export const Home = (props) => {
                 setLoading(false)
                 return
             }
+
+            const resultResponse = await result.json();
+
             setLoading(false)
             setFlag(!flag);
             setError(false)
-            addBook(book)
+            addBook(resultResponse)
             setDuplicate(false)
         }
 
@@ -140,7 +146,7 @@ export const Home = (props) => {
                         <h3 className={style.error}>Please enter a proper Amazon book link or find another Amazon link</h3>
                     )}
                     <h2>Put an Amazon book link here:</h2>
-                    <input className={style.input} name="link" onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
+                    <input autoComplete='off' className={style.input} name="link" onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
                     <button onClick={handleSubmit}>Submit</button>
                 </div>
                 )}

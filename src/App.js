@@ -28,7 +28,7 @@ function App() {
             <Route exact path='/Home' element={<Home />} />;
             <Route exact path='/AddReview' element={<AddReview />} />;
             <Route exact path='/AdminPanel' element={<AdminPanel />} />;
-            <Route exact path='/Book' element={<BookPage />} />
+            <Route exact path='/Book/:bookID' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />;
             <Route exact path='/Review' element={<ReviewPage />} />;
             <Route excat path='/Profile' element={<ProfilePage />} />;
