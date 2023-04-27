@@ -30,7 +30,7 @@ function App() {
             <Route exact path='/AdminPanel' element={<AdminPanel />} />;
             <Route exact path='/Book/:bookID' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />;
-            <Route exact path='/Review' element={<ReviewPage />} />;
+            <Route exact path='/Review/:reviewID' element={<ReviewPage />} />;
             <Route excat path='/Profile' element={<ProfilePage />} />;
           </Routes>
       </div>

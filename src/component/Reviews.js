@@ -19,8 +19,6 @@ export default function Reviews(props) {
                 .then(response => response.json())
             });
             const reviewsData = await Promise.all(reviewPromises);
-            console.log('Im after promieses.all')
-            console.log(`This is the reviews data: ${reviewsData}`)
             setReviewData(reviewsData);
         }
         getReviewsData();
@@ -36,8 +34,8 @@ export default function Reviews(props) {
             {reviews.map((review, i) => {
                 return(
                     <div className={style.review} key={i}> 
-                        <ReviewBanner userID={review.userID}/>
-                        <Link to="/Review" style={LinkStyle}>
+                        <ReviewBanner userID={review.userID} score={review.score}/>
+                        <Link to={`/Review/${review._id}`} style={LinkStyle}>
                             <div className={style.description}>
                             <p className={style.text}>{review.review}</p>
                             </div>
