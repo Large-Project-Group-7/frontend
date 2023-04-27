@@ -5,7 +5,7 @@ import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import close from '../public/close.png';
 import '../styles/background.css';
 
@@ -14,12 +14,32 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 export const Home = (props) => {
     const isMobile = useCheckMobileScreen();
     const [books, setBooks ] = useState([]);
+
     const [ flag, setFlag ] = useState(false);
     const [text, setText] = useState('')
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [duplicate, setDuplicate] = useState(false);
     const baseURL = 'https://www.googleapis.com/books/v1/volumes/';
-    const regex = /\/dp\/(\d+)/;
+    const regex = /\/dp\/([\dX]+)/i;
+
+    // This if to get the all the books in the database
+    useEffect(() => {
+        fetch('http://localhost:3001/books', {
+            method: 'GET',
+    
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then(response => {
+            if(response.status === 200) {
+                return response.json();
+           }
+        }).then(data => {
+            setBooks(data);
+        })
+    }, [])
+
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
 
@@ -54,37 +74,47 @@ export const Home = (props) => {
             let url = baseURL + id;
             console.log(url)
 
-            let coverFlag = true
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data.volumeInfo.title);
-                    console.log(data.volumeInfo.authors);
-                    console.log(data.volumeInfo.pageCount);
-                    console.log(data.volumeInfo.publisher);
-                    console.log(data.volumeInfo.publishedDate);
-                    //In case there is no thumbnail
-                    if (data.volumeInfo.imageLinks === undefined){
-                        coverFlag = false;
-                    }
-                    (coverFlag ? console.log(data.volumeInfo.imageLinks.thumbnail) : console.log(''));
-                    const book = {
-                        title: data.volumeInfo.title,
-                        author: data.volumeInfo.authors,
-                        pages: data.volumeInfo.pageCount,
-                        publisher: data.volumeInfo.publisher,
-                        date: data.volumeInfo.publishedDate,
-                        cover: (coverFlag ? data.volumeInfo.imageLinks.thumbnail : 'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'),
-                    }
-                    addBook(book)
-                    setLoading(false);
-                    setFlag(false);
-                })
+            // let coverFlag = true
+            const bookResponse = await fetch(url)
+            const bookData = await bookResponse.json();
+
+            const book = {
+                ISBN: isbn,
+                title: bookData.volumeInfo.title,
+                author: bookData.volumeInfo.authors[0],
+                pageCount: bookData.volumeInfo.pageCount,
+                publisher: bookData.volumeInfo.publisher,
+                yearPublished: bookData.volumeInfo.publishedDate,
+                summary: bookData.volumeInfo.description,
+                reviewCount : 0,
+                totalScore: 0,
+                reviews: null,
+            }
+
+            const result = await fetch ('http://localhost:3001/books', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(book),
+            })
+
+            if (result.status === 500) {
+                setDuplicate(true)
+                setLoading(false)
+                return
+            }
+            setLoading(false)
+            setFlag(!flag);
+            setError(false)
+            addBook(book)
+            setDuplicate(false)
         }
 
         function popUp() {
             setError(false);
             setFlag(!flag);
+            setDuplicate(false);
         }
 
         return (
@@ -101,6 +131,9 @@ export const Home = (props) => {
                 {flag && (
                 <div className={style.linkContainer}> 
                     <img className={style.close} src={close} alt='close button' onClick={popUp}/>
+                    {duplicate && (
+                        <h3 className={style.error}>The book is in already in the website</h3>
+                    )}
                     {error && (
                         <h3 className={style.error}>Please enter a proper Amazon book link or find another Amazon link</h3>
                     )}
