@@ -91,6 +91,7 @@ export const Home = (props) => {
                 reviews: null,
             }
 
+            // Add it to the database
             const result = await fetch ('http://localhost:3001/books', {
                 method: 'POST',
                 headers: {
@@ -99,6 +100,7 @@ export const Home = (props) => {
                 body: JSON.stringify(book),
             })
 
+            // Check if the book is already in the database
             if (result.status === 500) {
                 setDuplicate(true)
                 setLoading(false)
