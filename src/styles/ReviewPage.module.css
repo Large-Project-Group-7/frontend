@@ -150,6 +150,7 @@
     width: 85%;
     height: 250px;
     font-size: 12px;
+    border: 1px solid gray;
     padding: 5px;
     position: relative;
 }

@@ -1,3 +1,14 @@
+.containermobile {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 350px;
+    padding: 0.5px;
+    background-color: #F4F4F2;
+    position: relative;
+}
+
 .cover {
     height: 252px;
     width: 190px;
@@ -39,7 +50,7 @@
 .summarymobile{
     margin-top: 0px;
     margin-left: 20px;
-    width: 340px;
+    width: 320px;
     font-size: 15px;
 }
 
@@ -63,16 +74,15 @@
 }
 
 .reviewmobile {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     max-width: 350px;
-    width: 100%;
+    width: 90%;
     height: 200px;
     margin-top: -50px;
     margin-left: 10px;
     border: 1px solid gray;
+    padding: 5px;
+    position: relative;
 }
 
 .form {
