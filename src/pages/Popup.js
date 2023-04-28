@@ -1,6 +1,6 @@
 import { Banner } from '../component/Banner';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
-
+import { Link } from 'react-router-dom';
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const Popup = (props) => {
@@ -9,7 +9,7 @@ export const Popup = (props) => {
     {
         return (
         <div>
-            <p>This page is not intended for desktop users! If you're seeing this, logout, and log back in.</p>
+            <p>This page is not intended for desktop users! If you're seeing this, try refreshing the page or logout, and log back in.</p>
         </div>
     )}
     return (
@@ -26,9 +26,11 @@ export const Popup = (props) => {
                 <button className='nav-buttons'>
                     <b className='nav-text'>Community</b>
                 </button>
-                <button className='nav-buttons'>
-                    <b className='nav-text' onClick={() => props.onFormSwitch('login')}>Logout</b>
-                </button>
+                <Link to='/' >
+                    <button className='nav-buttons'>
+                        <b className='nav-text'>Logout</b>
+                    </button>
+                </Link>
             </ForegroundBox>
             <style jsx='true'>{`
             .nav-buttons {

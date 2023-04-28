@@ -73,14 +73,14 @@ export const BookPage = (props) => {
             <div className={style.rating}>
                 <p className={style.userText}>User Reviews & Ratings</p>
                 <p className={style.ratingNumber}>{score} out of 5</p>
-                <Link to='/AddReview' >
+                <Link to={`/AddReview/${bookID}`} >
                     <button className={style.reviewButton}>Write/Edit Review</button>
                 </Link>
             </div>
             <div className={style.bookContainer}>
                 <p className={style.title}>{book.title}</p>
                 <div className={style.cover}>
-                    <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'/>
+                    <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={bookID}/>
                     <button className={style.infoButton} onClick={popUp}>Book Information</button>
                     {pop && <InfoPopup book={book} handleClick={popUp}/>}
                 </div>
@@ -89,7 +89,7 @@ export const BookPage = (props) => {
             <div className={style.reviewsContainer}>
                 <Pages totalPages={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 <div className={style.collections}>
-                    <Reviews count={currentReviewNum}/>
+                    <Reviews count={currentReviewNum} reviews={book.reviews} currentPage={currentPage}/>
                 </div>
             </div>
         </div>

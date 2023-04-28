@@ -45,7 +45,8 @@
 
 .buttonCont {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .bookInfo {
@@ -126,7 +127,7 @@
 
 .button {
     background: #D9D9D9;
-    border: 1px solid #000000;
+    border: none;
     border-radius: 40px;
     width: 20%;
     height: 50px;
@@ -134,12 +135,31 @@
     cursor: pointer;
 }
 
+.delButton {
+    background: #D9D9D9;
+    border: 1px solid #000000;
+    border-radius: 40px;
+    width: 20%;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
 .review {
     resize: none;
     width: 80%;
     height: 80%;
     font-size: 20px;
     padding: 10px;
+    caret-color: transparent;
+    user-select: none;
+}
+
+.review:focus {
+    outline: none;
+}
+
+.title {
+    text-align: center;
 }
 
 .reviewMobile {

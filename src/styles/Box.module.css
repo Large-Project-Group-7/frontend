@@ -41,13 +41,13 @@
     text-align: center;
 }
 
-input::placeholder {
+.input::placeholder {
     font-weight: 5px;
     text-align: center;
     font-size: 32px
 }
 
-input {
+.input {
     background: linear-gradient(0deg, rgba(203, 119, 119, 0.2), 
                 rgba(203, 119, 119, 0.2)), 
                 #FFFFFF;

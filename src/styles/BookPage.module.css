@@ -138,7 +138,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    text-align: center;
     justify-content: center;
 }
 

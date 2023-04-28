@@ -48,16 +48,22 @@ export const SignUpBox = (props) => {
             <input name="username"
               placeholder='Username' 
               required
-              autoComplete='off'/>
+              autoComplete='off'
+              className={styles.input}
+              />
             <br />
             <input type="email" name="email"
               placeholder='Email Address'
               required 
-              autoComplete='off'/>
+              autoComplete='off'
+              className={styles.input}
+              />
             <br />
             <input id='password' type="password" name="password"
               placeholder='Password' 
-              required/>
+              required
+              className={styles.input}
+              />
             <br />
             <button className={styles.submit} type="submit">Continue</button> {/*will need to run login verification*/}
             <h3 id={styles.text}>Already have an account?</h3>
