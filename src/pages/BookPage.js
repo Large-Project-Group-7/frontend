@@ -80,7 +80,7 @@ export const BookPage = (props) => {
             <div className={style.bookContainer}>
                 <p className={style.title}>{book.title}</p>
                 <div className={style.cover}>
-                    <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={bookID}/>
+                    <Cover count={1} src={book.bookCover} _id={bookID}/>
                     <button className={style.infoButton} onClick={popUp}>Book Information</button>
                     {pop && <InfoPopup book={book} handleClick={popUp}/>}
                 </div>
@@ -100,7 +100,7 @@ export const BookPage = (props) => {
             <Banner {...props}/>
                 <ForegroundBox>
                     <div id={style.startmobile}></div>
-                    <div className={style['title']}>Harry Potter and the Sorceror's Stone</div>
+                    <div className={style['titlemobile']}>Harry Potter and the Sorceror's Stone</div>
                     <div className={style.covermobile}>
                     <Cover count={1} src='https://m.media-amazon.com/images/I/51HSkTKlauL._SY291_BO1,204,203,200_QL40_ML2_.jpg'/>
                     <button className={style.infoButtonMobile} onClick={popUp}>Book Information</button>

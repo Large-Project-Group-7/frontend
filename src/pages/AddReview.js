@@ -179,6 +179,7 @@ export const AddReview = (props) => {
     return (
         <div>
             <Banner {...props}/>
+            <div className={style.containermobile}>
             <div id={style.startmobile}></div>
             <div className={style.covermobile}>
                 <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
@@ -213,5 +214,6 @@ export const AddReview = (props) => {
                 <button className={style.backButtonMobile}>Back to Book</button>
             </div>
         </div>
+    </div>
     )
 } 
