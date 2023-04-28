@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import style from '../styles/Pages.module.css';
 
 export default function Pages(props) {
-
-    const [currentPage, setCurrentPage] = useState(1);
 
     // change this if you wnat to see the maximum amount of
     // buttons you can see at a time
@@ -12,12 +9,12 @@ export default function Pages(props) {
     //Get the range of the buttons that is going to be shown
     const getPageNumbers = () => {
         let delta = Math.floor(maxVisibleButtons / 2);
-        let left = currentPage - delta + (maxVisibleButtons % 2 ? 0: 1);
-        let right = currentPage + delta;
+        let left = props.currentPage - delta + (maxVisibleButtons % 2 ? 0: 1);
+        let right = props.currentPage + delta;
 
-        if (currentPage <= delta) {
+        if (props.currentPage <= delta) {
             right = maxVisibleButtons;
-        }else if (currentPage >= props.totalPages - delta) {
+        }else if (props.currentPage >= props.totalPages - delta) {
             left = props.totalPages - maxVisibleButtons + 1;
             right = props.totalPages;
         }
@@ -34,7 +31,7 @@ export default function Pages(props) {
     };
 
     const handleClick = (pageNumber) => {
-        setCurrentPage(pageNumber);
+        props.setCurrentPage(pageNumber);
     }
 
     // How to render the buttons
@@ -47,7 +44,7 @@ export default function Pages(props) {
                 {(pageNumbers[1]) > 1 && (
                     <>
                         <button className={style.buttons} onClick={() => handleClick(1)}>1</button>
-                        {currentPage > maxVisibleButtons / 2 + 1 && <span className={style.space}>...</span>}
+                        {props.currentPage > maxVisibleButtons / 2 + 1 && <span className={style.space}>...</span>}
                     </>
                 )}
 
@@ -55,7 +52,7 @@ export default function Pages(props) {
                     <button 
                       key={pageNumber}
                       onClick={() => handleClick(pageNumber)}
-                      className={currentPage === pageNumber ? style.active : style.buttons}
+                      className={props.currentPage === pageNumber ? style.active : style.buttons}
                     >
                         {pageNumber}
                     </button>
@@ -63,7 +60,7 @@ export default function Pages(props) {
 
                 {(pageNumbers[2]) < [props.totalPages] && (
                     <>
-                        {(currentPage < props.totalPages - maxVisibleButtons / 2 - 1) && <span className={style.space}>...</span>}
+                        {(props.currentPage < props.totalPages - maxVisibleButtons / 2 - 1) && <span className={style.space}>...</span>}
                         <button className={style.buttons} onClick={() => handleClick(props.totalPages)}>{props.totalPages}</button>
                     </>
                 )}

@@ -87,4 +87,10 @@
     height: 80%;
     font-size: 20px;
     padding: 10px;
+    caret-color: transparent;
+    user-select: none;
+}
+
+.review:focus {
+    outline: none;
 }

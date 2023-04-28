@@ -30,6 +30,7 @@
     min-width: 150px;
     display: inline-block;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 #title {
