@@ -5,9 +5,12 @@ import { AddReview } from './pages/AddReview';
 import { AdminPanel } from './pages/AdminPanel';
 import { BookPage } from './pages/BookPage';
 import { SearchBook } from './pages/SearchPage';
+import { SearchUser } from './pages/SearchPageUsers';
 import { Home } from './pages/Home';
 import { ReviewPage } from './pages/ReviewPage';
 import { ProfilePage } from "./pages/ProfilePage";
+import { Popup } from "./pages/Popup";
+
 
 
 function App() {
@@ -27,7 +30,9 @@ function App() {
             <Route exact path='/Book/:bookID' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />;
             <Route exact path='/Review/:reviewID' element={<ReviewPage />} />;
-            <Route excat path='/Profile/:userID' element={<ProfilePage />} />;
+            <Route excat path='/Profile' element={<ProfilePage />} />;
+            <Route excat path='/Popup' element={<Popup />} />;
+            <Route excat path='/SearchUser' element={<SearchUser />} />;
           </Routes>
       </div>
     </Router>
