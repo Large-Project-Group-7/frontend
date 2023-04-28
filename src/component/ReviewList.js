@@ -2,11 +2,13 @@ import style from '../styles/ReviewList.module.css';
 import Cover from '../component/Cover';
 import Reviews from '../component/Reviews';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const ReviewList = (props) => {
 
     const [reviewsData, setReviewsData] = useState([])
     const [booksData, setBooksData] = useState([]);
+    const { userID } = useParams();
 
     // Transform the reviewsID array into array of review object
     useEffect(() => {
@@ -44,11 +46,11 @@ export const ReviewList = (props) => {
                     <div className={style.book}>
                         <p className={style.title}>{book.title}</p>
                         <div className={style.cover}>
-                            <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={book._id}/>
+                            <Cover count={1} src={booksData[i].bookCover} _id={book._id} userID={userID}/>
                         </div>
                     </div>
                     <div className={style.review}>
-                        <Reviews count={1} reviews={[review._id]} currentPage={1}/>
+                        <Reviews count={1} reviews={[review._id]} currentPage={1} userID={userID}/>
                     </div>
                 </div>
             )
