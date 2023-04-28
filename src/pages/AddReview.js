@@ -125,7 +125,7 @@ export const AddReview = (props) => {
             body:JSON.stringify(updatedUser),
             })
 
-        navigate(`/Book/${bookID}`);
+        navigate(`/Review/${reviewID[0]._id}`);
     }
 
 

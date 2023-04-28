@@ -37,11 +37,12 @@ export const LoginBox = (props) => {
             </h2>
             <input id='username' name="username"
               placeholder='Username / Email' 
+              className={style.input}
               />
             <br />
             <input id='password' type="password" name="password"
               
-              placeholder='Password' />
+              placeholder='Password' className={style.input}/>
             <br />
             <Link to='/Home' >
               <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}

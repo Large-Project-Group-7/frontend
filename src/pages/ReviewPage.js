@@ -66,7 +66,7 @@ export const ReviewPage = (props) =>  {
                                 <div className={style.cover}>
                                     <Cover count={1} src={'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'} _id={bookData._id}/>
                                 </div>
-                                <h2>{bookData.title}</h2>
+                                <h2 className={style.title}>{bookData.title}</h2>
                                 <h3>{bookData.author}</h3>
                                 <h3>ISBN: {bookData.ISBN}</h3>
                             </div>
