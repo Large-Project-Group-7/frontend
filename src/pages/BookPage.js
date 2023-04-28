@@ -13,8 +13,12 @@ import { Link } from 'react-router-dom';
 
 export const BookPage = (props) => {
     const isMobile = useCheckMobileScreen();
-    const { bookID } = useParams();
+    const { userID, bookID } = useParams();
     const [book, setBook] = useState([]);
+    const [usersReviewsData, setUsersReviewsData] = useState([]);
+    const [userData, setUserData] = useState([]);
+    const [userReviewID, setUserReviewID] = useState([]);
+    const [writtenFlag, setWrittenFlag] = useState(false);
     const [pop, setPop] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -29,14 +33,54 @@ export const BookPage = (props) => {
         .then(data => {
             setBook(data)
         })
-    }, [bookID])
+
+        async function getUserData(userID) {
+            const response = await fetch(`http://localhost:3001/users/${userID}`)
+            const data = await response.json();
+            setUserData(data);
+        }
+
+        getUserData(userID)
+    }, [bookID, userID]);
+
+    // Get the info of every review of the users
+    useEffect(() => {
+        async function getReviewsData() {
+            const reviewPromises = userData.reviews.map((reviewID) => {
+                return fetch(`http://localhost:3001/reviews/${reviewID}`)
+                .then(response => response.json())
+            });
+            const reviewsData = await Promise.all(reviewPromises);
+            setUsersReviewsData(reviewsData);
+        }
+
+        getReviewsData();
+    }, [userData.reviews]);
 
     function popUp() {
         setPop(!pop);
     }
 
+    // Check if the user already review this book
+    useEffect(() => {
+        function isReview() {
+    
+            for (let i = 0; i < usersReviewsData.length; i++) {
+                if(usersReviewsData[i].bookID === bookID) {
+                    setUserReviewID(usersReviewsData[i]._id)
+                    setWrittenFlag(true)
+                }
+            }
+        }
+
+        isReview();
+    }, [bookID, usersReviewsData])
+
+
+
     if(!isMobile)
     {
+
         // Calculate the average score
         let score;
         if (book.reviewCount === 0) {
@@ -73,9 +117,15 @@ export const BookPage = (props) => {
             <div className={style.rating}>
                 <p className={style.userText}>User Reviews & Ratings</p>
                 <p className={style.ratingNumber}>{score} out of 5</p>
-                <Link to={`/AddReview/${bookID}`} >
-                    <button className={style.reviewButton}>Write/Edit Review</button>
-                </Link>
+                {writtenFlag ? (
+                    <Link to={`/Review/${userID}/${userReviewID}`} >
+                        <button className={style.reviewButton}>View your Review</button>
+                    </Link>
+                ) : (
+                    <Link to={`/AddReview/${userID}/${bookID}`} >
+                        <button className={style.reviewButton}>Write Review</button>
+                    </Link>
+                )}
             </div>
             <div className={style.bookContainer}>
                 <p className={style.title}>{book.title}</p>
@@ -89,7 +139,8 @@ export const BookPage = (props) => {
             <div className={style.reviewsContainer}>
                 <Pages totalPages={totalPage} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
                 <div className={style.collections}>
-                    <Reviews count={currentReviewNum} reviews={book.reviews} currentPage={currentPage}/>
+                    <Reviews count={currentReviewNum} reviews={book.reviews} currentPage={currentPage}
+                            userID={userID}/>
                 </div>
             </div>
         </div>

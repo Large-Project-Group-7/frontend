@@ -34,7 +34,7 @@ export default function Reviews(props) {
                 return(
                     <div className={style.review} key={i}> 
                         <ReviewBanner userID={review.userID} score={review.score}/>
-                        <Link to={`/Review/${review._id}`} style={LinkStyle}>
+                        <Link to={`/Review/${props.userID}/${review._id}`} style={LinkStyle}>
                             <div className={style.description}>
                             <p className={style.text}>{review.review}</p>
                             </div>

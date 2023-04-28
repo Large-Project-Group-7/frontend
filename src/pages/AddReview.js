@@ -18,7 +18,7 @@ export const AddReview = (props) => {
     const [reviewData, setReviewData] = useState([]);
     const [textEmpty, setTextEmpty] = useState(false);
     const [ratingError, setRatingError] = useState(false);
-    const { bookID, reviewID } = useParams();
+    const { bookID, reviewID, userID } = useParams();
 
     const navigate = useNavigate();
 
@@ -56,11 +56,11 @@ export const AddReview = (props) => {
         }
 
         getBookData(bookID)
-        getUserData('644b2875d1d7f2cd34f34c55')
+        getUserData(userID)
         if(reviewID !== undefined) {
             getReviewData(reviewID);
         }
-    }, [bookID, reviewID])
+    }, [bookID, reviewID, userID])
 
     async function handleClick(event) {
         event.preventDefault();
@@ -93,11 +93,12 @@ export const AddReview = (props) => {
             })
 
         const reviewID = await response.json();
+        console.log(`This is the reviewID return by post the review ${JSON.stringify(reviewID)}`)
 
         const updatedBook = {
             "reviewCount": bookData.reviewCount + 1,
             "totalScore": bookData.totalScore + rating,
-            "reviews": [...bookData.reviews, reviewID[0]._id]
+            "reviews": [...bookData.reviews, reviewID[reviewID.length - 1]._id]
         };
 
         // Update the book infromation
@@ -112,7 +113,7 @@ export const AddReview = (props) => {
 
         const updatedUser = {
             "reviewCount": userData.reviewCount + 1,
-            "reviews": [...userData.reviews, reviewID[0]._id],
+            "reviews": [...userData.reviews, reviewID[reviewID.length - 1]._id],
         }
 
         // Update the user information
@@ -125,7 +126,7 @@ export const AddReview = (props) => {
             body:JSON.stringify(updatedUser),
             })
 
-        navigate(`/Review/${reviewID[0]._id}`);
+        navigate(`/Review/${userID}/${reviewID[reviewID.length - 1]._id}`);
     }
 
 
@@ -136,7 +137,7 @@ export const AddReview = (props) => {
                 <Banner />
                 <div className={style.container}>
                     <div className={style.cover}>
-                        <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={bookID}/>
+                        <Cover count={1} src={bookData.bookCover} _id={bookID}/>
                     </div>
                     <div className={style.text}>
                         <p>Title: {bookData.title}</p>

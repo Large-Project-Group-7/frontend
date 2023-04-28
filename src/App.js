@@ -24,12 +24,12 @@ function App() {
           <Routes>
             <Route exact path='/' element={<LoginBox />} />;
             <Route exact path='/Signup' element={<SignUpBox />}/>;
-            <Route exact path='/Home' element={<Home />} />;
-            <Route exact path='/AddReview/:bookID/:reviewID?' element={<AddReview />} />;
+            <Route exact path='/Home/:userID' element={<Home />} />;
+            <Route exact path='/AddReview/:userID/:bookID/:reviewID?' element={<AddReview />} />;
             <Route exact path='/AdminPanel' element={<AdminPanel />} />;
-            <Route exact path='/Book/:bookID' element={<BookPage />} />
+            <Route exact path='/Book/:userID/:bookID' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />;
-            <Route exact path='/Review/:reviewID' element={<ReviewPage />} />;
+            <Route exact path='/Review/:userID/:reviewID' element={<ReviewPage />} />;
             <Route excat path='/Profile/:userID' element={<ProfilePage />} />;
             <Route excat path='/Popup' element={<Popup />} />;
             <Route excat path='/SearchUser' element={<SearchUser />} />;

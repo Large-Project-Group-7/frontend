@@ -8,6 +8,7 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import { useState, useEffect } from 'react';
 import close from '../public/close.png';
 import '../styles/background.css';
+import { useParams } from 'react-router-dom';
 //import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
@@ -15,6 +16,7 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 export const Home = (props) => {
     const isMobile = useCheckMobileScreen();
     const [books, setBooks ] = useState([]);
+    const { userID } = useParams();
 
     const [ flag, setFlag ] = useState(false);
     const [text, setText] = useState('')
@@ -161,7 +163,7 @@ export const Home = (props) => {
         }
         return (
         <div className={loading ? style.container : "" }>
-            <Banner/>
+            <Banner userID={userID}/>
                 <div>
                     <h1 className={style.title}>Books</h1>
                     <img className={style.add} src={add} alt='add button' onClick={popUp}/>
@@ -173,7 +175,7 @@ export const Home = (props) => {
                     <option value="option3">sort by rating</option>
                 </select>
                 <div>
-                    <BooksList books={books} />
+                    <BooksList books={books} userID={userID}/>
                     <Recent />
                 </div>
                 {flag && (
