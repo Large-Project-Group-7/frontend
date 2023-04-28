@@ -25,7 +25,7 @@ export const Banner = (props) => {
                         <Link to='/Home'>
                             <h2 className={style.left} id='title'>Book Raiders</h2>
                         </Link>
-                        <Profile />
+                        <Profile userID={props.userID}/>
                     </div>
                     <div className={style.RContainer}>
                         <Link to='/Home' style={LinkStyle}>

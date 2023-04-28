@@ -1,10 +1,10 @@
 import style from '../styles/Popup.module.css'
 import { Link } from 'react-router-dom';
 
-export default function Popup() {
+export default function Popup(props) {
     return(
         <div className={style.container}>
-            <Link to='/Profile'>
+            <Link to={`/Profile/${props.userID}`}>
                 <button className={style.review}>My Reviews</button>
             </Link>
             <br />

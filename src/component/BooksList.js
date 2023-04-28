@@ -16,7 +16,8 @@ export default function BooksList(props) {
         containers.push(
         <div className={style.booksContainer} key={i}>
             <div className={style.coverContainer}>
-                <Cover count={1} _id={props.books[i]._id} src={props.books[i].bookCover}/>
+                <Cover count={1} _id={props.books[i]._id} src={props.books[i].bookCover}
+                        userID={props.userID}/>
             </div>
             <p id={style.title}>{props.books[i].title}</p>
             <p id={style.author}>Author: {props.books[i].author}</p>

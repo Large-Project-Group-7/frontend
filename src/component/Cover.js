@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export default function Cover(props) {
     let covers = [];
     for (let i = 0; i < props.count; i++) {
-        const path =`/Book/${props._id}`
+        const path =`/Book/${props.userID}/${props._id}/`
 
         covers.push(
             <Link to={path} key={i}> 

@@ -11,7 +11,7 @@ export const ReviewPage = (props) =>  {
     const [reviewData, setReviewData] = useState([]);
     const [bookData, setBookData] = useState([]);
     const [userData, setUserData] = useState([]);
-    const { reviewID } = useParams();
+    const { reviewID, userID } = useParams();
 
     const LinkStyle = {
         textDecoration: 'none',
@@ -58,13 +58,13 @@ export const ReviewPage = (props) =>  {
     {
         return (
             <div>
-                <Banner />
+                <Banner userID={userID}/>
                 <div className={style.container}>
                     <div className={style.left}>
                         <div className={style.info}>
                             <div className={style.bookInfo}>
                                 <div className={style.cover}>
-                                    <Cover count={1} src={'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'} _id={bookData._id}/>
+                                    <Cover count={1} src={bookData.bookCover} _id={bookData._id} userID={userID}/>
                                 </div>
                                 <h2 className={style.title}>{bookData.title}</h2>
                                 <h3>{bookData.author}</h3>
