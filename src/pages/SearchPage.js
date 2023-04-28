@@ -2,10 +2,10 @@ import { Banner } from '../component/Banner';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import style from '../styles/Home.module.css';
-import UserList from '../component/UserList';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -36,15 +36,19 @@ export const SearchBook = (props) => {
          })
     };
 
-
     if(!isMobile)
+    {
+        return<Navigate to={`/Home/${userID}`}/>
+    }
+
+    /*if(!isMobile)
     {
         return (
         <div className={style.test}>
             <Banner userID = {userID}/>
             <UserList count={users.length} users={users}/>
         </div>
-    )}
+    )}*/
 
     let containers = []
     for (let i = 0; i < data.length; i++){ // change to constant (5?) when searching is implemented
