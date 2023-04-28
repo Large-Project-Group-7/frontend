@@ -3,15 +3,17 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import style from '../styles/Home.module.css';
 import UserList from '../component/UserList';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const SearchBook = (props) => {
     const isMobile = useCheckMobileScreen();
-    const [loadingData, setLoadingData] = useState(true);
-    const [data, setData] = useState([]);
+    //const [loadingData, setLoadingData] = useState(true);
+    const loadingData = true;
+    //const [data, setData] = useState([]);
+    const data = true;
     
     if(!isMobile)
     {

@@ -52,7 +52,7 @@ export const Banner = (props) => {
                         </Link>
                         <Link to='/Home'>
                             <button className={style['home-page-button']}> 
-                                <img src={booksImage} className={style['mobile-icon']}/>
+                                <img src={booksImage} className={style['mobile-icon']}  alt='Home'/>
                             </button>
                         </Link>
                         <Link to='/Users'>

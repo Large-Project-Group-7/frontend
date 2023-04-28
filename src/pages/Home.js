@@ -5,7 +5,7 @@ import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 import BooksListMobile from '../component/mobile_exclusives/BooksListMobile.js';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
-import { useState, useEffect, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import close from '../public/close.png';
 import '../styles/background.css';
 //import { Link } from 'react-router-dom';
@@ -19,10 +19,14 @@ export const Home = (props) => {
     const [ flag, setFlag ] = useState(false);
     const [text, setText] = useState('')
     const [loading, setLoading] = useState(false);
-    //const [error, setError] = useState(false);
+    const [error, setError] = useState(false);
     const [duplicate, setDuplicate] = useState(false);
     const baseURL = 'https://www.googleapis.com/books/v1/volumes/';
     const regex = /\/dp\/([\dX]+)/i;
+
+    const [data, setData] = useState(null);
+    const [sortState, setSortState] = useState('recent');
+    const [loadingData, setLoadingData] = useState(true);
 
     // This if to get the all the books in the database
     useEffect(() => {
@@ -39,15 +43,7 @@ export const Home = (props) => {
         }).then(data => {
             setBooks(data);
         })
-    }, [])
 
-
-    const [data, setData] = useState(null);
-    const [sortState, setSortState] = useState('recent');
-    const [loadingData, setLoadingData] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
         fetch(`http://localhost:3001/users/644b2875d1d7f2cd34f34c55`)
             .then(res => res.json())
             .then(
@@ -60,7 +56,6 @@ export const Home = (props) => {
                 }
             )
     }, [])
-      
     
 
     if(!isMobile) // instead of <MobileMedia> from reactive-package
@@ -189,7 +184,7 @@ export const Home = (props) => {
         </div>
     )}
     const content = loadingData ? '...loading' : <BooksListMobile user={data}/>;
-    if(sortState == 'recent')
+    if(sortState === 'recent')
     {
         console.log("On recents page");
         return (
@@ -211,7 +206,7 @@ export const Home = (props) => {
             </div>
         )
     }
-    else if(sortState == 'myReviews')
+    else if(sortState === 'myReviews')
     {
         console.log("On review page");
         return (
