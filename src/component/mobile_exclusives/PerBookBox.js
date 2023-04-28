@@ -1,26 +1,27 @@
 import style from '../../styles/Banner.module.css';
 
-export default function PerBookBox() {
+export default function PerBookBox(props) {
+    //console.log(props.book);
     return (
         <div className='per-book-box'>
             <div className='bookCoverPlaceholder'>
-
+                
             </div>
             <div className={style['break']}></div>
             <b className='book-title'>
-                Book Title
+                {props.book.title}
             </b>
             <div className={style['break']}></div>
             <b className='book-author'>
-                Book Author
+                {props.book.author}
             </b>
             <div className={style['break']}></div>
             <b className='book-rating'>
-                <b className='star'>★</b> 4/5
+                <b className='star'>★</b> {props.book.totalScore}/10
             </b>
             <div className={style['break']}></div>
             <b className='book-tags'>
-                Genres/Tags
+                {props.book.pageCount} pages
             </b>
             <style jsx='true'>{`
                 .bookCoverPlaceholder {
@@ -43,6 +44,10 @@ export default function PerBookBox() {
                     font-weight: 400;
                     font-size: 16px;
                     line-height: 18px;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 180px;
                 }
                 .book-author {
                     position: relative;
@@ -69,10 +74,9 @@ export default function PerBookBox() {
                     display: inline-block;
                     top: calc(-83px - 20px);
                     left: 117px;
-                    font-family: 'Inter';
+                    font-weight: 350;
                     font-style: italic;
-                    font-weight: 200;
-                    font-size: 11px;
+                    font-size: 16px;
                     line-height: 10px;
                     align-items: center;
                 }

@@ -3,11 +3,12 @@ import style from '../styles/Home.module.css';
 import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
+import BooksListMobile from '../component/mobile_exclusives/BooksListMobile.js';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
-import PerBookBox from '../component/mobile_exclusives/PerBookBox';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import close from '../public/close.png';
 import '../styles/background.css';
+//import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -18,6 +19,28 @@ export const Home = (props) => {
     const [text, setText] = useState('')
     const [loading, setLoading] = useState(false);
     const baseUrl = 'http://localhost:5000/amazon/';
+
+    const [data, setData] = useState(null);
+    const [sortState, setSortState] = useState('recent');
+    const [loadingData, setLoadingData] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        fetch(`http://localhost:3001/users/644b2875d1d7f2cd34f34c55`)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                setData(result);
+                setLoadingData (false);
+                },
+                (error) => {
+                    setError(error);
+                }
+            )
+    }, [])
+      
+    
+
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
 
@@ -85,25 +108,49 @@ export const Home = (props) => {
             
         </div>
     )}
-    return (
-        <div>
-            <Banner {...props}/>
-            <ForegroundBox>
-                <button id='recent'>Recent</button>
-                <button id='my-books'>My Books</button>
-                <button id='add'>+</button>
-                <div id='start'></div>
-                <div className={style['break']}></div>
-                <PerBookBox />
-                <div className={style['break']}></div>
-                <PerBookBox />
-                <div className={style['break']}></div>
-                <PerBookBox />
-                <div className={style['break']}></div>
-                <PerBookBox />
-                <div className={style['break']}></div>
-                <PerBookBox />
-            </ForegroundBox>
-        </div>
-    )
+    const content = loadingData ? '...loading' : <BooksListMobile user={data}/>;
+    if(sortState == 'recent')
+    {
+        console.log("On recents page");
+        return (
+            <div>
+                <Banner {...props}/>
+                <ForegroundBox>
+                    <button id='recent' onClick={() => {setSortState('recent')}}>Recent</button>
+                    <button id='my-books' onClick={() => {setSortState('myReviews')}}>My Reviews</button>
+                    <button id='add'>+</button>
+                    <div id='start'></div>
+                    {content}
+                </ForegroundBox>
+                <style jsx='true'>{`
+                .BooksListMobile {
+                    position: absolute;
+                    left: -100px;
+                }
+                `} </style>
+            </div>
+        )
+    }
+    else if(sortState == 'myReviews')
+    {
+        console.log("On review page");
+        return (
+            <div>
+                <Banner {...props}/>
+                <ForegroundBox>
+                    <button id='recent' onClick={() => {setSortState('recent')}}>Recent</button>
+                    <button id='my-books' onClick={() => {setSortState('myReviews')}}>My Reviews</button>
+                    <button id='add'>+</button>
+                    <div id='start'></div>
+                    {content}
+                </ForegroundBox>
+                <style jsx='true'>{`
+                .BooksListMobile {
+                    position: absolute;
+                    left: -100px;
+                }
+                `} </style>
+            </div>
+        )
+    }
 }
