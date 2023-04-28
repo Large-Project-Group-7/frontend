@@ -6,6 +6,21 @@
     position: relative;
 }
 
+.startmobile{
+    margin-top: 20px;
+}
+
+.containermobile {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    width: 350px;
+    padding: 0.5px;
+    background-color: #F4F4F2;
+    position: relative;
+}
+
 .left {
     width: 50%;
     height: 100%;
@@ -44,14 +59,38 @@
     padding-top: 20px;
 }
 
+.bookInfoMobile{
+    margin-top: -160%;
+    margin-left: 130px;
+    line-height: 0.5;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+}
+
 .cover {
     width: 170px;
+}
+
+.covermobile {
+    width: 100px;
+    margin-top: 75px;
+    margin-left: 15px;
 }
 
 .rateInfo {
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.rateInfoMobile {
+    height: 100%;
+    margin-top: 0%;
+    margin-right: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .rating {
@@ -65,12 +104,25 @@
     font-size: 23px;
 }
 
+.numberMobile {
+    font-weight: 200;
+    font-style: italic;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
 .username {
     margin-top: 0px;
     font-style: italic;
     font-weight: 200;
     font-size: 20px;
-    color: black;
+}
+
+.usernameMobile {
+    margin-top: -10px;
+    font-style: italic;
+    font-weight: 200;
+    font-size: 15px;
 }
 
 .button {
@@ -108,4 +160,17 @@
 
 .title {
     text-align: center;
+}
+
+.reviewMobile {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 85%;
+    height: 250px;
+    font-size: 12px;
+    border: 1px solid gray;
+    padding: 5px;
+    position: relative;
 }

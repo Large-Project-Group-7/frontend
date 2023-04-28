@@ -10,10 +10,9 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const SearchBook = (props) => {
     const isMobile = useCheckMobileScreen();
-    //const [loadingData, setLoadingData] = useState(true);
-    const loadingData = true;
-    //const [data, setData] = useState([]);
-    const data = true;
+    const [data, setData] = useState([]);
+    const [loadingData, setLoadingData] = useState(true);
+    const [input, setInput] = useState(props?.value ?? '');
     
     const [users, setUsers] = useState([])
 
@@ -25,7 +24,20 @@ export const SearchBook = (props) => {
         }
 
         getUsers();
-    }, [])
+
+        
+    })
+
+    const handleChange = (event) => {
+        //setLoadingData (true);
+        setInput(event.target.value);
+        fetch(`http://localhost:3001/books/${input}`)
+        .then(res => res.json()).then((result) => {
+            setData(result);
+            setLoadingData (false);
+         })
+      };
+
 
     if(!isMobile)
     {
@@ -37,9 +49,9 @@ export const SearchBook = (props) => {
     )}
 
     let containers = []
-    for (let i = 0; i < 0; i++){ // change to constant (5?) when searching is implemented
+    for (let i = 0; i < data.length; i++){ // change to constant (5?) when searching is implemented
         //console.log(loadingData1,loadingData2,loadingData3,loadingData4,loadingData5);
-        const content = loadingData ? '...loading' : <PerBookBox book = {data[i]}/>;
+        const content = (loadingData) ? '...loading' : <PerBookBox book = {data[i]}/>;
         containers.push(
         <>
             <div className={style['break']}></div>
@@ -57,9 +69,8 @@ export const SearchBook = (props) => {
                         Sort
                     </button>
                 </Link>
-                <input className='search-bar' placeholder='Search by: Book Name'>
-                </input>
-                <div className={style.mobileContainer}>{containers}</div>
+                <input className='search-bar' placeholder='Search by: Book Name' onChange={handleChange}/>
+                <div className='container'>{containers}</div>
             </ForegroundBox>
             <style jsx='true'>{`
             .search-bar {
@@ -69,6 +80,10 @@ export const SearchBook = (props) => {
                 height: 60px;
                 margin-left: calc(50% - 92px);
                 font-size: 18px;
+                position: absolute;
+                top: 56px;
+                right: 12%;
+                z-index: 2;
             }
 
             .search-bar::placeholder {
@@ -82,6 +97,9 @@ export const SearchBook = (props) => {
                 top: 84px;
                 left: 9%;
                 z-index: 2;
+            }
+            .container {
+                margin-top: 100px;
             }
             `}
             </style>

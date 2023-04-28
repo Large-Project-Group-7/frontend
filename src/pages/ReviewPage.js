@@ -96,7 +96,27 @@ export const ReviewPage = (props) =>  {
     }
     return (
         <div>
-
+            <Banner {...props}/>
+            <div className={style.containermobile}>
+                <div id={style.startmobile}></div>
+                <div className={style.covermobile}>
+                    <Cover count={1} src='https://m.media-amazon.com/images/I/51mtQ9IE+GL._SX331_BO1,204,203,200_.jpg'/>
+                <div className={style.bookInfoMobile}>
+                    <p>TITLE</p>
+                    <p>AUTHOR</p>
+                    <p>01/01/2001</p>
+                    <p>ISBN#</p>
+                </div>
+                </div>
+                <div className={style.rateInfoMobile}>
+                    <div className={style.rating}>
+                        <img id={style.star} src={star} alt='rating star' width = "30px"/>
+                        <p className={style.numberMobile}>2/5</p>
+                    </div>
+                    <p className={style.usernameMobile}>By USERNAME</p>
+                </div>
+                <textarea className={style.reviewMobile}></textarea>
+            </div>
         </div>
     )
 }

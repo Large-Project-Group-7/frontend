@@ -72,6 +72,14 @@
     top: 30px;
 }
 
+.titlemobile {
+    font-style: italic;
+    text-align: center;
+    font-weight: 200;
+    font-size: 30px;
+    top: 30px;
+}
+
 .cover {
     width: 162px;
     height: 258px;

@@ -17,15 +17,21 @@ export const Popup = (props) => {
             <Banner  {...props}/>
             
             <ForegroundBox>
+                <Link to='/Home' > {/*This will have to be changed to profile*/}
+                    <button className='nav-buttons'>
+                        <b className='nav-text'>My Reviews</b>
+                    </button>
+                </Link>
+                <Link to='/Users' >
+                    <button className='nav-buttons'>
+                        <b className='nav-text'>Books</b>
+                    </button>
+                </Link>
+                <Link to='/SearchUser' >
                 <button className='nav-buttons'>
-                    <b className='nav-text'>My Reviews</b>
+                    <b className='nav-text'>Users</b>
                 </button>
-                <button className='nav-buttons'>
-                    <b className='nav-text'>Books</b>
-                </button>
-                <button className='nav-buttons'>
-                    <b className='nav-text'>Community</b>
-                </button>
+                </Link>
                 <Link to='/' >
                     <button className='nav-buttons'>
                         <b className='nav-text'>Logout</b>
