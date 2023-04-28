@@ -73,7 +73,7 @@ export const BookPage = (props) => {
             <div className={style.rating}>
                 <p className={style.userText}>User Reviews & Ratings</p>
                 <p className={style.ratingNumber}>{score} out of 5</p>
-                <Link to='/AddReview' >
+                <Link to={`/AddReview/${bookID}`} >
                     <button className={style.reviewButton}>Write/Edit Review</button>
                 </Link>
             </div>
