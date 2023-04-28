@@ -4,17 +4,30 @@ import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import PerUserBox from '../component/mobile_exclusives/PerUserBox';
 import style from '../styles/Home.module.css';
 import UserList from '../component/UserList';
+import { useEffect, useState } from 'react';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const SearchBook = (props) => {
     const isMobile = useCheckMobileScreen();
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        async function getUsers() {
+            const response = await fetch(`http://localhost:3001/users`)
+            const data = await response.json();
+            setUsers(data);
+        }
+
+        getUsers();
+    }, [])
+
     if(!isMobile)
     {
         return (
         <div className={style.test}>
             <Banner />
-            <UserList count={7}/>
+            <UserList count={users.length} users={users}/>
         </div>
     )}
 

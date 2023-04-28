@@ -13,7 +13,6 @@ export default function Reviews(props) {
 
     useEffect(() => {
         async function getReviewsData() {
-            // eslint-disable-next-line array-callback-return
             const reviewPromises = props.reviews.map((reviewID) => {
                 return fetch(`http://localhost:3001/reviews/${reviewID}`)
                 .then(response => response.json())

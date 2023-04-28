@@ -55,7 +55,7 @@ export const ReviewPage = (props) =>  {
                                 </div>
                                 <h2>{bookData.title}</h2>
                                 <h3>{bookData.author}</h3>
-                                <h3>{bookData.ISBN}</h3>
+                                <h3>ISBN: {bookData.ISBN}</h3>
                             </div>
                             <div className={style.rateInfo}>
                                 <div className={style.rating}>
@@ -65,10 +65,10 @@ export const ReviewPage = (props) =>  {
                                 <p className={style.username}>By {userData.username}</p>
                             </div>
                         </div>
-                        <Link to='/AddReview' style={LinkStyle}>
-                        <div className={style.buttonCont}>
-                                <button className={style.button}>Edit</button>
-                        </div>
+                        <Link to={`/AddReview/${bookData._id}`} style={LinkStyle}>
+                            <div className={style.buttonCont}>
+                                    <button className={style.button}>Edit</button>
+                            </div>
                         </Link>
                     </div>
                     <div className={style.right}>

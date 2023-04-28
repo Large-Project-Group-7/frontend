@@ -27,7 +27,7 @@ function App() {
             <Route exact path='/Book/:bookID' element={<BookPage />} />
             <Route exact path='/Users' element={<SearchBook />} />;
             <Route exact path='/Review/:reviewID' element={<ReviewPage />} />;
-            <Route excat path='/Profile' element={<ProfilePage />} />;
+            <Route excat path='/Profile/:userID' element={<ProfilePage />} />;
           </Routes>
       </div>
     </Router>
