@@ -90,12 +90,22 @@ export const Home = (props) => {
             let url = baseURL + id;
             console.log(url)
 
-            // let coverFlag = true
+            let coverSrc;
             const bookResponse = await fetch(url)
             const bookData = await bookResponse.json();
             //This is for cases where google book return with html element tags in them
             let description = bookData.volumeInfo.description;
             description = description.replace(/(<br\s*\/?>)/g, '\n').replace(/<[^>]*>/g, '').replace(/&.*;/g, '');
+
+            //Test if google book return a cover
+            if(bookData.volumeInfo.imageLinks === undefined) {
+                coverSrc = 'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'
+            }
+            else {
+                coverSrc = bookData.volumeInfo.imageLinks.thumbnail;
+            }
+
+            console.log(`This is the cover src: ${coverSrc}`)
 
             let title;
             if(bookData.volumeInfo.subtitle !== undefined) {
@@ -116,6 +126,7 @@ export const Home = (props) => {
                 reviewCount : 0,
                 totalScore: 0,
                 reviews: [],
+                bookCover: coverSrc
             }
 
             // Add it to the database
@@ -148,7 +159,6 @@ export const Home = (props) => {
             setFlag(!flag);
             setDuplicate(false);
         }
-
         return (
         <div className={loading ? style.container : "" }>
             <Banner/>

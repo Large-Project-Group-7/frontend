@@ -80,7 +80,7 @@ export const BookPage = (props) => {
             <div className={style.bookContainer}>
                 <p className={style.title}>{book.title}</p>
                 <div className={style.cover}>
-                    <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={bookID}/>
+                    <Cover count={1} src={book.bookCover} _id={bookID}/>
                     <button className={style.infoButton} onClick={popUp}>Book Information</button>
                     {pop && <InfoPopup book={book} handleClick={popUp}/>}
                 </div>
