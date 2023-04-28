@@ -11,7 +11,7 @@ export default function BooksList(props) {
     const [loadingData4, setLoadingData4] = useState(true);
     const [loadingData5, setLoadingData5] = useState(true);
     const [error, setError] = useState(null);
-//${result.bookID}
+
     useEffect(() => {
         if(props.user.reviews.length < 1 || loadingData1 === false)
             setLoadingData1(false);
@@ -20,6 +20,7 @@ export default function BooksList(props) {
             fetch(`http://localhost:3001/reviews/${props.user.reviews[0]}`)
             .then(res => res.json())
             .then((result) => {
+                console.log(result);
                 fetch(`http://localhost:3001/books/${result.bookID}`)
                 .then(res => res.json())
                 .then((result) => {
