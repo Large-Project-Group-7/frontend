@@ -20,7 +20,7 @@ export const LoginBox = (props) => {
         });
         props.onFormSwitch('home');
     };
-
+  const id = "644b40fc1692279a51d1d49a"
   return (
     <div className={style.background}>
       <div className={style.stuff}>
@@ -41,10 +41,9 @@ export const LoginBox = (props) => {
               />
             <br />
             <input id='password' type="password" name="password"
-              
               placeholder='Password' className={style.input}/>
             <br />
-            <Link to='/Home' >
+            <Link to={`/Home/${id}`}>
               <button className={style.submit} type="submit">Submit</button> {/* onClick={() => props.onFormSwitch('home')}*/}
             </Link>
             <h3 id={style.text}>Don't have an account?</h3>

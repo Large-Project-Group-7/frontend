@@ -19,16 +19,16 @@ export const Banner = (props) => {
         return (
                 <div className={style.color}>
                     <div className={style.test}>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <img src={booksImage} className={style.icon} alt='books'/>
                         </Link>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <h2 className={style.left} id='title'>Book Raiders</h2>
                         </Link>
                         <Profile userID={props.userID}/>
                     </div>
                     <div className={style.RContainer}>
-                        <Link to='/Home' style={LinkStyle}>
+                        <Link to={`/Home/${props.userID}`} style={LinkStyle}>
                             <h2  id="left" className={style.right}>Books</h2>
                         </Link>
                         <Link  to='/Users' style={LinkStyle}>
@@ -45,17 +45,17 @@ export const Banner = (props) => {
             <div>
                 <div id="color" className={style.color}>
                     <div id="inline">
-                        <Link to='/Popup'>
+                        <Link to={`/Popup/${props.userID}`}>
                             <button className={style['menu-pop-in']}> 
                                 <img src={menuImage}  alt='Menu'/>
                             </button>
                         </Link>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <button className={style['home-page-button']}> 
                                 <img src={booksImage} className={style['mobile-icon']}  alt='Home'/>
                             </button>
                         </Link>
-                        <Link to='/Users'>
+                        <Link to={`/Users/${props.userID}`}>
                             <button id="" className={style['search-icon']}> 
                                 <img src={searchImage}  alt='Search'/>
                             </button>

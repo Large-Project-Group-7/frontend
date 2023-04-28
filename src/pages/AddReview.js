@@ -134,7 +134,7 @@ export const AddReview = (props) => {
     {
         return (
             <div className={style.whole}>
-                <Banner />
+                <Banner userID={userID}/>
                 <div className={style.container}>
                     <div className={style.cover}>
                         <Cover count={1} src={bookData.bookCover} _id={bookID}/>
@@ -179,7 +179,7 @@ export const AddReview = (props) => {
     }
     return (
         <div>
-            <Banner {...props}/>
+            <Banner userID={userID}/>
             <div className={style.containermobile}>
             <div id={style.startmobile}></div>
             <div className={style.covermobile}>

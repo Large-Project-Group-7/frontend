@@ -28,11 +28,11 @@ function App() {
             <Route exact path='/AddReview/:userID/:bookID/:reviewID?' element={<AddReview />} />;
             <Route exact path='/AdminPanel' element={<AdminPanel />} />;
             <Route exact path='/Book/:userID/:bookID' element={<BookPage />} />
-            <Route exact path='/Users' element={<SearchBook />} />;
+            <Route exact path='/Users/:userID' element={<SearchBook />} />;
             <Route exact path='/Review/:userID/:reviewID' element={<ReviewPage />} />;
             <Route excat path='/Profile/:userID' element={<ProfilePage />} />;
-            <Route excat path='/Popup' element={<Popup />} />;
-            <Route excat path='/SearchUser' element={<SearchUser />} />;
+            <Route excat path='/Popup/:userID' element={<Popup />} />;
+            <Route excat path='/SearchUser/:userID' element={<SearchUser />} />;
           </Routes>
       </div>
     </Router>

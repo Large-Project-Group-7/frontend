@@ -5,6 +5,7 @@ import style from '../styles/Home.module.css';
 import UserList from '../component/UserList';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -12,8 +13,7 @@ export const SearchBook = (props) => {
     const isMobile = useCheckMobileScreen();
     const [data, setData] = useState([]);
     const [loadingData, setLoadingData] = useState(true);
-    const [input, setInput] = useState(props?.value ?? '');
-    
+    const { userID } = useParams();
     const [users, setUsers] = useState([])
 
     useEffect(() => {
@@ -29,21 +29,19 @@ export const SearchBook = (props) => {
     })
 
     const handleChange = (event) => {
-        //setLoadingData (true);
-        setInput(event.target.value);
-        fetch(`http://localhost:3001/books/${input}`)
+        fetch(`http://localhost:3001/books/${event.target.value}`)
         .then(res => res.json()).then((result) => {
             setData(result);
             setLoadingData (false);
          })
-      };
+    };
 
 
     if(!isMobile)
     {
         return (
         <div className={style.test}>
-            <Banner />
+            <Banner userID = {userID}/>
             <UserList count={users.length} users={users}/>
         </div>
     )}
@@ -61,10 +59,10 @@ export const SearchBook = (props) => {
     }
     return (
         <div>
-            <Banner  {...props}/>
+            <Banner userID={userID}/>
             
             <ForegroundBox>
-                <Link to='/SearchUser'>
+                <Link to={`/SearchUser/${userID}`}>
                     <button className='sort'> 
                         Sort
                     </button>

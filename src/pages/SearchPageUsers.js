@@ -4,6 +4,8 @@ import PerUserBox from '../component/mobile_exclusives/PerUserBox';
 import style from '../styles/Home.module.css';
 import { useState, } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
@@ -14,17 +16,20 @@ export const SearchUser = (props) => {
     const isMobile = useCheckMobileScreen();
     const [data, setData] = useState([]);
     const [loadingData, setLoadingData] = useState(true);
-    const [input, setInput] = useState(props?.value ?? '');
+    const { userID } = useParams();
 
     const handleChange = (event) => {
-        //setLoadingData (true);
-        setInput(event.target.value);
-        fetch(`http://localhost:3001/users/${input}`)
+        fetch(`http://localhost:3001/users/${event.target.value}`)
         .then(res => res.json()).then((result) => {
             setData(result);
             setLoadingData (false);
          })
-      };
+    };
+
+    if(!isMobile)
+    {
+        return<Navigate to={`/Home/${userID}`}/>
+    }
 
     let containers = []
     for (let i = 0; i < data.length; i++){ // change to constant (5?) when searching is implemented
@@ -39,10 +44,10 @@ export const SearchUser = (props) => {
     }
     return (
         <div>
-            <Banner  {...props}/>
+            <Banner userID = {userID}/>
             
             <ForegroundBox>
-                <Link to='/Users'>
+                <Link to={`/Users/${userID}`}>
                     <button className='sort' > 
                         Sort
                     </button>

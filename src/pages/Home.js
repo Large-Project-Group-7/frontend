@@ -159,7 +159,7 @@ export const Home = (props) => {
         setDuplicate(false)
     }
     
-
+    console.log(userID);
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         // moved popup to be global so mobile can use it
@@ -211,7 +211,7 @@ export const Home = (props) => {
           };
         return (
             <div>
-                <Banner {...props}/>
+                <Banner userID={userID}/>
                 <ForegroundBox>
                     <button id='recent' onClick={() => {setSortState('recent')}}>Recent</button>
                     <button id='my-books' onClick={() => {setSortState('myReviews')}}>My Reviews</button>
@@ -276,7 +276,7 @@ export const Home = (props) => {
           };
         return (
             <div>
-                <Banner {...props}/>
+                <Banner userID={userID}/>
                 <ForegroundBox>
                     <button id='recent' onClick={() => {setSortState('recent')}}>Recent</button>
                     <button id='my-books' onClick={() => {setSortState('myReviews')}}>My Reviews</button>

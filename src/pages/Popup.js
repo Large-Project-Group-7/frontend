@@ -2,32 +2,32 @@ import { Banner } from '../component/Banner';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import { Link } from 'react-router-dom';
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
+import { Navigate } from 'react-router';
+import { useParams } from 'react-router-dom';
 
 export const Popup = (props) => {
     const isMobile = useCheckMobileScreen();
+    const { userID } = useParams();
     if(!isMobile)
     {
-        return (
-        <div>
-            <p>This page is not intended for desktop users! If you're seeing this, try refreshing the page or logout, and log back in.</p>
-        </div>
-    )}
+        return (<Navigate to="/Home" />);
+    }
     return (
         <div>
-            <Banner  {...props}/>
+            <Banner userID={userID}/>
             
             <ForegroundBox>
-                <Link to='/Home' > {/*This will have to be changed to profile*/}
+                <Link to={`/Home/${userID}`} > {/*This will have to be changed to profile*/}
                     <button className='nav-buttons'>
                         <b className='nav-text'>My Reviews</b>
                     </button>
                 </Link>
-                <Link to='/Users' >
+                <Link to={`/Users/${userID}`}>
                     <button className='nav-buttons'>
                         <b className='nav-text'>Books</b>
                     </button>
                 </Link>
-                <Link to='/SearchUser' >
+                <Link to={`/SearchUser/${userID}`}>
                 <button className='nav-buttons'>
                     <b className='nav-text'>Users</b>
                 </button>
