@@ -1,11 +1,10 @@
 import style from '../../styles/Banner.module.css';
 
 export default function PerBookBox(props) {
-    //console.log(props.book);
     return (
         <div className='per-book-box'>
             <div className='bookCoverPlaceholder'>
-                
+                <img className='coverImage' src={props.book.bookCover}/>
             </div>
             <div className={style['break']}></div>
             <b className='book-title'>
@@ -33,6 +32,7 @@ export default function PerBookBox(props) {
                     height: 128px;
                     background: #D9D9D9;
                     border-radius: 10px;
+                    overflow: hidden;
                 }
 
                 .book-title {
@@ -95,6 +95,10 @@ export default function PerBookBox(props) {
                 .star {
                     font-size: 21px;
                     color: gold;
+                }
+                .coverImage {
+                    position: relative;
+                    max-width: 100%;
                 }
                 `}
             </style>

@@ -4,6 +4,7 @@ import add from '../public/add.svg';
 import Recent from '../component/Recent';
 import BooksList from '../component/BooksList';
 import BooksListMobile from '../component/mobile_exclusives/BooksListMobile.js';
+import ReviewListMobile from '../component/mobile_exclusives/ReviewListMobile.js';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import { useState, useEffect } from 'react';
 import close from '../public/close.png';
@@ -44,7 +45,7 @@ export const Home = (props) => {
             setBooks(data);
         })
 
-        fetch(`http://localhost:3001/users/644b2875d1d7f2cd34f34c55`)
+        fetch(`http://localhost:3001/users/644b40fc1692279a51d1d49a`)
             .then(res => res.json())
             .then(
                 (result) => {
@@ -56,6 +57,12 @@ export const Home = (props) => {
                 }
             )
     }, [])
+
+    function popUp() {
+        setError(false);
+        setFlag(!flag);
+        setDuplicate(false);
+    }
     
 
     if(!isMobile) // instead of <MobileMedia> from reactive-package
@@ -143,11 +150,7 @@ export const Home = (props) => {
             setDuplicate(false)
         }
 
-        function popUp() {
-            setError(false);
-            setFlag(!flag);
-            setDuplicate(false);
-        }
+        // moved popup to be global so mobile can use it
 
         return (
         <div className={loading ? style.container : "" }>
@@ -183,10 +186,12 @@ export const Home = (props) => {
             
         </div>
     )}
-    const content = loadingData ? '...loading' : <BooksListMobile user={data}/>;
+    
     if(sortState === 'recent')
     {
+        const content = loadingData ? '...loading' : <BooksListMobile user={data}/>;
         console.log("On recents page");
+        
         return (
             <div>
                 <Banner {...props}/>
@@ -208,18 +213,55 @@ export const Home = (props) => {
     }
     else if(sortState === 'myReviews')
     {
+        const content = loadingData ? '...loading' : <ReviewListMobile user={data}/>;
         console.log("On review page");
+        const handleKeyDown = (e) => {
+            if (e.keyCode === 13) { // Check if Enter key was pressed
+                console.log("submitted");
+              //handleSubmit();
+            }
+          };
         return (
             <div>
                 <Banner {...props}/>
                 <ForegroundBox>
                     <button id='recent' onClick={() => {setSortState('recent')}}>Recent</button>
                     <button id='my-books' onClick={() => {setSortState('myReviews')}}>My Reviews</button>
-                    <button id='add'>+</button>
+                    <button id='add' onClick={popUp}>+</button>
                     <div id='start'></div>
                     {content}
+                    {flag && (
+                    <div className='linkContainer'> 
+                        <img className={style.close} src={close} alt='close button' onClick={popUp}/>
+                        {duplicate && (
+                            <h3 className={style.error}>The book is in already in the website</h3>
+                        )}
+                        {error && (
+                            <h3 className={style.error}>Please enter a proper Amazon book link or find another Amazon link</h3>
+                        )}
+                        <h2>Put an Amazon book link here:</h2>
+                        <input autoComplete='off' className={style.input} name="link" onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
+                        {/*<button onClick={handleSubmit}>Submit</button>*/}
+                    </div>
+                    )}
                 </ForegroundBox>
                 <style jsx='true'>{`
+                .linkContainer {
+                    position: fixed;
+                    background: #fff;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border: 1px solid #000000;
+                    width: 70%;
+                    height: 120px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    top: 40%;
+                    left: 15%;
+                    border-radius: 10px;
+                    font-size: 10px;
+                }
                 .BooksListMobile {
                     position: absolute;
                     left: -100px;

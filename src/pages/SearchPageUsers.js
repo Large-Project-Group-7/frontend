@@ -2,8 +2,7 @@ import { Banner } from '../component/Banner';
 import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerUserBox from '../component/mobile_exclusives/PerUserBox';
 import style from '../styles/Home.module.css';
-import UserList from '../component/UserList';
-//import { useState } from 'react';
+import { useState, } from 'react';
 import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
@@ -13,24 +12,24 @@ import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
 
 export const SearchUser = (props) => {
     const isMobile = useCheckMobileScreen();
-    //const [loadingData, setLoadingData] = useState(true);
-    const loadingData = true;
-    //const [data, setData] = useState([]);
-    const data = true;
+    const [data, setData] = useState([]);
+    const [loadingData, setLoadingData] = useState(true);
+    const [input, setInput] = useState(props?.value ?? '');
 
-    if(!isMobile)
-    {
-        return (
-        <div className={style.test}>
-            <Banner />
-            <UserList count={7}/>
-        </div>
-    )}
+    const handleChange = (event) => {
+        //setLoadingData (true);
+        setInput(event.target.value);
+        fetch(`http://localhost:3001/users/${input}`)
+        .then(res => res.json()).then((result) => {
+            setData(result);
+            setLoadingData (false);
+         })
+      };
 
     let containers = []
-    for (let i = 0; i < 0; i++){ // change to constant (5?) when searching is implemented
+    for (let i = 0; i < data.length; i++){ // change to constant (5?) when searching is implemented
         //console.log(loadingData1,loadingData2,loadingData3,loadingData4,loadingData5);
-        const content = loadingData ? '...loading' : <PerUserBox book = {data[i]}/>;
+        const content = (loadingData) ? '...loading' : <PerUserBox book = {data[i]}/>;
         containers.push(
         <>
             <div className={style['break']}></div>
@@ -48,9 +47,8 @@ export const SearchUser = (props) => {
                         Sort
                     </button>
                 </Link>
-                <input className='search-bar' placeholder='Search by: Username'>
-                </input>
-                <div className={style.mobileContainer}>{containers}</div>
+                <input className='search-bar' placeholder='Search by: Username'  onChange={handleChange}/>
+                <div className='container'>{containers}</div>
             </ForegroundBox>
             <style jsx='true'>{`
             .search-bar {
@@ -60,6 +58,10 @@ export const SearchUser = (props) => {
                 height: 60px;
                 margin-left: calc(50% - 92px);
                 font-size: 18px;
+                position: absolute;
+                top: 56px;
+                right: 12%;
+                z-index: 2;
             }
 
             .search-bar::placeholder {
@@ -73,6 +75,9 @@ export const SearchUser = (props) => {
                 top: 84px;
                 left: 9%;
                 z-index: 2;
+            }
+            .container {
+                margin-top: 100px;
             }
             `}
             </style>

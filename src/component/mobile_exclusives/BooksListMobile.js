@@ -1,7 +1,7 @@
 
 import style from '../../styles/BooksList.module.css';
 import { useState, useEffect } from 'react';
-import PerBookBox from '../../component/mobile_exclusives/PerBookBox';
+import PerBookBox from './PerBookBox';
 
 export default function BooksList(props) {
     const [data, setData] = useState([]);
@@ -57,7 +57,6 @@ export default function BooksList(props) {
     
     let containers = []
     for (let i = 0; i < props.user.recentBooks.length; i++){
-        //console.log(loadingData1,loadingData2,loadingData3,loadingData4,loadingData5);
         const content = (loadingData1 || loadingData2 || loadingData3 || loadingData4 || loadingData5) ? '...loading' : <PerBookBox book = {data[i]}/>;
         containers.push(
         <>

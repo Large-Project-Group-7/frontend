@@ -1,6 +1,6 @@
 import style from '../../styles/Banner.module.css';
 
-export default function PerUserBox() {
+export default function PerUserBox(props) {
     return (
         <div className='per-user-box'>
             <div className='user-profile-picture'>
@@ -8,11 +8,11 @@ export default function PerUserBox() {
             </div>
             <div className={style['break']}></div>
             <b className='user-name'>
-                Username
+                {props.book.username}
             </b>
             <div className={style['break']}></div>
             <b className='review-count'>
-                # Reviews
+                {props.book.reviewCount} reviews
             </b>
             <style jsx='true'>{`
                 .user-profile-picture {

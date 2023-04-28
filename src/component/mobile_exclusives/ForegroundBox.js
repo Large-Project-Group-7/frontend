@@ -23,7 +23,7 @@ export default function ForegroundBox(props) {
                         width: 94px;
                         height: 30px;
                         left: 48px;
-                        top: 9.81%;
+                        top: max(9.81%,80px);
                         background-color: white;
                         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                         border-width: 0px;
@@ -35,7 +35,7 @@ export default function ForegroundBox(props) {
                         width: 94px;
                         height: 30px;
                         left: 165px;
-                        top: 9.81%;
+                        top: max(9.81%,80px);
                         background-color: white;
                         filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
                         border-width: 0px;
@@ -47,7 +47,7 @@ export default function ForegroundBox(props) {
                         position: absolute;
                         left: max(83.4%,265px);
                         right: 6.41%;
-                        top: 9.81%;
+                        top: max(9.81%,80px);
                         bottom: 86.64%;
                         width: 30px;
                         height: 30px;
