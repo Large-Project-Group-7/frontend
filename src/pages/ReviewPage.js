@@ -81,7 +81,7 @@ export const ReviewPage = (props) =>  {
                             </div>
                         </div>
                             <div className={style.buttonCont}>
-                                <Link to={`/AddReview/${bookData._id}`} style={buttonStyle}>
+                                <Link to={`/AddReview/${bookData._id}/${reviewID}`} style={buttonStyle}>
                                     <button className={style.button}>Edit</button>
                                 </Link>
                                     <button className={style.delButton}>Delete</button>

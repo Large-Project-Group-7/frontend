@@ -14,9 +14,10 @@ export const AddReview = (props) => {
     const [flag, setFlag] = useState(false);
     const [bookData, setBookData] = useState([]);
     const [userData, setUserData] = useState([]);
+    const [reviewData, setReviewData] = useState([]);
     const [textEmpty, setTextEmpty] = useState(false);
     const [ratingError, setRatingError] = useState(false);
-    const { bookID } = useParams();
+    const { bookID, reviewID } = useParams();
 
     const navigate = useNavigate();
 
@@ -44,9 +45,21 @@ export const AddReview = (props) => {
             setUserData(data);
         }
 
+        async function getReviewData(reviewID) {
+            const response = await fetch(`http://localhost:3001/reviews/${reviewID}`)
+            const data = await response.json()
+            setReviewData(data);
+            setText(data.review);
+            setRating(data.score);
+            setFlag(true);
+        }
+
         getBookData(bookID)
         getUserData('644b2875d1d7f2cd34f34c55')
-    }, [bookID])
+        if(reviewID !== undefined) {
+            getReviewData(reviewID);
+        }
+    }, [bookID, reviewID])
 
     async function handleClick(event) {
         event.preventDefault();
@@ -111,10 +124,9 @@ export const AddReview = (props) => {
             body:JSON.stringify(updatedUser),
             })
 
-        
-
         navigate(`/Book/${bookID}`);
     }
+
 
     if(!isMobile) 
     {
