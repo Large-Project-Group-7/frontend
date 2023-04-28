@@ -14,6 +14,7 @@ export const AddReview = (props) => {
     const [flag, setFlag] = useState(false);
     const [bookData, setBookData] = useState([]);
     const [userData, setUserData] = useState([]);
+    // eslint-disable-next-line no-unused-vars
     const [reviewData, setReviewData] = useState([]);
     const [textEmpty, setTextEmpty] = useState(false);
     const [ratingError, setRatingError] = useState(false);
