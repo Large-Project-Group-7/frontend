@@ -4,7 +4,7 @@ export default function PerBookBox(props) {
     return (
         <div className='per-book-box'>
             <div className='bookCoverPlaceholder'>
-                <img className='coverImage' src={props.book.bookCover}/>
+                <img className='coverImage' alt="Book Cover" src={props.book.bookCover}/>
             </div>
             <div className={style['break']}></div>
             <b className='book-title'>
