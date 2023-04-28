@@ -83,7 +83,7 @@ export const AddReview = (props) => {
         const updatedBook = {
             "reviewCount": bookData.reviewCount + 1,
             "totalScore": bookData.totalScore + rating,
-            "reviews": [reviewID[0]._id]
+            "reviews": [...bookData.reviews, reviewID[0]._id]
         };
 
         // Update the book infromation

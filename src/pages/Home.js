@@ -62,8 +62,6 @@ export const Home = (props) => {
             let isbn = match[1];
             let searchURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn.toString();
 
-            console.log(isbn);
-            console.log(searchURL);
             setLoading(true);
 
             const response = await fetch(searchURL)
@@ -81,9 +79,17 @@ export const Home = (props) => {
             let description = bookData.volumeInfo.description;
             description = description.replace(/(<br\s*\/?>)/g, '\n').replace(/<[^>]*>/g, '').replace(/&.*;/g, '');
 
+            let title;
+            if(bookData.volumeInfo.subtitle !== undefined) {
+                title = bookData.volumeInfo.title + ': ' + bookData.volumeInfo.subtitle
+            }
+            else {
+                title = bookData.volumeInfo.title;
+            }
+
             const book = {
                 ISBN: isbn,
-                title: bookData.volumeInfo.title,
+                title: title,
                 author: bookData.volumeInfo.authors[0],
                 pageCount: bookData.volumeInfo.pageCount,
                 publisher: bookData.volumeInfo.publisher,
@@ -91,7 +97,7 @@ export const Home = (props) => {
                 summary: description,
                 reviewCount : 0,
                 totalScore: 0,
-                reviews: null,
+                reviews: [],
             }
 
             // Add it to the database
