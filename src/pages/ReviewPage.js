@@ -17,6 +17,19 @@ export const ReviewPage = (props) =>  {
         textDecoration: 'none',
     }
 
+    const buttonStyle = {
+        textDecoration: 'none',
+        background: '#D9D9D9',
+        border: '1px solid #000000',
+        borderRadius: '40px',
+        width: '20%',
+        height: '50px',
+        fontSize: '20px',
+        cursor: 'pointer',
+        display: 'flex',
+        justifyContent: 'center',
+    }
+
     useEffect(() => {
         async function getReviewData(reviewID) {
             const response = await fetch(`http://localhost:3001/reviews/${reviewID}`)
@@ -67,11 +80,12 @@ export const ReviewPage = (props) =>  {
                                 </Link>
                             </div>
                         </div>
-                        <Link to={`/AddReview/${bookData._id}`} style={LinkStyle}>
                             <div className={style.buttonCont}>
+                                <Link to={`/AddReview/${bookData._id}`} style={buttonStyle}>
                                     <button className={style.button}>Edit</button>
+                                </Link>
+                                    <button className={style.delButton}>Delete</button>
                             </div>
-                        </Link>
                     </div>
                     <div className={style.right}>
                         <textarea className={style.review} value={reviewData.review} spellCheck='false'></textarea>
