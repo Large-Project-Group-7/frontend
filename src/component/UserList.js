@@ -23,7 +23,8 @@ export default function UserList(props) {
             <div className={style.box} key={i}>
                 <Link to={`/Profile/${props.users[i]._id}`} style={styleLink}>
                     <div className={style.innerBox}>
-                        <p>PFP here</p>
+                        <img className={style.image} src="https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg"
+                             alt="profile"/>
                         <p>{props.users[i].username}</p>
                         <p> {props.users[i].reviewCount} Reviews</p>
                     </div>

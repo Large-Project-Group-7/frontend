@@ -19,19 +19,19 @@ export const Banner = (props) => {
         return (
                 <div className={style.color}>
                     <div className={style.test}>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <img src={booksImage} className={style.icon} alt='books'/>
                         </Link>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <h2 className={style.left} id='title'>Book Raiders</h2>
                         </Link>
                         <Profile userID={props.userID}/>
                     </div>
                     <div className={style.RContainer}>
-                        <Link to='/Home' style={LinkStyle}>
+                        <Link to={`/Home/${props.userID}`} style={LinkStyle}>
                             <h2  id="left" className={style.right}>Books</h2>
                         </Link>
-                        <Link  to='/Users' style={LinkStyle}>
+                        <Link  to={`/Users/${props.userID}`} style={LinkStyle}>
                             <h2 className={style.right}>Community</h2>
                         </Link>
                         <input type='search'

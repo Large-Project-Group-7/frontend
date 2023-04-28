@@ -113,7 +113,7 @@ export const BookPage = (props) => {
 
         return (
         <div className={style.container}>
-            <Banner />
+            <Banner userID={userID}/>
             <div className={style.rating}>
                 <p className={style.userText}>User Reviews & Ratings</p>
                 <p className={style.ratingNumber}>{score} out of 5</p>

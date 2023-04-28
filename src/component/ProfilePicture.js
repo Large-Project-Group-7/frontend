@@ -32,7 +32,7 @@ export const ProfilePicture = (props) => {
 
     return (
         <div className={style.profile}>
-            <img className={style.image} src={src} alt='prifle' onClick={handleClick}/>
+            <img className={style.image} src={src} alt='profile' onClick={handleClick}/>
             {popUp && (
                 <div className={style.popUpBackground}>
                     <form className={style.form} onSubmit={handleFormSubmit}>

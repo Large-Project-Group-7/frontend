@@ -24,7 +24,7 @@ export const ProfilePage = (props) => {
     if (!isMobile) {
         return (
             <div>
-                <Banner />
+                <Banner userID={userID}/>
                 <div className={style.container}>
                     <div className={style.topContainer}>
                         <div className={style.user}>

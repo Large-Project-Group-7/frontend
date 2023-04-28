@@ -39,22 +39,19 @@ export const ReviewList = (props) => {
     }, [reviewsData])
 
 
-    return (reviewsData.map((review) => {
-        return (booksData.map((book, i ) => {
-            return (
-                <div className={style.container} key={i}>
-                    <div className={style.book}>
-                        <p className={style.title}>{book.title}</p>
-                        <div className={style.cover}>
-                            <Cover count={1} src={booksData[i].bookCover} _id={book._id} userID={userID}/>
-                        </div>
-                    </div>
-                    <div className={style.review}>
-                        <Reviews count={1} reviews={[review._id]} currentPage={1} userID={userID}/>
+    return (booksData.map((book, i ) => {
+        return (
+            <div className={style.container} key={i}>
+                <div className={style.book}>
+                    <p className={style.title}>{book.title}</p>
+                    <div className={style.cover}>
+                        <Cover count={1} src={booksData[i].bookCover} _id={book._id} userID={userID}/>
                     </div>
                 </div>
-            )
-        })
+                <div className={style.review}>
+                    <Reviews count={1} reviews={[reviewsData[i]._id]} currentPage={1} userID={userID}/>
+                </div>
+            </div>
         )
     })
     )

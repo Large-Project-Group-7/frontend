@@ -14,11 +14,14 @@ export const AddReview = (props) => {
     const [flag, setFlag] = useState(false);
     const [bookData, setBookData] = useState([]);
     const [userData, setUserData] = useState([]);
+
+    const [editFlag, setEditFlag] = useState(false);
     // eslint-disable-next-line no-unused-vars
     const [reviewData, setReviewData] = useState([]);
     const [textEmpty, setTextEmpty] = useState(false);
     const [ratingError, setRatingError] = useState(false);
     const { bookID, reviewID, userID } = useParams();
+    
 
     const navigate = useNavigate();
 
@@ -49,6 +52,7 @@ export const AddReview = (props) => {
         async function getReviewData(reviewID) {
             const response = await fetch(`http://localhost:3001/reviews/${reviewID}`)
             const data = await response.json()
+            setEditFlag(true);
             setReviewData(data);
             setText(data.review);
             setRating(data.score);
@@ -75,9 +79,43 @@ export const AddReview = (props) => {
             return
         }
 
+        if(editFlag) {
+            //Update the review
+            const oldRating = reviewData.score;
+
+            const updatedReview ={
+                "score": rating,
+                "review": text,
+            };
+
+            fetch(`http://localhost:3001/reviews/${reviewData._id}`, {
+                method: 'PATCH',
+                // The headers is required for it to work
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(updatedReview),
+                })
+
+            // Update the book totalScore
+            const updatedBook = {
+                "totalScore": bookData.totalScore +  rating - oldRating,
+            }
+
+            fetch(`http://localhost:3001/books/${bookID}`, {
+                method: 'PATCH',
+                // The headers is required for it to work
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(updatedBook),
+            })
+            navigate(`/Review/${userID}/${reviewData._id}`);
+            return
+        }
         const data = {};
         // Hard code userID for now
-        data['userID'] = userData._id;
+        data['userID'] = userID;
         data['review'] = text;
         data["score"] = rating;
         data["bookID"] = bookID;
@@ -93,7 +131,6 @@ export const AddReview = (props) => {
             })
 
         const reviewID = await response.json();
-        console.log(`This is the reviewID return by post the review ${JSON.stringify(reviewID)}`)
 
         const updatedBook = {
             "reviewCount": bookData.reviewCount + 1,
@@ -134,7 +171,7 @@ export const AddReview = (props) => {
     {
         return (
             <div className={style.whole}>
-                <Banner />
+                <Banner userID={userID}/>
                 <div className={style.container}>
                     <div className={style.cover}>
                         <Cover count={1} src={bookData.bookCover} _id={bookID}/>

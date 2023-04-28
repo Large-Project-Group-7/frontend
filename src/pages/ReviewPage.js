@@ -3,7 +3,7 @@ import { Banner } from '../component/Banner';
 import style from '../styles/ReviewPage.module.css'
 import Cover from '../component/Cover';
 import star from '../public/Star.svg';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 export const ReviewPage = (props) =>  {
@@ -13,8 +13,11 @@ export const ReviewPage = (props) =>  {
     const [userData, setUserData] = useState([]);
     const { reviewID, userID } = useParams();
 
+    const navigate = useNavigate();
+
     const LinkStyle = {
         textDecoration: 'none',
+        color: 'black',
     }
 
     const buttonStyle = {
@@ -54,6 +57,62 @@ export const ReviewPage = (props) =>  {
         getUserData(reviewData.userID)
     }, [reviewData.bookID, reviewData.userID, reviewID])
 
+    async function handleDelete() {
+        // Delete the review by passing reviewID
+        const response = await fetch(`http://localhost:3001/reviews/${reviewID}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+
+        const deletedID = await response.json();
+
+        // Update the book information
+        
+        //This is to remove the reviewID 
+        let updatedReviews = bookData.reviews;
+        const index = updatedReviews.indexOf(reviewID);
+        updatedReviews.splice(index, 1)
+        const updatedBook = {
+            "reviewCount": bookData.reviewCount - 1,
+            "totalScore": bookData.totalScore - deletedID.score,
+            "reviews": updatedReviews,
+        }
+
+        fetch(`http://localhost:3001/books/${bookData._id}`, {
+            method: 'PATCH',
+            // The headers is required for it to work
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(updatedBook),
+            })
+
+        // Update the user information
+        let userReviews  = userData.reviews;
+        const i = userReviews.indexOf(reviewID);
+        userReviews.splice(i, 1);
+        const updatedUser = {
+            "reviewCount": userData.reviewCount - 1,
+            "reviews": userReviews,
+        }
+
+        fetch(`http://localhost:3001/users/${userID}`, {
+            method: 'PATCH',
+            // The headers is required for it to work
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(updatedUser),
+        })
+
+        navigate(`/Home/${userID}`);
+        return
+    }
+
+    
+
     if (!isMobile) 
     {
         return (
@@ -81,10 +140,13 @@ export const ReviewPage = (props) =>  {
                             </div>
                         </div>
                             <div className={style.buttonCont}>
-                                <Link to={`/AddReview/${bookData._id}/${reviewID}`} style={buttonStyle}>
+                                <Link to={`/AddReview/${userID}/${bookData._id}/${reviewID}`} style={buttonStyle}>
                                     <button className={style.button}>Edit</button>
                                 </Link>
-                                    <button className={style.delButton}>Delete</button>
+                                    <button className={style.delButton}
+                                    onClick={handleDelete}>
+                                        Delete
+                                    </button>
                             </div>
                     </div>
                     <div className={style.right}>

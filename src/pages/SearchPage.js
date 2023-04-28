@@ -3,7 +3,7 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import PerBookBox from '../component/mobile_exclusives/PerBookBox';
 import style from '../styles/Home.module.css';
 import UserList from '../component/UserList';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
@@ -13,6 +13,7 @@ export const SearchBook = (props) => {
     const [data, setData] = useState([]);
     const [loadingData, setLoadingData] = useState(true);
     const [input, setInput] = useState(props?.value ?? '');
+    const { userID } = useParams();
     
     const [users, setUsers] = useState([])
 
@@ -43,7 +44,7 @@ export const SearchBook = (props) => {
     {
         return (
         <div className={style.test}>
-            <Banner />
+            <Banner userID={userID}/>
             <UserList count={users.length} users={users}/>
         </div>
     )}
