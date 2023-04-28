@@ -44,7 +44,7 @@ export const ReviewList = (props) => {
                     <div className={style.book}>
                         <p className={style.title}>{book.title}</p>
                         <div className={style.cover}>
-                            <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'/>
+                            <Cover count={1} src='https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg' _id={book._id}/>
                         </div>
                     </div>
                     <div className={style.review}>

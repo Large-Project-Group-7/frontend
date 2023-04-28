@@ -1,6 +1,7 @@
 import style from '../styles/ReviewBanner.module.css';
 import Stars from '../component/Stars';
 import { useState,useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ReviewBanner(props) {
     const [userData, setUserData] = useState([]);
@@ -21,7 +22,9 @@ export default function ReviewBanner(props) {
 
     return (
         <div className={style.container}>
-            <p className={style.text}>{userData.username}</p>
+            <Link to={`/Profile/${userData._id}`}>
+                <p className={style.text}>{userData.username}</p>
+            </Link>
             <Stars rating={props.score}/>
             <p className={style.pub}>{date}</p>
         </div>

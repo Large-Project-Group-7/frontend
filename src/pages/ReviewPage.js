@@ -51,7 +51,7 @@ export const ReviewPage = (props) =>  {
                         <div className={style.info}>
                             <div className={style.bookInfo}>
                                 <div className={style.cover}>
-                                    <Cover count={1} src={'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'}/>
+                                    <Cover count={1} src={'https://drupal.nypl.org/sites-drupal/default/files/blogs/J5LVHEL.jpg'} _id={bookData._id}/>
                                 </div>
                                 <h2>{bookData.title}</h2>
                                 <h3>{bookData.author}</h3>
@@ -62,7 +62,9 @@ export const ReviewPage = (props) =>  {
                                     <img id={style.star} src={star} alt='rating star'/>
                                     <p className={style.number}>{reviewData.score}/5</p>
                                 </div>
-                                <p className={style.username}>By {userData.username}</p>
+                                <Link to={`/Profile/${userData._id}`} style={LinkStyle}>
+                                    <p className={style.username}>By {userData.username}</p>
+                                </Link>
                             </div>
                         </div>
                         <Link to={`/AddReview/${bookData._id}`} style={LinkStyle}>
@@ -72,7 +74,7 @@ export const ReviewPage = (props) =>  {
                         </Link>
                     </div>
                     <div className={style.right}>
-                        <textarea className={style.review} value={reviewData.review}></textarea>
+                        <textarea className={style.review} value={reviewData.review} spellCheck='false'></textarea>
                     </div>
                 </div>
             </div>
