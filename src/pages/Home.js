@@ -24,6 +24,7 @@ export const Home = (props) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [duplicate, setDuplicate] = useState(false);
+    const [ recentBooks, setRecentBooks ] = useState([]);
     const baseURL = 'https://www.googleapis.com/books/v1/volumes/';
     const regex = /\/dp\/([\dX]+)/i;
 
@@ -47,6 +48,11 @@ export const Home = (props) => {
            }
         }).then(data => {
             setBooks(data);
+            if(data.length >= 2) {
+                setRecentBooks(data.slice(-2))
+            } else {
+                setRecentBooks(data)
+            }
         })
 
         fetch(`http://localhost:3001/users/644b40fc1692279a51d1d49a`)
@@ -187,7 +193,7 @@ export const Home = (props) => {
                 </select>
                 <div>
                     <BooksList books={books} userID={userID}/>
-                    <Recent />
+                    <Recent books={recentBooks} userID={userID}/>
                 </div>
                 {flag && (
                 <div className={style.linkContainer}> 

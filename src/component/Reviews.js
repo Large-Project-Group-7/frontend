@@ -22,7 +22,7 @@ export default function Reviews(props) {
         }
         getReviewsData();
     }, [props.reviews])
-
+    
     const reviews = reviewsData.slice(
         4 * (props.currentPage - 1),
         4 * props.currentPage + props.count
