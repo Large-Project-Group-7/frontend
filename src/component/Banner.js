@@ -45,17 +45,17 @@ export const Banner = (props) => {
             <div>
                 <div id="color" className={style.color}>
                     <div id="inline">
-                        <Link to='/Popup'>
+                        <Link to={`/Popup/${props.userID}`}>
                             <button className={style['menu-pop-in']}> 
                                 <img src={menuImage}  alt='Menu'/>
                             </button>
                         </Link>
-                        <Link to='/Home'>
+                        <Link to={`/Home/${props.userID}`}>
                             <button className={style['home-page-button']}> 
                                 <img src={booksImage} className={style['mobile-icon']}  alt='Home'/>
                             </button>
                         </Link>
-                        <Link to='/Users'>
+                        <Link to={`/Users/${props.userID}`}>
                             <button id="" className={style['search-icon']}> 
                                 <img src={searchImage}  alt='Search'/>
                             </button>

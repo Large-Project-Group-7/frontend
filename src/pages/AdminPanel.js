@@ -13,7 +13,7 @@ export const AdminPanel = (props) => {
     {
         return (
         <div className={style.container}>
-            <Banner />
+            <Banner/>
             <div className={style.bookContainer}>
                 <div className={style.cover}>
                     <Cover count={1} src='https://m.media-amazon.com/images/I/51HSkTKlauL._SY291_BO1,204,203,200_QL40_ML2_.jpg'/>

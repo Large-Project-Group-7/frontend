@@ -216,7 +216,7 @@ export const AddReview = (props) => {
     }
     return (
         <div>
-            <Banner {...props}/>
+            <Banner userID={userID}/>
             <div className={style.containermobile}>
             <div id={style.startmobile}></div>
             <div className={style.covermobile}>
