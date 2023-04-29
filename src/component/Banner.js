@@ -3,17 +3,34 @@ import booksImage from '../public/books.png';
 import menuImage from '../public/ListButton.png';
 import searchImage from '../public/SearchIcon.svg';
 import Profile from './Profile';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import useCheckMobileScreen from './mobile_exclusives/CheckMobile';
+import { useState } from 'react';
 
 //import MediaQuery from 'react-responsive' // npm install react-responsive
 
 export const Banner = (props) => {
     const isMobile = useCheckMobileScreen();
+    const [searchTerm, setSearchTerm] = useState('');
     const LinkStyle = {
         textDecoration: 'none',
     }
+    const navigate = useNavigate();
+
+    function handleSearchInput(event) {
+        setSearchTerm(event.target.value);
+    }
+
+    async function handleEnterKey(event) {
+        if (event.key === 'Enter') {
+            const response = await fetch(`http://localhost:3001/books/${searchTerm}`)
+            const data = await response.json();
+
+            navigate(`/Home/${props.userID}`, {state: {searchedBooks: data}})
+        }
+    }
+
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         return (
@@ -35,7 +52,10 @@ export const Banner = (props) => {
                             <h2 className={style.right}>Community</h2>
                         </Link>
                         <input type='search'
-                        placeholder='Search Books' className={style.search}/> 
+                        placeholder='Search Books' className={style.search}
+                        onChange={handleSearchInput}
+                        onKeyDown={handleEnterKey}
+                        /> 
                     </div>   
                 </div>
         )

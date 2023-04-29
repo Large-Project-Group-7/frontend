@@ -9,7 +9,7 @@ import ForegroundBox from '../component/mobile_exclusives/ForegroundBox';
 import { useState, useEffect } from 'react';
 import close from '../public/close.png';
 import '../styles/background.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 //import { Link } from 'react-router-dom';
 
 import useCheckMobileScreen from '../component/mobile_exclusives/CheckMobile';
@@ -30,6 +30,8 @@ export const Home = (props) => {
     const [data, setData] = useState(null);
     const [sortState, setSortState] = useState('recent');
     const [loadingData, setLoadingData] = useState(true);
+
+    const location = useLocation();
 
     // This if to get the all the books in the database
     useEffect(() => {
@@ -158,8 +160,14 @@ export const Home = (props) => {
         addBook(resultResponse)
         setDuplicate(false)
     }
-    
-    console.log(userID);
+
+    useEffect(() => {
+        if(location.state !== null) {
+            const { searchedBooks } = location.state;
+            setBooks(searchedBooks)
+        }
+    }, [location.state])
+
     if(!isMobile) // instead of <MobileMedia> from reactive-package
     {
         // moved popup to be global so mobile can use it
