@@ -35,19 +35,19 @@ export const ReviewPage = (props) =>  {
 
     useEffect(() => {
         async function getReviewData(reviewID) {
-            const response = await fetch(`http://localhost:3001/reviews/${reviewID}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/reviews/${reviewID}`)
             const data = await response.json();
             setReviewData(data); 
         }
 
         async function getBookData(bookID) {
-            const response = await fetch(`http://localhost:3001/books/${bookID}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/books/${bookID}`)
             const data = await response.json();
             setBookData(data);
         }
 
         async function getUserData(userID) {
-            const response = await fetch(`http://localhost:3001/users/${userID}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${userID}`)
             const data = await response.json();
             setUserData(data);
         }
@@ -59,7 +59,7 @@ export const ReviewPage = (props) =>  {
 
     async function handleDelete() {
         // Delete the review by passing reviewID
-        const response = await fetch(`http://localhost:3001/reviews/${reviewID}`, {
+        const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/reviews/${reviewID}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export const ReviewPage = (props) =>  {
             "reviews": updatedReviews,
         }
 
-        fetch(`http://localhost:3001/books/${bookData._id}`, {
+        fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/books/${bookData._id}`, {
             method: 'PATCH',
             // The headers is required for it to work
             headers: {
@@ -98,7 +98,7 @@ export const ReviewPage = (props) =>  {
             "reviews": userReviews,
         }
 
-        fetch(`http://localhost:3001/users/${userID}`, {
+        fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${userID}`, {
             method: 'PATCH',
             // The headers is required for it to work
             headers: {

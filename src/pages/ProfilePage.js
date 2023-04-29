@@ -14,7 +14,7 @@ export const ProfilePage = (props) => {
 
     useEffect(() => {
         async function getUserData(userID) {
-            const response = await fetch(`http://localhost:3001/users/${userID}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${userID}`)
             const data = await response.json();
             setUserData(data);
         }

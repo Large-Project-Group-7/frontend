@@ -19,7 +19,7 @@ export const SearchUser = (props) => {
     const { userID } = useParams();
 
     const handleChange = (event) => {
-        fetch(`http://localhost:3001/users/${event.target.value}`)
+        fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${event.target.value}`)
         .then(res => res.json()).then((result) => {
             setData(result);
             setLoadingData (false);

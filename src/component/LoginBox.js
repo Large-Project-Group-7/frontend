@@ -20,7 +20,7 @@ export const LoginBox = (props) => {
         });
         props.onFormSwitch('home');
     };
-  const id = "644b40fc1692279a51d1d49a"
+  const id = "644c6eae755ab73f487be729"
   return (
     <div className={style.background}>
       <div className={style.stuff}>
@@ -28,7 +28,7 @@ export const LoginBox = (props) => {
         <div>
           <form
             className={style.form}
-            //action="http://localhost:8000/test.php"
+            //action="http://ec2-3-83-118-168.compute-1.amazonaws.com:8000/test.php"
             method="post"
             onSubmit={(event) => handleSumbit(event)}
           > {/*port 3001*/}

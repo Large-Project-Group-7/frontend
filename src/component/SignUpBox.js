@@ -19,7 +19,7 @@ export const SignUpBox = (props) => {
     // data["reviewCount"] = 0;
     // data["admin"] = false;
 
-    // fetch('http://localhost:3001/auth/register', {
+    // fetch('http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/auth/register', {
     //   method: 'POST',
     //   // The headers is required for it to work
     //   headers: {

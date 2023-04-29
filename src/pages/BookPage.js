@@ -23,7 +23,7 @@ export const BookPage = (props) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        fetch(`http://localhost:3001/books/${bookID}`, {
+        fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/books/${bookID}`, {
             method: 'GET',
 
             headers: {
@@ -35,7 +35,7 @@ export const BookPage = (props) => {
         })
 
         async function getUserData(userID) {
-            const response = await fetch(`http://localhost:3001/users/${userID}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${userID}`)
             const data = await response.json();
             setUserData(data);
         }
@@ -47,7 +47,7 @@ export const BookPage = (props) => {
     useEffect(() => {
         async function getReviewsData() {
             const reviewPromises = userData.reviews.map((reviewID) => {
-                return fetch(`http://localhost:3001/reviews/${reviewID}`)
+                return fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/reviews/${reviewID}`)
                 .then(response => response.json())
             });
             const reviewsData = await Promise.all(reviewPromises);

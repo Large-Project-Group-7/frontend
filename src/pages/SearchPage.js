@@ -19,7 +19,7 @@ export const SearchBook = (props) => {
 
     useEffect(() => {
         async function getUsers() {
-            const response = await fetch(`http://localhost:3001/users`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users`)
             const data = await response.json();
             setUsers(data);
         }
@@ -30,7 +30,7 @@ export const SearchBook = (props) => {
     }, [])
 
     const handleChange = (event) => {
-        fetch(`http://localhost:3001/books/${event.target.value}`)
+        fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/books/${event.target.value}`)
         .then(res => res.json()).then((result) => {
             setData(result);
             setLoadingData (false);
@@ -43,7 +43,7 @@ export const SearchBook = (props) => {
 
     async function handleEnterKey(event) {
         if (event.key === 'Enter') {
-            const response = await fetch(`http://localhost:3001/users/${searchTerm}`)
+            const response = await fetch(`http://ec2-3-83-118-168.compute-1.amazonaws.com:3001/users/${searchTerm}`)
             const data = await response.json();
 
             setUsers(data);
