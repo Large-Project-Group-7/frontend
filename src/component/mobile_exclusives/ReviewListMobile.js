@@ -109,7 +109,7 @@ export default function BooksList(props) {
         {
             console.log(error);
         }
-    }, [error,loadingData1, loadingData2, loadingData3, loadingData4, loadingData5, props.user.recentBooks])
+    }, [error, loadingData1, loadingData2, loadingData3, loadingData4, loadingData5, props.user.recentBooks, props.user.reviews])
 
     
     let containers = []
