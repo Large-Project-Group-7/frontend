@@ -10,28 +10,30 @@ export const SignUpBox = (props) => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    //Get the data from form and add some data too
-    const form = event.target;
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    data["reviewCount"] = 0;
-    data["admin"] = false;
+    setSuccess(true)
 
-    fetch('http://localhost:3001/auth/register', {
-      method: 'POST',
-      // The headers is required for it to work
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data),
-    })
-    .then(response => {
-      if(response.status === 201) {
-        form.reset(); //Basically clear the content of the input if register correctly
-        setSuccess(true);
-        return response.json();
-      }
-    })
+    // //Get the data from form and add some data too
+    // const form = event.target;
+    // const formData = new FormData(form);
+    // const data = Object.fromEntries(formData.entries());
+    // data["reviewCount"] = 0;
+    // data["admin"] = false;
+
+    // fetch('http://localhost:3001/auth/register', {
+    //   method: 'POST',
+    //   // The headers is required for it to work
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    // .then(response => {
+    //   if(response.status === 201) {
+    //     form.reset(); //Basically clear the content of the input if register correctly
+    //     setSuccess(true);
+    //     return response.json();
+    //   }
+    // })
   }
 
   return (

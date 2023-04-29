@@ -36,10 +36,6 @@ export const ProfilePage = (props) => {
                                 <p className={style.userText}>Written {userData.reviewCount} reviews</p>
                             </div>
                         </div>
-                        <div className={style.add}>
-                            <input type='search'
-                            placeholder='Search Reviews' className={style.search}/>
-                        </div>
                     </div>
                     <div className={style.bottomContainer}>
                         <div className={style.reviewText}>

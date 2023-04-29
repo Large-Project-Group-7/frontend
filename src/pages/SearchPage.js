@@ -15,6 +15,8 @@ export const SearchBook = (props) => {
     const { userID } = useParams();
     const [users, setUsers] = useState([])
 
+    const [searchTerm, setSearchTerm] = useState('');
+
     useEffect(() => {
         async function getUsers() {
             const response = await fetch(`http://localhost:3001/users`)
@@ -25,7 +27,7 @@ export const SearchBook = (props) => {
         getUsers();
 
         
-    })
+    }, [])
 
     const handleChange = (event) => {
         fetch(`http://localhost:3001/books/${event.target.value}`)
@@ -35,6 +37,19 @@ export const SearchBook = (props) => {
          })
     };
 
+    function handleSearchInput(event) {
+        setSearchTerm(event.target.value);
+    }
+
+    async function handleEnterKey(event) {
+        if (event.key === 'Enter') {
+            const response = await fetch(`http://localhost:3001/users/${searchTerm}`)
+            const data = await response.json();
+
+            setUsers(data);
+        }
+    }
+
     if(!isMobile)
     {
         if(!isMobile)
@@ -42,6 +57,13 @@ export const SearchBook = (props) => {
             return (
             <div className={style.test}>
                 <Banner userID={userID}/>
+                <div className={style.users}>
+                        <input type='search'
+                        placeholder='Search Reviews' className={style.search}
+                        onChange={handleSearchInput}
+                        onKeyDown={handleEnterKey}
+                        />
+                </div>
                 <UserList count={users.length} users={users}/>
             </div>
         )}
