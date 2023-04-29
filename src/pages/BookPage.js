@@ -153,7 +153,7 @@ export const BookPage = (props) => {
                     <div id={style.startmobile}></div>
                     <div className={style['titlemobile']}>Harry Potter and the Sorceror's Stone</div>
                     <div className={style.covermobile}>
-                    <Cover count={1} src='https://m.media-amazon.com/images/I/51HSkTKlauL._SY291_BO1,204,203,200_QL40_ML2_.jpg'/>
+                    <Cover count={1} src={book.bookCover} _id={bookID}/>
                     <button className={style.infoButtonMobile} onClick={popUp}>Book Information</button>
                     {pop && <InfoPopup handleClick={popUp}/>}
                     </div>
@@ -162,7 +162,7 @@ export const BookPage = (props) => {
                     <div id={style.pagebreakbookpagemobile}></div>
                     <p className={style.seeall}>See All</p>
                     <div className={style['break']} onClick={popUp} ></div>
-                    <PerBookBox />
+                    <PerBookBox book={book}/>
             </ForegroundBox>
         </div>
     )
